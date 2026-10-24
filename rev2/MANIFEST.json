@@ -377,7 +377,7 @@
   {
    "path": "templates/ssp/controls/3.14.2.md",
    "placeholders": [],
-   "sha256": "1bf57fbef661db2aa7c1199d802d78c382560f38a769387efd9eae48c31ee449",
+   "sha256": "d20a20afeb006bfe3de01b060e8b923c495c47a7736cdb595ad4fe7af03a2799",
    "status": "partial"
   },
   {
@@ -395,13 +395,13 @@
   {
    "path": "templates/ssp/controls/3.14.5.md",
    "placeholders": [],
-   "sha256": "3e8f4d7c74faadfa29a8b8fcfc85ba0b461328b9710f03dc4080b19906990f44",
+   "sha256": "a4cdd6bd053716c9fff88897ba34e8e389b01c5df2cba9f9246251dd508d92a1",
    "status": "site"
   },
   {
    "path": "templates/ssp/controls/3.14.6.md",
    "placeholders": [],
-   "sha256": "7146e936a1c7537837dad4a2b969e45cf28ead81b929f9d067a7570b5c340db9",
+   "sha256": "a8f76cdfc5b725e7b2b55af33eeb6446227a0a4bd90766ac2e97605afef9fbec",
    "status": "partial"
   },
   {

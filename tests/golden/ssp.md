@@ -1078,7 +1078,7 @@ Each requirement below carries its status:
 
 **Status:** partial. **Evidence:** idm-assistant `lab/iso-requirements.md#1`; idm-assistant `lab/iso-requirements.md#38`; scan rule `service_fapolicyd_enabled`; scan rule `selinux_state`.
 
-**Implementation:** fapolicyd lets only trusted, signed programs run, USBGuard blocks USB storage, and SELinux confines services. The appliance has no antivirus scanner.
+**Implementation:** fapolicyd lets only trusted, signed programs run, USBGuard blocks USB storage, and SELinux confines services. This version of the appliance has no antivirus scanner; one is planned for a later release.
 
 **Site responsibility:** Decide whether a malware scanner is also needed on workstations, and protect email and web access.
 
@@ -1102,7 +1102,7 @@ Each requirement below carries its status:
 
 **Status:** site. **Evidence:** none (the site's responsibility).
 
-**Implementation:** AIDE checks every host's files daily for unexpected changes, but it is not a malware scanner.
+**Implementation:** AIDE checks every host's files daily for unexpected changes, but it is not a malware scanner; this version of the appliance has none.
 
 **Site responsibility:** Perform periodic scans of the system, and real-time scans of files from external sources, with a malware scanner where one is used.
 
@@ -1110,7 +1110,7 @@ Each requirement below carries its status:
 
 **Status:** partial. **Evidence:** idm-assistant `lab/aide/PROOF-RECORD.md`; idm-assistant `lab/iso-requirements.md#24`.
 
-**Implementation:** The CHP monitor and AIDE watch every host, and auditd records security events. The appliance has no network intrusion detection.
+**Implementation:** The CHP monitor and AIDE watch every host, and auditd records security events. This version of the appliance has no network intrusion detection.
 
 **Site responsibility:** Monitor network traffic, inbound and outbound, to detect attacks and indicators of potential attacks.
 
