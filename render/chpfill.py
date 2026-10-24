@@ -4,9 +4,14 @@
 
 Syntax: {{section.key}}, {{section.key | list}}, and line-level blocks {{#if facts.name}} ... {{/if}}.
 Fill is single pass: an inserted value is never scanned again. Unfilled placeholders stay as written and are reported."""
+import argparse
 import configparser
 import csv
+import os
 import re
+import shutil
+import sys
+from pathlib import Path
 
 TOKEN = re.compile(r"\{\{([a-z][a-z0-9_]*(?:\.[a-z0-9_]+)+)(?:\s*\|\s*([A-Za-z_]+))?\}\}")
 IF_OPEN = re.compile(r"^\{\{#if (facts\.[a-z0-9_]+)\}\}$")
@@ -184,3 +189,111 @@ def check_values(values, facts, vocab, public):
             raise FillError(f"{key} is not in vocabulary.md (add it there first)")
         if public and key in values and row["visibility"] != "public":
             raise FillError(f"{key} is {row['visibility']}: not placed in a public copy")
+
+
+# ---- assemble (catalog-driven) and the command line (spec §3.3, §4) ----
+META = re.compile(r"^<!-- chp:control .*-->\n?", re.M)
+
+
+def load_catalog(lib):
+    with open(Path(lib) / "catalog.csv", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def family_table(catalog):
+    """The Control Family Status table: generic column layout kept fixed for the tools that read it."""
+    fams, order = {}, []
+    for r in catalog:
+        if r["family_code"] not in fams:
+            fams[r["family_code"]] = [r["family"], 0]
+            order.append(r["family_code"])
+        fams[r["family_code"]][1] += 1
+    lines = ["| Family | Total | Met | Not Met | Unverified |", "|:---|---:|---:|---:|---:|"]
+    for code in order:
+        name, total = fams[code]
+        c = code.lower()
+        lines.append(f"| {code} — {name} | {total} | {{{{status.{c}.met}}}} | {{{{status.{c}.not_met}}}} | "
+                     f"{{{{status.{c}.unverified}}}} |")
+    lines.append(f"| **TOTAL** | **{len(catalog)}** | **{{{{status.total.met}}}}** | **{{{{status.total.not_met}}}}** | "
+                 "**{{status.total.unverified}}** |")
+    return "\n".join(lines) + "\n"
+
+
+def assemble(lib, arch="chp-appliance"):
+    """Resolve the include directives: {{> family_status}}, {{> arch}}, {{> controls}} (catalog order)."""
+    lib = Path(lib)
+    t = lib / "templates"
+    catalog = load_catalog(lib)
+    blocks = []
+    for r in catalog:
+        p = t / "ssp" / "controls" / f"{r['id']}.md"
+        if not p.exists():
+            raise FillError(f"{p}:0: missing control block for {r['id']}")
+        blocks.append(f"### {r['id']} {r['requirement']}\n\n{META.sub('', _read(p)).strip()}\n")
+    inserts = {"{{> family_status}}": family_table(catalog), "{{> arch}}": _read(t / "ssp" / "arch" / f"{arch}.md"),
+               "{{> controls}}": "\n".join(blocks)}
+    out = [inserts[line.strip()].rstrip("\n") if line.strip() in inserts else line
+           for line in _read(t / "ssp" / "frame.md").split("\n")]
+    return {"ssp.md": "\n".join(out), "poam.md": _read(t / "poam" / "frame.md")}
+
+
+def _report(unfilled, prov):
+    lines = ["# Fill-in report", "", "## Unfilled placeholders (still visible as {{key}})", ""]
+    lines += [f"- `{k}`: {doc} line {n}" for doc, k, n in unfilled] or ["- none"]
+    lines += ["", "## Values filled from defaults (confirm them in profile.ini)", ""]
+    lines += [f"- `{k}`" for k, src in sorted(prov.items()) if src == DEFAULT] or ["- none"]
+    return "\n".join(lines) + "\n"
+
+
+def cmd_fill(a):
+    lib, out = Path(a.lib), Path(a.out)
+    if out.exists():
+        raise FillError(f"{out}:0: already exists; a render never overwrites an earlier one")
+    vocab = load_vocabulary(Path(a.vocabulary) if a.vocabulary else Path(__file__).resolve().parents[1] / "vocabulary.md")
+    defaults = Path(a.defaults) if a.defaults else (lib / "defaults.ini" if (lib / "defaults.ini").exists() else None)
+    mapping = Path(__file__).resolve().parents[1] / "site-conf-mapping.csv"
+    values, facts, prov = load_values(Path(a.profile) if a.profile else None,
+                                      Path(a.site_conf) if a.site_conf else None, defaults, mapping)
+    check_values(values, facts, vocab, a.public)
+    values.setdefault("templates.version", a.templates_version)
+    docs, unfilled = {}, []
+    for name, text in assemble(lib).items():
+        docs[name], miss = fill_text(text, values, facts, name)
+        unfilled += [(name, k, n) for k, n in miss]
+    part = out.with_name(out.name + ".partial")
+    shutil.rmtree(part, ignore_errors=True)
+    part.mkdir(parents=True)
+    for name, text in docs.items():
+        (part / name).write_text(text, encoding="utf-8")
+    (part / "fill-report.md").write_text(_report(unfilled, prov), encoding="utf-8")
+    os.replace(part, out)
+    print(f"wrote {out}: {len(docs)} documents, {len(unfilled)} unfilled placeholders (see fill-report.md)")
+
+
+def cmd_assemble(a):
+    out = Path(a.out)
+    out.mkdir(parents=True, exist_ok=True)
+    for name, text in assemble(Path(a.lib)).items():
+        (out / name).write_text(text, encoding="utf-8")
+    print(f"assembled {a.lib} -> {out}")
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="chpfill")
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    s = sub.add_parser("assemble"); s.add_argument("--lib", required=True); s.add_argument("--out", required=True)
+    f = sub.add_parser("fill")
+    f.add_argument("--lib", required=True); f.add_argument("--out", required=True); f.add_argument("--profile")
+    f.add_argument("--site-conf"); f.add_argument("--defaults"); f.add_argument("--vocabulary")
+    f.add_argument("--public", action="store_true"); f.add_argument("--templates-version", default="unreleased")
+    a = ap.parse_args(argv)
+    try:
+        {"assemble": cmd_assemble, "fill": cmd_fill}[a.cmd](a)
+    except FillError as e:
+        print(f"chpfill: {e}", file=sys.stderr)
+        return 2
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

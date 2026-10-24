@@ -32,4 +32,7 @@ This is the shared contract for both consumers.
 | `site.lan_gateway` | value | private | the site gateway (from `site.conf` GATEWAY) |
 | `site.timezone` | value | public | the site's time zone (from `site.conf` TIMEZONE) |
 | `contract.<n>.label` | value | private | a short label for contract n |
+| `status.<name>.met` | value | private | requirements met in a family (or `total`), from the site's assessment |
+| `status.<name>.not_met` | value | private | requirements not met in a family (or `total`) |
+| `status.<name>.unverified` | value | private | requirements not yet verified in a family (or `total`) |
 | `templates.version` | value | public | the chp-templates release the document was generated from |
