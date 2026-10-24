@@ -81,7 +81,10 @@ def fill_text(text, values, facts, src):
 
 
 # ---- value sources (spec §3.2): profile.ini, then mapped site.conf keys, then defaults.ini (decision.* only) ----
-SECRET = re.compile(r"(?i)(password|passphrase|secret|token|BEGIN .*PRIVATE)|^[A-Za-z0-9+/=]{32,}$")
+# A secret-SHAPED value (a labelled credential, key material, a long base64 run); ordinary text that merely mentions
+# the word "password" is allowed (e.g. a policy title). A key NAMED like a secret is refused outright.
+SECRET = re.compile(r"(?i)\b(password|passphrase|secret|token|api[_-]?key)\s*[:=]\s*\S|BEGIN .*PRIVATE|^[A-Za-z0-9+/=]{32,}$")
+SECRET_KEY = re.compile(r"(?i)(password|passphrase|secret|token|api_?key|private_?key)")
 TRUE, FALSE = {"yes", "true", "1"}, {"no", "false", "0"}
 DEFAULT = "default (not yet confirmed)"
 
@@ -106,6 +109,8 @@ def _ini(path):
 
 
 def _check_secret(path, key, value):
+    if SECRET_KEY.search(key):
+        raise FillError(f"{path}: {key}: a key named like a secret; secrets never go in a profile")
     for item in (value if isinstance(value, list) else [value]):
         if SECRET.search(item):
             raise FillError(f"{path}: {key}: looks like a secret; secrets never go in a profile")

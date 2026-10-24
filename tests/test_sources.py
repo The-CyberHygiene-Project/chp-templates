@@ -63,8 +63,18 @@ def test_profile_with_bom_crlf_and_trailing_space(tmp_path):
     assert clean == other
 
 
-@pytest.mark.parametrize("val", ["password123", "my secret", "BEGIN OPENSSH PRIVATE KEY", "A" * 40])
+@pytest.mark.parametrize("val", ["password: hunter2", "token=abc123def", "Secret = s3cr3t", "BEGIN OPENSSH PRIVATE KEY", "A" * 40])
 def test_secrets_refused(tmp_path, val):
     with pytest.raises(FillError) as e:
         load_values(write(tmp_path, "p.ini", f"[organization]\nnote = {val}\n"), None, None, MAP)
     assert "organization.note" in str(e.value) and val not in str(e.value)
+
+
+def test_ordinary_text_mentioning_password_is_accepted(tmp_path):
+    v, _, _ = load_values(write(tmp_path, "p.ini", "[policies]\nlist =\n    Identification and Authentication (Password) Policy v1.0\n    Access Token Handling Procedure\n"), None, None, MAP)
+    assert v["policies.list"][0].startswith("Identification")
+
+
+def test_a_key_named_like_a_secret_is_refused(tmp_path):
+    with pytest.raises(FillError, match="organization.admin_password"):
+        load_values(write(tmp_path, "p.ini", "[organization]\nadmin_password = x\n"), None, None, MAP)
