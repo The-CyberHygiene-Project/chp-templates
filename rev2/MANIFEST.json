@@ -1,0 +1,802 @@
+{
+ "catalog_sha256": "27f68148b40362fc13b87abfa193f9cf1f9518c9e850690ae7d5485a9c4fa60e",
+ "content_version": "1.0.0",
+ "files": [
+  {
+   "path": "catalog.csv",
+   "placeholders": [],
+   "sha256": "27f68148b40362fc13b87abfa193f9cf1f9518c9e850690ae7d5485a9c4fa60e"
+  },
+  {
+   "path": "defaults.ini",
+   "placeholders": [],
+   "sha256": "81929116cf9c77eb3e6f3dca0dc7e163c89924ad3adabcb98a2bb2a0d9828245"
+  },
+  {
+   "path": "templates/poam/frame.md",
+   "placeholders": [
+    "decision.inactivity_disable_days",
+    "decision.review_cycle_months",
+    "decision.screen_lock_minutes",
+    "document.author",
+    "document.classification",
+    "document.date",
+    "document.version",
+    "organization.legal_name",
+    "poam.due_t01",
+    "poam.due_t02",
+    "poam.due_t03",
+    "poam.due_t04",
+    "poam.due_t05",
+    "poam.due_t06",
+    "poam.due_t07",
+    "roles.administrator",
+    "roles.security_officer",
+    "system.name",
+    "templates.version"
+   ],
+   "sha256": "935c49ec340b372f3ea02e35cd51ec8f32737f967001bf743872db59b76a5db3"
+  },
+  {
+   "path": "templates/ssp/arch/chp-appliance.md",
+   "placeholders": [
+    "site.domain",
+    "system.appliance_version",
+    "system.name"
+   ],
+   "sha256": "003a0a414cef069bd6cc76c3f9595ba284e79698922b6ae6173abbd6f4ef4fd8"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.1.md",
+   "placeholders": [],
+   "sha256": "6943544ef7e8cb215ab45bb69826fba4596da7a20f7bed5fcbb565ab65bb8b14",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.10.md",
+   "placeholders": [
+    "decision.screen_lock_minutes"
+   ],
+   "sha256": "396cffa6ad8e316a4185b3f0ba01da37eb03f379c94c4209c39fc37f31e2b3eb",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.11.md",
+   "placeholders": [],
+   "sha256": "4b36f9807d85361b108b466713feeacd85def6e19f2c667aef9527c3884ee881",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.12.md",
+   "placeholders": [],
+   "sha256": "9b3c69afcba0c457c1cc439aee2be03d369e76e0086215a6b2cea0da3d81eef0",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.13.md",
+   "placeholders": [],
+   "sha256": "bcd927cb3394888cee2c3e61c812dd809858f2dc33e9e89450c72c9f4d9cfc00",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.14.md",
+   "placeholders": [],
+   "sha256": "b0ad9d0771c8b14f066046239d1e64f77f655a075fdecc50b9ab121e1c64ef4a",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.15.md",
+   "placeholders": [],
+   "sha256": "afa627a20011f9bd271f356848d0f3b9c8b1f89ba57fbfff90d3c12f9d97ffc3",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.16.md",
+   "placeholders": [],
+   "sha256": "5afd9cb6c666755df48578cbd9ac5fec640400126ac95d553a91ca10f3266512",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.17.md",
+   "placeholders": [],
+   "sha256": "c10347d93090396129f312cef88b3f44c99caa15525a521cb7962a783be3a61a",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.18.md",
+   "placeholders": [],
+   "sha256": "2946ac16fbb0647d34804c9b8dd0dbfc02ce5c3fa9b5c56a52d156dca2021399",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.19.md",
+   "placeholders": [],
+   "sha256": "842517c6cd2262404f0c2c6fb80cb90e8aff8b40c67c3c98b7f5cf1bfa218492",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.2.md",
+   "placeholders": [],
+   "sha256": "2e0bb05c36d70ea18d856d732bab90afc345871585528102e316605fdb45d0fc",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.20.md",
+   "placeholders": [],
+   "sha256": "d6ccabaa3366d8e401381a8325dbb3b0367ace24ea397b6f52c1cd07b112bf8a",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.21.md",
+   "placeholders": [],
+   "sha256": "a6a3ae3ce6fe7c962e470f4117305a7b1dfb9e0c9c712779b108c2867cb5acf3",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.22.md",
+   "placeholders": [],
+   "sha256": "b764d19d4973bf34f364a4ef6710250b70f98d0cd2bfd2619ad9df57ef3e08ec",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.3.md",
+   "placeholders": [],
+   "sha256": "9ee2edc2558be825a7cc07b4fb1a3fc472dba6db0f6209a117d8cf63c9d17809",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.4.md",
+   "placeholders": [],
+   "sha256": "e473d0e3de604c9751508da57c20ead59c09065486c929fa8ef7efebefb10e4d",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.5.md",
+   "placeholders": [
+    "decision.review_cycle_months"
+   ],
+   "sha256": "bf80b7bf708368637a1a8b3785ac1cc3c12b6d8ac99525cbbfebf337c6346a73",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.6.md",
+   "placeholders": [],
+   "sha256": "ed7e734f6197fec40804a32aaada547035bced4f2bbcfa46d5595c37de84e2a1",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.7.md",
+   "placeholders": [],
+   "sha256": "bd968f08c6c0ff72aba19516e9b3dd373345a4e7e71f911d6b264b8d1b99ad34",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.8.md",
+   "placeholders": [
+    "decision.lockout_minutes",
+    "decision.lockout_threshold"
+   ],
+   "sha256": "e72c0d7f604660ac9c200307815f4baa3fa039efe106defa84db4093bf8db0ee",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.1.9.md",
+   "placeholders": [],
+   "sha256": "aa190a60d29226a8779026cf816aaa38a8f521fb9c5d94d795ff9384da773cf3",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.10.1.md",
+   "placeholders": [],
+   "sha256": "d7f43011d23a4dd3540b5604eb6827c57724d04797dc1c6b1da2ff204b0a3c5a",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.10.2.md",
+   "placeholders": [],
+   "sha256": "17ebea55917d703f041ceb9e0b386d3c34c0880106b386b63d849097e8c1fad9",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.10.3.md",
+   "placeholders": [],
+   "sha256": "b5190a331772d2a345adff80043b0d658bfd3a9f3b81a0e81f47f7192750825b",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.10.4.md",
+   "placeholders": [],
+   "sha256": "020f61db0ed14aa4477755a1e99aba7de9506896e83439c7edfa49caf8ee463a",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.10.5.md",
+   "placeholders": [],
+   "sha256": "2fcc4eb6af4c81973aa5704d6b393568a1c88731686a44757b9c28c9f6784510",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.10.6.md",
+   "placeholders": [],
+   "sha256": "9234f18c2a1b035463735813c9bf0c51db7f0d69a1948dda3b51caaae03849fe",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.11.1.md",
+   "placeholders": [
+    "decision.review_cycle_months"
+   ],
+   "sha256": "8b6763839c0af2263eb7398be33f9c837bacba36333fa10e3b7685f7ac0deae4",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.11.2.md",
+   "placeholders": [],
+   "sha256": "053dd4aaf695d31e784696c47c3c7a4460ce06b19b86a9dce12f7367ee0be01a",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.11.3.md",
+   "placeholders": [
+    "decision.critical_patch_hours",
+    "decision.patch_cadence"
+   ],
+   "sha256": "e82ce35f76b5235e59196e6bf8966aeca82ceeb2ee69f2e89093449ab2575efa",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.12.1.md",
+   "placeholders": [],
+   "sha256": "1bd598fac2a11809da9e794aeefe6322ba46fe716c122dd9aa6db73be00f1ac9",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.12.2.md",
+   "placeholders": [],
+   "sha256": "b83a57cabe7f5a74927b8b064a2a58663ad03bcb6f08105745b812bac59b9cfc",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.12.3.md",
+   "placeholders": [],
+   "sha256": "701395e858337c2d2856e1a843db00aae7a71570245b6baed71623331626d11c",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.12.4.md",
+   "placeholders": [
+    "decision.review_cycle_months"
+   ],
+   "sha256": "a62a2be93f9a7e1d2157b71842e1364facd6572e32b044c6f21cd7f39b39414d",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.1.md",
+   "placeholders": [],
+   "sha256": "28118029b6b8d5f8f6f13d487ba6653207a5b997f5e9ad5aca36167e1d28e359",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.10.md",
+   "placeholders": [],
+   "sha256": "89644c1ab5ab2974b85fb08a96e94732a172f762632afa221415dc4ef87d6258",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.11.md",
+   "placeholders": [],
+   "sha256": "5e0743f9037f6cbddf5e69f793887d974e5b318b25f7693e0aab6ec1aa310ddc",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.12.md",
+   "placeholders": [],
+   "sha256": "8e18bea351b3c52107a28759202cd03ac5aed501b60797eb2e8327f2f181d3e2",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.13.md",
+   "placeholders": [],
+   "sha256": "311411642f8ee6bca0c4c303198309667cae9f4f00e2a99626b23a91ae6c50d7",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.14.md",
+   "placeholders": [],
+   "sha256": "f60597c3390f6662429bc4c7436de70f8f0ad3bd75cf9c065501f3dfe6caacc5",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.15.md",
+   "placeholders": [],
+   "sha256": "a49503dbd04e6fc9b5bfc9d58ed161a744c5a22a4075c7281aac958aa029e1b3",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.16.md",
+   "placeholders": [],
+   "sha256": "49589acd1542970c2b9e5f6a1690fad944267ee01721377909364f4a9d600598",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.2.md",
+   "placeholders": [],
+   "sha256": "d586a32569ebe7e062f500b39d9305cc49c2014e0c1b4317577e5263a3af9241",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.3.md",
+   "placeholders": [],
+   "sha256": "e2dbbbaf7a817c344078e4a3e646473a2eabc5d848d3eadcf8578da878592474",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.4.md",
+   "placeholders": [],
+   "sha256": "d83f5f14e9bd1319b6220dd84a4b05c76ec58d8bde8d8bfcf0c030f592665ab4",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.5.md",
+   "placeholders": [],
+   "sha256": "cb6fcd8b96dc422fab9ddb1e9d954f3606558cb468a831dac6ae5e013d22b59c",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.6.md",
+   "placeholders": [],
+   "sha256": "65c510bf43bdfba63b3008a9a67123b65b66ac91e3cb75cb84823cccd85eca80",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.7.md",
+   "placeholders": [],
+   "sha256": "aa8aee829839575eb8fe2ff617f38e61d4487a9279c959efbd161874fd419310",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.8.md",
+   "placeholders": [],
+   "sha256": "91e7f09d2a77b578868fd077ffc5a2c38ca7c18b7771f2a4818547893c22505a",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.13.9.md",
+   "placeholders": [],
+   "sha256": "84f36265dfc097858b5af0bad2d8d554e4e9d36096ea871f71f0ba2e793e7785",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.14.1.md",
+   "placeholders": [
+    "decision.critical_patch_hours"
+   ],
+   "sha256": "bd6b4c248d7ccf3148ca850b9b11740954d6c160bec0e3237a34564f5b06840f",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.14.2.md",
+   "placeholders": [],
+   "sha256": "1bf57fbef661db2aa7c1199d802d78c382560f38a769387efd9eae48c31ee449",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.14.3.md",
+   "placeholders": [],
+   "sha256": "d0dfcb57a9d47f9fc2744f64eab70f0aabc0f64ae9160f95f2975f90ab512685",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.14.4.md",
+   "placeholders": [],
+   "sha256": "8eb3bee72409396e619e8a74a2d5c078dcdb3a6e824b49fddedefc2af6d25ffb",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.14.5.md",
+   "placeholders": [],
+   "sha256": "3e8f4d7c74faadfa29a8b8fcfc85ba0b461328b9710f03dc4080b19906990f44",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.14.6.md",
+   "placeholders": [],
+   "sha256": "7146e936a1c7537837dad4a2b969e45cf28ead81b929f9d067a7570b5c340db9",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.14.7.md",
+   "placeholders": [],
+   "sha256": "018bcb1e0092042ee23c8e4add6b517348f70eb55baf78da9037ed312a690e0b",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.2.1.md",
+   "placeholders": [],
+   "sha256": "57fce41db13b59e8c3ffb8aaec4fc4a476c2c2543beacf90fee5e09a4c31c792",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.2.2.md",
+   "placeholders": [],
+   "sha256": "bb0566fc44c06f7fcac719e2675bf18a36a07d3544b40bf53917b9ed4f9c8d3d",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.2.3.md",
+   "placeholders": [],
+   "sha256": "e16d2014f909b787775a40219e4efce97435c384a2be34baf9a4a9f8f634493c",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.3.1.md",
+   "placeholders": [
+    "decision.audit_retention_days"
+   ],
+   "sha256": "4bf5c3690791efc973be331df08ea94e0a0d882071099f2c3160a364b38a625a",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.3.2.md",
+   "placeholders": [],
+   "sha256": "ef84bb77ec2f3fc26a7bb127b448c974d52b8867473240baeabb40426142a419",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.3.3.md",
+   "placeholders": [
+    "decision.review_cycle_months"
+   ],
+   "sha256": "61fa649c5f5f831a718db5dfc0c39aefb7c89f43694056da5f3fab370fe91a03",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.3.4.md",
+   "placeholders": [],
+   "sha256": "dad41a325ff484411dddf0937a79d6fe543d714d110a21a3c785614fe5ce43c1",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.3.5.md",
+   "placeholders": [],
+   "sha256": "1b9e70d9479bb2372b79d6a8fc9a9d75bfbe05c147a91919c7cf5198f0308bda",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.3.6.md",
+   "placeholders": [],
+   "sha256": "aaebe0ae8f79048f7bc911ffffc9e84e525fd673010b4f0a4a73ee07dde82ca2",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.3.7.md",
+   "placeholders": [],
+   "sha256": "2c0cffa9c67c6aa06c01d0c8393c2d3cf6c805848435c3c4b41bf963d9b3e145",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.3.8.md",
+   "placeholders": [],
+   "sha256": "cf2064d41353ac51d05693966edfbccfe3ef5f425b07169082e4f9cec47273d2",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.3.9.md",
+   "placeholders": [],
+   "sha256": "5874c6b1187e6696ee2705735ba7d42ead4efbbe6c8200da01a60aa4d7fea561",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.4.1.md",
+   "placeholders": [
+    "decision.review_cycle_months"
+   ],
+   "sha256": "3e3b5ce6bcf53723caef422d1fb05c89174556ca02791c66686508fcdaf281a2",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.4.2.md",
+   "placeholders": [],
+   "sha256": "0a3697a4933f2c00c588236b904ac2ab1c534cd7f6dc2d3046c2c5969c1fe92f",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.4.3.md",
+   "placeholders": [],
+   "sha256": "7c88e8a4c09377d8afb21465440e5a64a8cf8bb08b9c207ff2537fc02efb61f0",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.4.4.md",
+   "placeholders": [],
+   "sha256": "b07c47f9a5f0730b0c244959103f491b37cf20450ccc60145d258bd29954f513",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.4.5.md",
+   "placeholders": [],
+   "sha256": "19def301acf7f820adb5a8e8c1424bfe2b021861ac89f342e23afaa8835d0108",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.4.6.md",
+   "placeholders": [
+    "decision.review_cycle_months"
+   ],
+   "sha256": "356feb0bfd7f3562e03c0b461c21eb76ec3dbdf9a55ac21583c7f2c731480fb9",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.4.7.md",
+   "placeholders": [],
+   "sha256": "e3910b7dac4642f9a40983815060098d309bf6b8c0fb70c7900f668c3c2c71c3",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.4.8.md",
+   "placeholders": [],
+   "sha256": "121448ba4661b5ec627ca5d47e080bf11ee915c6329794d128977a03ad49e437",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.4.9.md",
+   "placeholders": [],
+   "sha256": "d3467a2d931e54b78c69f087486ac2f47188a292c0412f0412bee8fb886e6e15",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.5.1.md",
+   "placeholders": [],
+   "sha256": "e1b6b358096074d160ee32275e296e1a4986fed33490cf963aac660d9401b316",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.5.10.md",
+   "placeholders": [],
+   "sha256": "a6742e127a56b7a30e66049929e7fec4189415190d276dbbe2a4d3abc1eb37a5",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.5.11.md",
+   "placeholders": [],
+   "sha256": "d7a511f0d94de0576e0bfbece47d55580405ce68cb18857df94d4ea105b34826",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.5.2.md",
+   "placeholders": [],
+   "sha256": "1d87f8040194a050e2c0cd2c4baf6d086340b853c428bf79eb0d9c0d21b858ad",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.5.3.md",
+   "placeholders": [],
+   "sha256": "c5ca59cf50a8c0bd7de020524877aae4c06937055c86fc69cd6f00aecd55aeaf",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.5.4.md",
+   "placeholders": [],
+   "sha256": "25ed4426ef005785aedb7bfc5c8dd1fabdc8f8fd516c4b39f2509fc6694635cc",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.5.5.md",
+   "placeholders": [],
+   "sha256": "d80af0957d4c9ea9493854bf54ae8f12d74eb125b0ac138531a8a9de4a6d33af",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.5.6.md",
+   "placeholders": [
+    "decision.inactivity_disable_days"
+   ],
+   "sha256": "d93d00bf471635560cb3317633e289fd3acb9e2f6278ba7daa1bd8930b68a83f",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.5.7.md",
+   "placeholders": [
+    "decision.password_min_length"
+   ],
+   "sha256": "90ad3ad3f1cfe069f12fbd68e557a8cf071c5d2ae84e4412ea3aaa66ef01abec",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.5.8.md",
+   "placeholders": [
+    "decision.password_history"
+   ],
+   "sha256": "c8fd0adff2c2bfaea70d5c9751e0699a0872766b5bdba50d7305e417ca8e43c6",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.5.9.md",
+   "placeholders": [],
+   "sha256": "1c33ce3f2ac096084b1ea5b8afb6879d6b490a80a71276e93f4ce970af5e2fe8",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.6.1.md",
+   "placeholders": [],
+   "sha256": "bb6040cbc3267d1121bb0776a300a4bad05b9a0d91c6b8cbfdee6b4821857958",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.6.2.md",
+   "placeholders": [
+    "decision.incident_report_hours"
+   ],
+   "sha256": "c2a935d2ad401d0589f458e0694fb25cac19c97497a437059b8b038b215fa376",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.6.3.md",
+   "placeholders": [],
+   "sha256": "5097ef019fb95e17276c59d48f0a46dd77cba7c12d12aafc7794da94baaba780",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.7.1.md",
+   "placeholders": [
+    "decision.patch_cadence"
+   ],
+   "sha256": "27419f628fad0f7d8a8253c64ec19c0c2cb948b3f3dfaf591e0edd57ebd36908",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.7.2.md",
+   "placeholders": [],
+   "sha256": "d30729f8ab9226dbbaa2635f827e2f7c68c82a10fd0e34a5a49bdfd2718362a0",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.7.3.md",
+   "placeholders": [],
+   "sha256": "67fec54408beded777fa24845ef6cea9309f7795b04a7a13d5cf7f33c7d91021",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.7.4.md",
+   "placeholders": [],
+   "sha256": "93ce2fcfb713bfdfc17d81e5df78854655eb4839eac4f56da2daba164f4718fc",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.7.5.md",
+   "placeholders": [],
+   "sha256": "99a6a2a54ddb4812f03d7d6531583bfd3aeef92e86cd4343178187b53a5adec2",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.7.6.md",
+   "placeholders": [],
+   "sha256": "40e3a1f8e20d31b3075c5882c7c6ff287e6c85c999d3ae28b29dc0bf15e01388",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.8.1.md",
+   "placeholders": [],
+   "sha256": "5ab22360d5d7fdcf77fa54799fa38bfa7c4650bc92b964d25d225e70fc61512b",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.8.2.md",
+   "placeholders": [],
+   "sha256": "76c74e65a9f24c31b496a4c8980fbb2d2e99b15cc64389cd1fe8e3e7d0ab8794",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.8.3.md",
+   "placeholders": [],
+   "sha256": "ba0c783a4b0db34bb8f0a43e24b94673ddf9ca970dfb287704c2bb90a1af7fec",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.8.4.md",
+   "placeholders": [],
+   "sha256": "8f5bba0d8a56462bc89661161632f31668576fe7397b01433189972a23b617a1",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.8.5.md",
+   "placeholders": [],
+   "sha256": "609c4c0bc92670b4d4fe0491b37318b4f6b9944af9de14c8d7006f23651e46f5",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.8.6.md",
+   "placeholders": [],
+   "sha256": "4e0d4d60b88a849dbcb56a85313462821e22cb10781a1a074f89a2facd42c1c5",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/controls/3.8.7.md",
+   "placeholders": [],
+   "sha256": "8862a05763104f98cf6f3884758d7c81e853dd712aa4607161381f45bc25a09e",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.8.8.md",
+   "placeholders": [],
+   "sha256": "da3fcba81cc3c6bdc26ea4129a4383cae74f26e4c2ce4b2c12665522c1b7c53c",
+   "status": "appliance"
+  },
+  {
+   "path": "templates/ssp/controls/3.8.9.md",
+   "placeholders": [],
+   "sha256": "9c0c492114214c1e65c297a5d343a82a93a4db8f6470144aa268cbdd1a3e6998",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.9.1.md",
+   "placeholders": [],
+   "sha256": "2202999d1e0477279934be7670028bfcc751a03846d192a9296d3baaf72eb66b",
+   "status": "site"
+  },
+  {
+   "path": "templates/ssp/controls/3.9.2.md",
+   "placeholders": [],
+   "sha256": "7e055658711685cafdb8aeb48d2da69460990731941707eedd869a5c7cd60f7a",
+   "status": "partial"
+  },
+  {
+   "path": "templates/ssp/frame.md",
+   "placeholders": [
+    "assessment.conclusion",
+    "assessment.deficits",
+    "assessment.objectives_date",
+    "assessment.objectives_met",
+    "assessment.sprs_basis",
+    "assessment.sprs_date",
+    "assessment.sprs_score",
+    "assessment.strengths",
+    "contract.list",
+    "decision.audit_retention_days",
+    "decision.backup_frequency",
+    "decision.critical_patch_hours",
+    "decision.inactivity_disable_days",
+    "decision.incident_report_hours",
+    "decision.lockout_minutes",
+    "decision.lockout_threshold",
+    "decision.password_history",
+    "decision.password_min_length",
+    "decision.patch_cadence",
+    "decision.restore_test_frequency",
+    "decision.review_cycle_months",
+    "decision.screen_lock_minutes",
+    "document.author",
+    "document.classification",
+    "document.date",
+    "document.next_review",
+    "document.status",
+    "document.version",
+    "facts.has_outside_it_provider",
+    "organization.cage",
+    "organization.dba",
+    "organization.legal_name",
+    "organization.location",
+    "organization.owner_email",
+    "organization.uei",
+    "poam.reference",
+    "policies.list",
+    "roles.administrator",
+    "roles.security_officer",
+    "roles.system_owner",
+    "scope.boundary_note",
+    "scope.cui_types",
+    "site.domain",
+    "site.timezone",
+    "supporting.documents",
+    "system.appliance_version",
+    "system.name",
+    "system.purpose",
+    "system.status",
+    "systems.in_boundary",
+    "templates.version"
+   ],
+   "sha256": "ce4791cf9cc5e005d71a52c55cce9f2f3495cb462afcce08ab9887f7b8b8031d"
+  }
+ ],
+ "library": "rev2"
+}

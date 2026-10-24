@@ -75,4 +75,11 @@ This is the shared contract for both consumers.
 | `decision.patch_cadence` | value | public | routine patch cadence |
 | `decision.critical_patch_hours` | value | public | hours to apply a critical patch from detection |
 | `decision.incident_report_hours` | value | public | hours to report an incident externally |
+| `poam.due_t01` | value | private | scheduled completion date for seeded POA&M item T-01 |
+| `poam.due_t02` | value | private | scheduled completion date for seeded POA&M item T-02 |
+| `poam.due_t03` | value | private | scheduled completion date for seeded POA&M item T-03 |
+| `poam.due_t04` | value | private | scheduled completion date for seeded POA&M item T-04 |
+| `poam.due_t05` | value | private | scheduled completion date for seeded POA&M item T-05 |
+| `poam.due_t06` | value | private | scheduled completion date for seeded POA&M item T-06 |
+| `poam.due_t07` | value | private | scheduled completion date for seeded POA&M item T-07 |
 | `templates.version` | value | public | the chp-templates release the document was generated from |

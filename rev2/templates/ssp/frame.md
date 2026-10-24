@@ -237,7 +237,7 @@ when the system changes; record each change in the Document Revision History; re
 | Parameter | Value |
 |:---|:---|
 | Failed logon attempts before lockout | {{decision.lockout_threshold}} |
-| Lockout duration (minutes) | {{decision.lockout_minutes}} |
+| Lockout duration (minutes; 0 = until an administrator unlocks) | {{decision.lockout_minutes}} |
 | Minimum password length | {{decision.password_min_length}} |
 | Password history | {{decision.password_history}} |
 | Disable inactive accounts after (days) | {{decision.inactivity_disable_days}} |
