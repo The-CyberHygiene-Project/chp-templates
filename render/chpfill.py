@@ -4,6 +4,8 @@
 
 Syntax: {{section.key}}, {{section.key | list}}, and line-level blocks {{#if facts.name}} ... {{/if}}.
 Fill is single pass: an inserted value is never scanned again. Unfilled placeholders stay as written and are reported."""
+import configparser
+import csv
 import re
 
 TOKEN = re.compile(r"\{\{([a-z][a-z0-9_]*(?:\.[a-z0-9_]+)+)(?:\s*\|\s*([A-Za-z_]+))?\}\}")
@@ -71,3 +73,77 @@ def fill_text(text, values, facts, src):
     if block is not None:
         raise FillError(f"{src}:{block[1]}: unclosed {{{{#if {block[0]}}}}}")
     return "".join(out), unfilled
+
+
+# ---- value sources (spec §3.2): profile.ini, then mapped site.conf keys, then defaults.ini (decision.* only) ----
+SECRET = re.compile(r"(?i)(password|passphrase|secret|token|BEGIN .*PRIVATE)|^[A-Za-z0-9+/=]{32,}$")
+TRUE, FALSE = {"yes", "true", "1"}, {"no", "false", "0"}
+DEFAULT = "default (not yet confirmed)"
+
+
+def _read(path):
+    return path.read_bytes().decode("utf-8-sig").replace("\r\n", "\n").replace("\r", "\n")
+
+
+def _ini(path):
+    cp = configparser.ConfigParser(interpolation=None, strict=True)
+    try:
+        cp.read_string(_read(path), source=str(path))
+    except configparser.Error as e:
+        raise FillError(f"{path}:{getattr(e, 'lineno', 0)}: {e.__class__.__name__}") from None
+    out = {}
+    for sec in cp.sections():
+        for opt, raw in cp.items(sec):
+            lines = [x.strip() for x in raw.split("\n") if x.strip()]
+            is_list = raw.startswith("\n") or "\n" in raw.strip()   # a value written on following lines is a list
+            out[f"{sec.lower()}.{opt}"] = lines if is_list else raw.strip()
+    return out
+
+
+def _check_secret(path, key, value):
+    for item in (value if isinstance(value, list) else [value]):
+        if SECRET.search(item):
+            raise FillError(f"{path}: {key}: looks like a secret; secrets never go in a profile")
+
+
+def _site_conf(path):
+    kv = {}
+    for n, line in enumerate(_read(path).split("\n"), 1):
+        s = line.strip()
+        if not s or s.startswith("#"):
+            continue
+        if "=" not in s:
+            raise FillError(f"{path}:{n}: expected KEY=VALUE")
+        k, v = s.split("=", 1)
+        kv[k.strip()] = v.strip()
+    return kv
+
+
+def load_mapping(path):
+    with open(path, encoding="utf-8") as f:
+        return {r["site_conf_key"]: (r["placeholder"], r["visibility"]) for r in csv.DictReader(f)}
+
+
+def load_values(profile, site_conf, defaults, mapping):
+    """Return (values, facts, provenance). Facts are the [facts] section as booleans."""
+    values, facts, prov = {}, {}, {}
+    if profile:
+        for key, val in _ini(profile).items():
+            _check_secret(profile, key, val)
+            if key.startswith("facts."):
+                v = (val if isinstance(val, str) else "").lower()
+                if v not in TRUE | FALSE:
+                    raise FillError(f"{profile}: {key}: must be yes or no")
+                facts[key] = v in TRUE
+            else:
+                values[key], prov[key] = val, "profile"
+    if site_conf:
+        kv = _site_conf(site_conf)
+        for sc_key, (placeholder, _vis) in load_mapping(mapping).items():
+            if sc_key in kv and placeholder not in values:
+                values[placeholder], prov[placeholder] = kv[sc_key], "site.conf"
+    if defaults:
+        for key, val in _ini(defaults).items():
+            if key.startswith("decision.") and key not in values:
+                values[key], prov[key] = val, DEFAULT
+    return values, facts, prov

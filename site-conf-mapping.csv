@@ -1,0 +1,7 @@
+site_conf_key,placeholder,visibility
+DOMAIN,site.domain,public
+SUBNET,site.lan_subnet,private
+GATEWAY,site.lan_gateway,private
+TIMEZONE,site.timezone,public
+ISSO_NAME,roles.security_officer,private
+BASELINE_DELEGATES,roles.baseline_delegates,private
