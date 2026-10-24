@@ -84,7 +84,7 @@ def fill_text(text, values, facts, src):
 # A secret-SHAPED value (a labelled credential, key material, a long base64 run); ordinary text that merely mentions
 # the word "password" is allowed (e.g. a policy title). A key NAMED like a secret is refused outright.
 SECRET = re.compile(r"(?i)\b(password|passphrase|secret|token|api[_-]?key)\s*[:=]\s*\S|BEGIN .*PRIVATE|^[A-Za-z0-9+/=]{32,}$")
-SECRET_KEY = re.compile(r"(?i)(password|passphrase|secret|token|api_?key|private_?key)")
+SECRET_KEY = re.compile(r"(?i)(^|_)(password|passphrase|secret|token|api_?key|private_?key)$")   # matched on the key's last part
 TRUE, FALSE = {"yes", "true", "1"}, {"no", "false", "0"}
 DEFAULT = "default (not yet confirmed)"
 
@@ -109,7 +109,7 @@ def _ini(path):
 
 
 def _check_secret(path, key, value):
-    if SECRET_KEY.search(key):
+    if SECRET_KEY.search(key.rsplit(".", 1)[-1]):
         raise FillError(f"{path}: {key}: a key named like a secret; secrets never go in a profile")
     for item in (value if isinstance(value, list) else [value]):
         if SECRET.search(item):
@@ -197,7 +197,19 @@ def check_values(values, facts, vocab, public):
 
 
 # ---- assemble (catalog-driven) and the command line (spec §3.3, §4) ----
-META = re.compile(r"^<!-- chp:control .*-->\n?", re.M)
+META = re.compile(r"^<!-- chp:control id=(\S+) status=(\w+) evidence=(\S*) -->\n?", re.M)
+
+
+def _status_line(text):
+    """The visible status and evidence line for a control block, from its metadata header."""
+    m = META.match(text)
+    if not m:
+        return ""
+    items = []
+    for e in (x for x in m.group(3).split(";") if x):
+        items.append(f"scan rule `{e[5:]}`" if e.startswith("scan:") else f"idm-assistant `{e}`")
+    ev = "; ".join(items) if items else "none (the site's responsibility)"
+    return f"**Status:** {m.group(2)}. **Evidence:** {ev}.\n\n"
 
 
 def load_catalog(lib):
@@ -237,7 +249,8 @@ def assemble(lib, arch="chp-appliance"):
         p = t / "ssp" / "controls" / f"{r['id']}.md"
         if not p.exists():
             raise FillError(f"{p}:0: missing control block for {r['id']}")
-        blocks.append(f"#### {r['id']} {r['requirement']}\n\n{META.sub('', _read(p)).strip()}\n")
+        text = _read(p)
+        blocks.append(f"#### {r['id']} {r['requirement']}\n\n{_status_line(text)}{META.sub('', text).strip()}\n")
     inserts = {"{{> family_status}}": family_table(catalog), "{{> arch}}": _read(t / "ssp" / "arch" / f"{arch}.md"),
                "{{> controls}}": "\n".join(blocks)}
     out = [inserts[line.strip()].rstrip("\n") if line.strip() in inserts else line

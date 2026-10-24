@@ -33,6 +33,7 @@ def test_assemble_orders_blocks_and_counts_families(tmp_path):
     assert ssp.index("### 4.1 Access Control (AC)") < ssp.index("#### 3.1.1 Limit access.") < ssp.index("#### 3.1.2")
     assert ssp.index("#### 3.1.2") < ssp.index("### 4.2 Awareness and Training (AT)") < ssp.index("#### 3.2.1")
     assert "<!-- chp:control" not in ssp and "Arch text." in ssp
+    assert "#### 3.1.1 Limit access.\n\n**Status:** site. **Evidence:** none (the site's responsibility).\n" in ssp
     assert "| AC — Access Control | 2 | {{status.ac.met}} | {{status.ac.not_met}} | {{status.ac.unverified}} |" in ssp
     assert "| **TOTAL** | **3** |" in ssp and docs["poam.md"].startswith("# POA&M")
 
@@ -71,3 +72,11 @@ def test_fill_refuses_an_existing_out_dir(tmp_path):
     p.write_text("[organization]\nname = X\n")
     r = run("fill", "--lib", lib, "--profile", p, "--out", tmp_path / "out", "--vocabulary", TOP / "vocabulary.md")
     assert r.returncode == 2 and (tmp_path / "out" / "keep.txt").read_text() == "mine"
+
+
+def test_status_and_evidence_are_visible(tmp_path):
+    lib = make_lib(tmp_path)
+    (lib / "templates/ssp/controls/3.1.2.md").write_text(
+        "<!-- chp:control id=3.1.2 status=partial evidence=lab/x.md#3;scan:rule_a -->\n**Implementation:** b.\n")
+    ssp = assemble(lib)["ssp.md"]
+    assert "**Status:** partial. **Evidence:** idm-assistant `lab/x.md#3`; scan rule `rule_a`.\n" in ssp

@@ -78,3 +78,8 @@ def test_ordinary_text_mentioning_password_is_accepted(tmp_path):
 def test_a_key_named_like_a_secret_is_refused(tmp_path):
     with pytest.raises(FillError, match="organization.admin_password"):
         load_values(write(tmp_path, "p.ini", "[organization]\nadmin_password = x\n"), None, None, MAP)
+
+
+def test_password_policy_settings_are_not_secrets(tmp_path):
+    v, _, _ = load_values(write(tmp_path, "p.ini", "[decision]\npassword_min_length = 12\npassword_history = 5\n"), None, None, MAP)
+    assert v["decision.password_min_length"] == "12"
