@@ -147,3 +147,40 @@ def load_values(profile, site_conf, defaults, mapping):
             if key.startswith("decision.") and key not in values:
                 values[key], prov[key] = val, DEFAULT
     return values, facts, prov
+
+
+# ---- vocabulary and visibility (spec §3.3) ----
+VOCAB_ROW = re.compile(r"^\|\s*`([^`]+)`\s*\|\s*(\w+)\s*\|\s*([\w-]+)\s*\|\s*(.+?)\s*\|\s*$")
+SEGMENT = {"<n>": r"[0-9]+", "<name>": r"[a-z][a-z0-9_]*"}
+
+
+def load_vocabulary(path):
+    """{placeholder: {kind, visibility, meaning, regex}} from vocabulary.md's table."""
+    out = {}
+    for line in _read(path).split("\n"):
+        m = VOCAB_ROW.match(line)
+        if not m or m.group(1) == "placeholder":
+            continue
+        name = m.group(1)
+        rx = "^" + r"\.".join(SEGMENT.get(seg, re.escape(seg)) for seg in name.split(".")) + "$"
+        out[name] = {"kind": m.group(2), "visibility": m.group(3), "meaning": m.group(4), "regex": re.compile(rx)}
+    return out
+
+
+def vocab_entry(key, vocab):
+    if key in vocab:
+        return vocab[key]
+    for row in vocab.values():
+        if row["regex"].match(key):
+            return row
+    return None
+
+
+def check_values(values, facts, vocab, public):
+    """Every supplied key must be in the vocabulary; in a public copy, no private or never-to-ai value is placed."""
+    for key in list(values) + list(facts):
+        row = vocab_entry(key, vocab)
+        if row is None:
+            raise FillError(f"{key} is not in vocabulary.md (add it there first)")
+        if public and key in values and row["visibility"] != "public":
+            raise FillError(f"{key} is {row['visibility']}: not placed in a public copy")
