@@ -224,12 +224,15 @@ def assemble(lib, arch="chp-appliance"):
     lib = Path(lib)
     t = lib / "templates"
     catalog = load_catalog(lib)
-    blocks = []
-    for r in catalog:
+    blocks, fam_no, current = [], 0, None
+    for r in catalog:                      # section 4: one subsection per family, then one block per requirement
+        if r["family_code"] != current:
+            current, fam_no = r["family_code"], fam_no + 1
+            blocks.append(f"### 4.{fam_no} {r['family']} ({r['family_code']})\n")
         p = t / "ssp" / "controls" / f"{r['id']}.md"
         if not p.exists():
             raise FillError(f"{p}:0: missing control block for {r['id']}")
-        blocks.append(f"### {r['id']} {r['requirement']}\n\n{META.sub('', _read(p)).strip()}\n")
+        blocks.append(f"#### {r['id']} {r['requirement']}\n\n{META.sub('', _read(p)).strip()}\n")
     inserts = {"{{> family_status}}": family_table(catalog), "{{> arch}}": _read(t / "ssp" / "arch" / f"{arch}.md"),
                "{{> controls}}": "\n".join(blocks)}
     out = [inserts[line.strip()].rstrip("\n") if line.strip() in inserts else line

@@ -30,7 +30,8 @@ def make_lib(tmp_path):
 def test_assemble_orders_blocks_and_counts_families(tmp_path):
     docs = assemble(make_lib(tmp_path))
     ssp = docs["ssp.md"]
-    assert ssp.index("### 3.1.1 Limit access.") < ssp.index("### 3.1.2") < ssp.index("### 3.2.1")
+    assert ssp.index("### 4.1 Access Control (AC)") < ssp.index("#### 3.1.1 Limit access.") < ssp.index("#### 3.1.2")
+    assert ssp.index("#### 3.1.2") < ssp.index("### 4.2 Awareness and Training (AT)") < ssp.index("#### 3.2.1")
     assert "<!-- chp:control" not in ssp and "Arch text." in ssp
     assert "| AC — Access Control | 2 | {{status.ac.met}} | {{status.ac.not_met}} | {{status.ac.unverified}} |" in ssp
     assert "| **TOTAL** | **3** |" in ssp and docs["poam.md"].startswith("# POA&M")
