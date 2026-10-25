@@ -83,3 +83,15 @@ def test_a_key_named_like_a_secret_is_refused(tmp_path):
 def test_password_policy_settings_are_not_secrets(tmp_path):
     v, _, _ = load_values(write(tmp_path, "p.ini", "[decision]\npassword_min_length = 12\npassword_history = 5\n"), None, None, MAP)
     assert v["decision.password_min_length"] == "12"
+
+
+def test_blank_values_stay_unfilled(tmp_path):
+    p = write(tmp_path, "p.ini", "[system]\nname =\n[organization]\nlegal_name = X\n")
+    s = write(tmp_path, "site.conf", "ISSO_NAME=\nDOMAIN=example.test\n")
+    v, _, _ = load_values(p, s, None, MAP)
+    assert "system.name" not in v and "roles.security_officer" not in v and v["site.domain"] == "example.test"
+
+
+def test_non_utf8_profile_is_a_clear_error(tmp_path):
+    with pytest.raises(FillError, match=r"p\.ini:0: not UTF-8"):
+        load_values(write(tmp_path, "p.ini", b"[organization]\nname = Caf\xe9\n", raw=True), None, None, MAP)

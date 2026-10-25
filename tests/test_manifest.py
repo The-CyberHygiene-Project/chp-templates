@@ -28,5 +28,5 @@ def test_manifest_detects_a_stale_file(tmp_path):
 def test_build_is_deterministic(tmp_path):
     copy = tmp_path / "rev2"
     shutil.copytree(LIB, copy)
-    build(copy, "1.0.0")
+    build(copy, json.loads((LIB / "MANIFEST.json").read_text())["content_version"])
     assert (copy / "MANIFEST.json").read_text() == (LIB / "MANIFEST.json").read_text()

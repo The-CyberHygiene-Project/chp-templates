@@ -90,7 +90,11 @@ DEFAULT = "default (not yet confirmed)"
 
 
 def _read(path):
-    return path.read_bytes().decode("utf-8-sig").replace("\r\n", "\n").replace("\r", "\n")
+    try:
+        text = Path(path).read_bytes().decode("utf-8-sig")
+    except UnicodeDecodeError:
+        raise FillError(f"{path}:0: not UTF-8 text (save the file as UTF-8)") from None
+    return text.replace("\r\n", "\n").replace("\r", "\n")
 
 
 def _ini(path):
@@ -104,7 +108,9 @@ def _ini(path):
         for opt, raw in cp.items(sec):
             lines = [x.strip() for x in raw.split("\n") if x.strip()]
             is_list = raw.startswith("\n") or "\n" in raw.strip()   # a value written on following lines is a list
-            out[f"{sec.lower()}.{opt}"] = lines if is_list else raw.strip()
+            value = lines if is_list else raw.strip()
+            if value:                     # a blank value is NOT a value: the placeholder stays visible and is reported
+                out[f"{sec.lower()}.{opt}"] = value
     return out
 
 
@@ -150,7 +156,7 @@ def load_values(profile, site_conf, defaults, mapping):
     if site_conf:
         kv = _site_conf(site_conf)
         for sc_key, (placeholder, _vis) in load_mapping(mapping).items():
-            if sc_key in kv and placeholder not in values:
+            if kv.get(sc_key) and placeholder not in values:          # blank site.conf values fill nothing
                 values[placeholder], prov[placeholder] = kv[sc_key], "site.conf"
     if defaults:
         for key, val in _ini(defaults).items():
@@ -240,6 +246,7 @@ def assemble(lib, arch="chp-appliance"):
     """Resolve the include directives: {{> family_status}}, {{> arch}}, {{> controls}} (catalog order)."""
     lib = Path(lib)
     t = lib / "templates"
+    check_sources(lib, arch)
     catalog = load_catalog(lib)
     blocks, fam_no, current = [], 0, None
     for r in catalog:                      # section 4: one subsection per family, then one block per requirement
@@ -256,6 +263,15 @@ def assemble(lib, arch="chp-appliance"):
     out = [inserts[line.strip()].rstrip("\n") if line.strip() in inserts else line
            for line in _read(t / "ssp" / "frame.md").split("\n")]
     return {"ssp.md": "\n".join(out), "poam.md": _read(t / "poam" / "frame.md")}
+
+
+def check_sources(lib, arch="chp-appliance"):
+    """Syntax-check every source file on its own, so an error names the file a person edits, not the assembled one."""
+    t = Path(lib) / "templates"
+    for p in [t / "ssp" / "frame.md", t / "ssp" / "arch" / f"{arch}.md", t / "poam" / "frame.md",
+              *sorted((t / "ssp" / "controls").glob("*.md"))]:
+        if p.exists():
+            fill_text(_read(p), {}, {}, p.relative_to(Path(lib)).as_posix())
 
 
 def _report(unfilled, prov):
@@ -277,17 +293,24 @@ def cmd_fill(a):
                                       Path(a.site_conf) if a.site_conf else None, defaults, mapping)
     check_values(values, facts, vocab, a.public)
     values.setdefault("templates.version", a.templates_version)
+    for key, src in prov.items():           # spec §3.2: a default is marked in the document until the site confirms it
+        if src == DEFAULT:
+            values[key] = f"{values[key]} *(default, not yet confirmed)*"
     docs, unfilled = {}, []
     for name, text in assemble(lib).items():
         docs[name], miss = fill_text(text, values, facts, name)
         unfilled += [(name, k, n) for k, n in miss]
     part = out.with_name(out.name + ".partial")
     shutil.rmtree(part, ignore_errors=True)
-    part.mkdir(parents=True)
-    for name, text in docs.items():
-        (part / name).write_text(text, encoding="utf-8")
-    (part / "fill-report.md").write_text(_report(unfilled, prov), encoding="utf-8")
-    os.replace(part, out)
+    try:
+        part.mkdir(parents=True)
+        for name, text in docs.items():
+            (part / name).write_text(text, encoding="utf-8")
+        (part / "fill-report.md").write_text(_report(unfilled, prov), encoding="utf-8")
+        os.replace(part, out)
+    except OSError as e:
+        shutil.rmtree(part, ignore_errors=True)
+        raise FillError(f"{out}:0: cannot write the output ({e.strerror})") from None
     print(f"wrote {out}: {len(docs)} documents, {len(unfilled)} unfilled placeholders (see fill-report.md)")
 
 

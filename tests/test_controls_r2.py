@@ -45,3 +45,18 @@ def test_evidence_paths_exist():
         for item in HEAD.match(text).group(3).split(";"):
             if item and not item.startswith("scan:"):
                 assert (root / item.split("#")[0]).exists(), f"{cid}: {item}"
+
+
+@pytest.mark.parametrize("cid", IDS)
+def test_an_appliance_claim_never_uses_a_site_changeable_value(cid):
+    # final review I4: a site's profile must not be able to make an 'appliance' sentence false
+    text = (CTRL / f"{cid}.md").read_text()
+    if HEAD.match(text).group(2) == "appliance":
+        assert "{{decision." not in text.split("**Site responsibility:**")[0]
+
+
+def test_review_corrections():
+    t = lambda c: (CTRL / f"{c}.md").read_text()
+    assert all(a in t("3.5.3") for a in ("chpadmin", "diag", "chpcache"))          # final review I5
+    assert "readable by root only" not in t("3.3.8")                               # no supporting scan rule
+    assert "None beyond operating" not in t("3.13.8")                              # workstation mail/web is the site's

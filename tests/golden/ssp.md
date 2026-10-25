@@ -276,9 +276,9 @@ Each requirement below carries its status:
 
 **Status:** appliance. **Evidence:** idm-assistant `lab/iso-requirements.md#27`; scan rule `accounts_passwords_pam_faillock_deny`; scan rule `accounts_passwords_pam_faillock_interval`; scan rule `accounts_passwords_pam_faillock_unlock_time`.
 
-**Implementation:** faillock locks an account after 3 failed attempts within 15 minutes, on every host, and keeps it locked for 0 minutes (a value of 0 means until an administrator unlocks it). The setting is pinned in the appliance's authselect profile.
+**Implementation:** faillock locks an account after 3 failed attempts within 15 minutes, on every host, and keeps it locked until an administrator unlocks it. These are the values the appliance enforces. The setting is pinned in the appliance's authselect profile.
 
-**Site responsibility:** None beyond operating the appliance as documented.
+**Site responsibility:** If the site changes these values (Appendix E), update this paragraph and confirm the new values are enforced.
 
 #### 3.1.9 Provide privacy and security notices consistent with applicable CUI rules.
 
@@ -480,9 +480,9 @@ Each requirement below carries its status:
 
 **Status:** appliance. **Evidence:** idm-assistant `lab/aide/PROOF-RECORD.md`; scan rule `partition_for_var_log_audit`; scan rule `mount_option_var_log_audit_nodev`; scan rule `mount_option_var_log_audit_nosuid`; scan rule `mount_option_var_log_audit_noexec`; scan rule `aide_check_audit_tools`.
 
-**Implementation:** Audit logs live on their own partition, mounted nodev, nosuid and noexec, and readable by root only. AIDE watches the audit tools for any change.
+**Implementation:** Audit logs live on their own partition, mounted nodev, nosuid and noexec. AIDE watches the audit tools for any change.
 
-**Site responsibility:** None beyond operating the appliance as documented.
+**Site responsibility:** Confirm the audit log files' permissions as part of log review, and keep copies off the host.
 
 #### 3.3.9 Limit management of audit logging functionality to a subset of privileged users.
 
@@ -586,11 +586,11 @@ Each requirement below carries its status:
 
 #### 3.5.3 Use multifactor authentication for local and network access to privileged accounts and for network access to non-privileged accounts.[24] [25].
 
-**Status:** partial. **Evidence:** idm-assistant `lab/iso-requirements.md#10`; idm-assistant `lab/iso-requirements.md#11`; idm-assistant `lab/iso-requirements.md#36`; idm-assistant `lab/iso-requirements.md#43`; idm-assistant `lab/iso5/PROOF-RECORD.md`.
+**Status:** partial. **Evidence:** idm-assistant `lab/iso-requirements.md#10`; idm-assistant `lab/iso-requirements.md#11`; idm-assistant `lab/iso-requirements.md#36`; idm-assistant `lab/iso-requirements.md#43`; idm-assistant `appliance/rpm/chp-identity-client/sshd-99-chp-exceptions.conf`; idm-assistant `lab/iso5/PROOF-RECORD.md`.
 
-**Implementation:** Every Kanidm user needs a second factor (a time-based code) for SSH, the console, sudo and the desktop. The local recovery accounts (the root console and the break-glass administrator) are exempt by design, so that the site can recover the hosts.
+**Implementation:** Every Kanidm user needs a second factor (a time-based code) for SSH, the console, sudo and the desktop. Four local accounts are exempt by design: the root console, so the site can recover a host, and three accounts that use SSH with a key only. Those three are `chpadmin` (the break-glass administrator), and `diag` and `chpcache` (single-command service keys for diagnostics and cache refresh).
 
-**Site responsibility:** Keep the local recovery credentials locked away (they are escrowed on the site stick), and record each use.
+**Site responsibility:** Keep the local recovery credentials and the three SSH keys locked away (escrowed on the site stick or held only by the site's tools), and record each use of the break-glass account.
 
 #### 3.5.4 Employ replay-resistant authentication mechanisms for network access to privileged and non-privileged accounts.
 
@@ -998,7 +998,7 @@ Each requirement below carries its status:
 
 **Implementation:** All communication with the identity server is TLS, verified against the site's pinned root certificate. Administration is SSH. Both use the FIPS system crypto policy.
 
-**Site responsibility:** None beyond operating the appliance as documented.
+**Site responsibility:** Protect CUI sent by other means (email, web, file transfer) from workstations with encryption, for example TLS-only mail and web services.
 
 #### 3.13.9 Terminate network connections associated with communications sessions at the end of the sessions or after a defined period of inactivity.
 

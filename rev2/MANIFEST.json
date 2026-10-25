@@ -1,6 +1,6 @@
 {
  "catalog_sha256": "27f68148b40362fc13b87abfa193f9cf1f9518c9e850690ae7d5485a9c4fa60e",
- "content_version": "1.0.0",
+ "content_version": "1.0.1",
  "files": [
   {
    "path": "catalog.csv",
@@ -172,11 +172,8 @@
   },
   {
    "path": "templates/ssp/controls/3.1.8.md",
-   "placeholders": [
-    "decision.lockout_minutes",
-    "decision.lockout_threshold"
-   ],
-   "sha256": "a1c4c3a5c898c373f5eb0fe801df907677ddc1d1a2f6d77c466bc4a03a886696",
+   "placeholders": [],
+   "sha256": "c0a4eceff531331924fb78277171ee280be8fae3585379b640ab9c1e380127a8",
    "status": "appliance"
   },
   {
@@ -357,7 +354,7 @@
   {
    "path": "templates/ssp/controls/3.13.8.md",
    "placeholders": [],
-   "sha256": "91e7f09d2a77b578868fd077ffc5a2c38ca7c18b7771f2a4818547893c22505a",
+   "sha256": "290c236fb0a212ffb6ef19bb34a463efa0611c5b4b0249999fa6dc272d7fcf5b",
    "status": "appliance"
   },
   {
@@ -477,7 +474,7 @@
   {
    "path": "templates/ssp/controls/3.3.8.md",
    "placeholders": [],
-   "sha256": "cf2064d41353ac51d05693966edfbccfe3ef5f425b07169082e4f9cec47273d2",
+   "sha256": "333168918a0f3b1ba36bd9853d3be34f7b334d69934cab187db8985842ba2a62",
    "status": "appliance"
   },
   {
@@ -571,7 +568,7 @@
   {
    "path": "templates/ssp/controls/3.5.3.md",
    "placeholders": [],
-   "sha256": "c5ca59cf50a8c0bd7de020524877aae4c06937055c86fc69cd6f00aecd55aeaf",
+   "sha256": "587f0c707fe62a126510a5a9949a177c4c2ab72b333270500f3a76034cdf1240",
    "status": "partial"
   },
   {

@@ -60,7 +60,7 @@ def test_fill_error_leaves_nothing(tmp_path):
     p = tmp_path / "p.ini"
     p.write_text("[organization]\nname = X\n")
     r = run("fill", "--lib", lib, "--profile", p, "--out", tmp_path / "out", "--vocabulary", TOP / "vocabulary.md")
-    assert r.returncode == 2 and "poam.md:1: unclosed" in r.stderr
+    assert r.returncode == 2 and "templates/poam/frame.md:1: unclosed" in r.stderr
     assert not (tmp_path / "out").exists() and not (tmp_path / "out.partial").exists()
 
 
@@ -80,3 +80,36 @@ def test_status_and_evidence_are_visible(tmp_path):
         "<!-- chp:control id=3.1.2 status=partial evidence=lab/x.md#3;scan:rule_a -->\n**Implementation:** b.\n")
     ssp = assemble(lib)["ssp.md"]
     assert "**Status:** partial. **Evidence:** idm-assistant `lab/x.md#3`; scan rule `rule_a`.\n" in ssp
+
+
+def test_defaults_are_marked_in_the_document(tmp_path):
+    lib = make_lib(tmp_path)
+    (lib / "templates/poam/frame.md").write_text("Lockout after {{decision.lockout_threshold}} attempts.\n")
+    (lib / "defaults.ini").write_text("[decision]\nlockout_threshold = 3\n")
+    p = tmp_path / "p.ini"
+    p.write_text("[organization]\nname = X\n")
+    r = run("fill", "--lib", lib, "--profile", p, "--out", tmp_path / "out", "--vocabulary", TOP / "vocabulary.md")
+    assert r.returncode == 0, r.stderr
+    assert "Lockout after 3 *(default, not yet confirmed)* attempts." in (tmp_path / "out/poam.md").read_text()
+
+
+def test_errors_name_the_source_file(tmp_path):
+    lib = make_lib(tmp_path)
+    (lib / "templates/ssp/controls/3.1.2.md").write_text(
+        "<!-- chp:control id=3.1.2 status=site evidence= -->\n**Implementation:** x.\n{{#if facts.a}}\nno close\n")
+    with pytest.raises(Exception, match=r"controls/3\.1\.2\.md:3: unclosed"):
+        assemble(lib)
+
+
+def test_unwritable_output_is_a_clear_error_and_leaves_nothing(tmp_path):
+    lib = make_lib(tmp_path)
+    ro = tmp_path / "ro"
+    ro.mkdir()
+    ro.chmod(0o500)
+    p = tmp_path / "p.ini"
+    p.write_text("[organization]\nname = X\n")
+    try:
+        r = run("fill", "--lib", lib, "--profile", p, "--out", ro / "out", "--vocabulary", TOP / "vocabulary.md")
+    finally:
+        ro.chmod(0o700)
+    assert r.returncode == 2 and "Traceback" not in r.stderr and not list(ro.iterdir())
