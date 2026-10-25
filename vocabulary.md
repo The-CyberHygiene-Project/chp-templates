@@ -42,7 +42,12 @@ This is the shared contract for both consumers.
 | `system.purpose` | value | public | what the system is for, in a short paragraph |
 | `system.status` | value | public | operational status (e.g. operational, under development) |
 | `system.appliance_version` | value | public | the installed CyberHygiene Project appliance version |
-| `systems.in_boundary` | list | private | the systems inside the boundary, one per line |
+| `systems.in_boundary` | list | private | the systems inside the boundary. **Derived** by the renderer from every `system.<name>` whose `in_boundary` is yes. Setting it directly is **deprecated** (still accepted when no `system.<name>` entries exist) |
+| `system.<name>.kind` | value | private | what the system is (for example identity server, workstation) |
+| `system.<name>.in_boundary` | value | private | yes or no: the system is inside the CUI boundary |
+| `system.<name>.operating_system` | value | private | the system's operating system |
+| `system.<name>.administered_by` | value | private | who administers the system |
+| `system.<name>.provider` | value | private | the outside provider that supplies or manages it, if any |
 | `document.version` | value | public | this plan's version |
 | `document.date` | value | public | this plan's date (MM/DD/YYYY) |
 | `document.author` | value | private | who issued this version |

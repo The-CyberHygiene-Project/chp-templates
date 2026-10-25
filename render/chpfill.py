@@ -140,6 +140,32 @@ def load_mapping(path):
         return {r["site_conf_key"]: (r["placeholder"], r["visibility"]) for r in csv.DictReader(f)}
 
 
+SYSTEM_FIELD = re.compile(r"^system\.([a-z0-9_]+)\.(kind|in_boundary|operating_system|administered_by|provider)$")
+DERIVED = "derived from system.<name> entries"
+
+
+def _derive_systems(profile, values, prov):
+    """Owner ruling 2026-10-25: systems use Automated_Compliance's one-entry-per-system form. The boundary list
+    {{systems.in_boundary}} is derived from every system.<name> whose in_boundary is yes, in profile order. The
+    deprecated direct list is used only when no system.<name> entries exist."""
+    names = []
+    for key in values:
+        m = SYSTEM_FIELD.match(key)
+        if m and m.group(1) not in names:
+            names.append(m.group(1))
+    if not names:
+        return
+    items = []
+    for n in names:
+        flag = str(values.get(f"system.{n}.in_boundary", "")).lower()
+        if flag not in TRUE | FALSE:
+            raise FillError(f"{profile}: system.{n}.in_boundary: must be yes or no")
+        if flag in TRUE:
+            detail = ", ".join(x for x in (values.get(f"system.{n}.kind"), values.get(f"system.{n}.operating_system")) if x)
+            items.append(f"{n} ({detail})" if detail else n)
+    values["systems.in_boundary"], prov["systems.in_boundary"] = items, DERIVED
+
+
 def load_values(profile, site_conf, defaults, mapping):
     """Return (values, facts, provenance). Facts are the [facts] section as booleans."""
     values, facts, prov = {}, {}, {}
@@ -153,6 +179,7 @@ def load_values(profile, site_conf, defaults, mapping):
                 facts[key] = v in TRUE
             else:
                 values[key], prov[key] = val, "profile"
+    _derive_systems(profile, values, prov)
     if site_conf:
         kv = _site_conf(site_conf)
         for sc_key, (placeholder, _vis) in load_mapping(mapping).items():

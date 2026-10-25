@@ -130,9 +130,9 @@ The boundary is the identity server and the two workstations on the site network
 
 **Systems inside the boundary:**
 
-- srv1.example.test (identity server)
-- ws1.example.test (engineering workstation)
-- ws2.example.test (office workstation)
+- srv1 (identity server, Rocky Linux 9)
+- ws1 (engineering workstation, Rocky Linux 9)
+- ws2 (office workstation, Rocky Linux 9)
 
 *Not applicable: facts.has_outside_it_provider = no.*
 

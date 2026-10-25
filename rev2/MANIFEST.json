@@ -1,6 +1,6 @@
 {
  "catalog_sha256": "27f68148b40362fc13b87abfa193f9cf1f9518c9e850690ae7d5485a9c4fa60e",
- "content_version": "1.0.1",
+ "content_version": "1.1.0",
  "files": [
   {
    "path": "catalog.csv",
