@@ -166,6 +166,26 @@ def _derive_systems(profile, values, prov):
     values["systems.in_boundary"], prov["systems.in_boundary"] = items, DERIVED
 
 
+CONTRACT_FIELD = re.compile(r"^contract\.([0-9]+)\.(label|agency_group|vehicle|information|clauses|required_revision|"
+                            r"revision_basis|last_verified)$")
+DERIVED_CONTRACTS = "derived from contract.<n> entries"
+
+
+def _derive_contracts(values, prov):
+    """Owner 2026-10-25 ('follow that which is published'): contracts use Automated_Compliance's committed
+    contract.<n>.* form. {{contract.list}} is derived, in number order, as "label (clauses)". The deprecated direct list
+    is used only when no contract.<n> entries exist."""
+    nums = sorted({int(m.group(1)) for m in (CONTRACT_FIELD.match(k) for k in values) if m})
+    if not nums:
+        return
+    items = []
+    for n in nums:
+        label = values.get(f"contract.{n}.label") or f"contract {n}"
+        clauses = values.get(f"contract.{n}.clauses")
+        items.append(f"{label} ({clauses})" if clauses else label)
+    values["contract.list"], prov["contract.list"] = items, DERIVED_CONTRACTS
+
+
 def load_values(profile, site_conf, defaults, mapping):
     """Return (values, facts, provenance). Facts are the [facts] section as booleans."""
     values, facts, prov = {}, {}, {}
@@ -180,6 +200,7 @@ def load_values(profile, site_conf, defaults, mapping):
             else:
                 values[key], prov[key] = val, "profile"
     _derive_systems(profile, values, prov)
+    _derive_contracts(values, prov)
     if site_conf:
         kv = _site_conf(site_conf)
         for sc_key, (placeholder, _vis) in load_mapping(mapping).items():

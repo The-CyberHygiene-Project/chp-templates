@@ -31,7 +31,14 @@ This is the shared contract for both consumers.
 | `site.lan_subnet` | value | private | the site network (from `site.conf` SUBNET) |
 | `site.lan_gateway` | value | private | the site gateway (from `site.conf` GATEWAY) |
 | `site.timezone` | value | public | the site's time zone (from `site.conf` TIMEZONE) |
-| `contract.<n>.label` | value | private | a short label for contract n |
+| `contract.<n>.label` | value | private | a short label for contract n (Automated_Compliance's committed name) |
+| `contract.<n>.agency_group` | value | private | the agency or customer group (Automated_Compliance's committed name) |
+| `contract.<n>.vehicle` | value | private | the contract vehicle (prime contract, purchase order, subcontract) (Automated_Compliance's committed name) |
+| `contract.<n>.information` | value | private | the kind of information the contract involves (Automated_Compliance's committed name) |
+| `contract.<n>.clauses` | value | private | the governing clauses, for example DFARS 252.204-7012 (Automated_Compliance's committed name) |
+| `contract.<n>.required_revision` | value | private | the NIST SP 800-171 revision the contract requires (Automated_Compliance's committed name) |
+| `contract.<n>.revision_basis` | value | private | why that revision applies (clause, letter, deviation) (Automated_Compliance's committed name) |
+| `contract.<n>.last_verified` | value | private | when the contract's requirements were last checked (Automated_Compliance's committed name) |
 | `status.<name>.met` | value | private | requirements met in a family (or `total`), from the site's assessment |
 | `status.<name>.not_met` | value | private | requirements not met in a family (or `total`) |
 | `status.<name>.unverified` | value | private | requirements not yet verified in a family (or `total`) |
@@ -63,7 +70,7 @@ This is the shared contract for both consumers.
 | `assessment.deficits` | list | private | outstanding deficits, one per line (each a POA&M item) |
 | `assessment.conclusion` | value | private | the plan's concluding statement |
 | `poam.reference` | value | public | the companion POA&M's file name and version |
-| `contract.list` | list | private | the contracts in scope, one per line |
+| `contract.list` | list | private | the contracts in scope. **Derived** by the renderer from the `contract.<n>` entries ("label (clauses)", in number order). Setting it directly is **deprecated** (still accepted when no `contract.<n>` entries exist) |
 | `policies.list` | list | public | the policy and procedure documents this plan relies on |
 | `supporting.documents` | list | private | supporting documents and where they are kept |
 | `facts.has_outside_it_provider` | fact | public | an outside IT provider has access to the system |
@@ -88,3 +95,33 @@ This is the shared contract for both consumers.
 | `poam.due_t06` | value | private | scheduled completion date for seeded POA&M item T-06 |
 | `poam.due_t07` | value | private | scheduled completion date for seeded POA&M item T-07 |
 | `templates.version` | value | public | the chp-templates release the document was generated from |
+
+## Reserved names (Automated_Compliance draft, 2026-10-25)
+
+These names come from Automated_Compliance's draft vocabulary. They are reserved under the same names, so the two systems never diverge. A profile may set them, but no template uses them yet. A template adopts one only when a section needs it, and that release says so.
+
+| placeholder | kind | visibility | meaning |
+|---|---|---|---|
+| `decision.log_review_frequency` | value | public | RESERVED (Automated_Compliance draft): how often audit logs are reviewed |
+| `decision.alert_notify_minutes` | value | public | RESERVED (Automated_Compliance draft): minutes within which an alert is seen by a person |
+| `decision.incident_internal_notify_hours` | value | public | RESERVED (Automated_Compliance draft): hours to notify internally of an incident |
+| `decision.incident_contain_hours` | value | public | RESERVED (Automated_Compliance draft): hours to contain an incident |
+| `decision.incident_recover_hours` | value | public | RESERVED (Automated_Compliance draft): hours to recover from an incident |
+| `decision.visitor_log_required` | value | public | RESERVED (Automated_Compliance draft): yes or no: a visitor log is kept |
+| `facts.has_mail_service` | fact | public | RESERVED (Automated_Compliance draft): the system runs a mail service |
+| `facts.has_nas` | fact | public | RESERVED (Automated_Compliance draft): network-attached storage is in the boundary |
+| `facts.has_remote_access` | fact | public | RESERVED (Automated_Compliance draft): remote access into the boundary is allowed |
+| `facts.has_wireless` | fact | public | RESERVED (Automated_Compliance draft): wireless networking reaches the boundary |
+| `facts.has_mobile_devices` | fact | public | RESERVED (Automated_Compliance draft): mobile devices connect to the system |
+| `facts.uses_local_ai` | fact | public | RESERVED (Automated_Compliance draft): a locally hosted AI tool is used with system data |
+| `facts.uses_external_ai` | fact | public | RESERVED (Automated_Compliance draft): an external AI service is used with system data |
+| `facts.has_removable_media` | fact | public | RESERVED (Automated_Compliance draft): removable media are used with CUI |
+| `facts.has_public_services` | fact | public | RESERVED (Automated_Compliance draft): the system publishes services to the internet |
+| `organization.owner_name` | value | private | RESERVED (Automated_Compliance draft): the owner's name |
+| `site.directory_base` | value | public | RESERVED (Automated_Compliance draft): the directory base name derived from the domain |
+| `site.admin_account` | value | private | RESERVED (Automated_Compliance draft): the site administrator's account name |
+| `site.admin_email` | value | private | RESERVED (Automated_Compliance draft): the site administrator's email address |
+| `site.host.<name>.address` | value | private | RESERVED (Automated_Compliance draft): a host's network address |
+| `site.host.<name>.role` | value | private | RESERVED (Automated_Compliance draft): a host's role |
+| `site.wan.<name>.address` | value | private | RESERVED (Automated_Compliance draft): a public address, by service |
+| `site.hostname.<name>` | value | private | RESERVED (Automated_Compliance draft): a service's host name, built from the domain |
