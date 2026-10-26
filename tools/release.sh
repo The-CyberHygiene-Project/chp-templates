@@ -16,7 +16,7 @@ git -C "$top" rev-parse -q --verify "refs/tags/templates-$V" >/dev/null || { ech
 gpg --card-status >/dev/null 2>&1 || { echo "refusing: YubiKey not found (plug it in)"; exit 1; }
 echo "== every library's MANIFEST.json must match its files (tools/build_manifest.py verify)"
 (cd "$top" && python3 -c 'import sys; sys.path.insert(0,"."); from tools.build_manifest import verify
-bad = [p for lib in ("rev2",) for p in verify(lib)]
+bad = [p for lib in ("rev2", "rev3") for p in verify(lib)]
 print("\n".join(bad)); sys.exit(1 if bad else 0)') || { echo "refusing: a manifest is stale"; exit 1; }
 mkdir -p "$B"; rm -rf "$P"; mkdir -p "$P"
 echo "== tarball from tag templates-$V"

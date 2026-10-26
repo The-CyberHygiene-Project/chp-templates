@@ -14,7 +14,7 @@ address and date is a `{{section.key}}` placeholder, and a test fails the build 
 | Path | What it is |
 |---|---|
 | `rev2/` | the self-contained **Rev 2** library (the CMMC Level 2 basis today): catalog, templates, defaults, manifest |
-| `rev3/` | the self-contained **Rev 3** library (Plan C2) |
+| `rev3/` | the self-contained **Rev 3** library: NIST's Rev 3 catalog, the Rev 2 → Rev 3 crosswalk, the DoD ODP values as defaults; every control block is *pending* until the Rev 3 reference implementation proves it |
 | `vocabulary.md` | every placeholder: meaning, kind, and visibility (`public`, `private` or `never-to-ai`) |
 | `site-conf-mapping.csv` | how a CHP site stick's `site.conf` keys fill placeholders; the other `site.conf` keys are machine settings |
 | `render/chpfill.py` | the one renderer (Python 3.9, standard library only) |
@@ -24,6 +24,8 @@ address and date is a `{{section.key}}` placeholder, and a test fails the build 
     python3 render/chpfill.py fill --lib rev2 --profile profile.ini [--site-conf site.conf] --out out/
 
 This writes `ssp.md`, `poam.md` and `fill-report.md`.
+Use `--lib rev3` for the Rev 3 plan. Its organization-defined parameters go in profile.ini's `[odp]` section, keyed by the
+DoD memo's part ID with dots as underscores (e.g. `03_01_01_f_02`).
 - **Unfilled placeholders stay visible** as `{{key}}` and are listed in the report; they are never guessed.
 - **Defaults** from `rev2/defaults.ini` are marked *"(default, not yet confirmed)"* until the profile confirms them.
 - **`--public`** refuses to place any value tagged private.

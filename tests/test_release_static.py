@@ -11,3 +11,7 @@ def test_release_script_contract():
     assert "gpg --verify" in T and "shasum -a 256 -c SHA256SUMS" in T
     assert '.partial' in T and 'mv "$P" "$T"' in T
     assert "verify(" in T or "build_manifest" in T                                   # the manifest is checked first
+
+
+def test_release_checks_every_library_manifest():
+    assert 'for lib in ("rev2", "rev3")' in T
