@@ -15,12 +15,12 @@
   {
    "path": "defaults.ini",
    "placeholders": [],
-   "sha256": "8acaad3765f43413d2b851d1e1d1c7298a3ef3079caa229f3d7398a49e83cad2"
+   "sha256": "0763333c7041e6b39546ecb791788cc304687d017ba724ed2f41225a7589d2b9"
   },
   {
    "path": "odp-values.csv",
    "placeholders": [],
-   "sha256": "df3357009c3c54a6639d0e24f71640397452049e5e946884315c85126c45f6aa"
+   "sha256": "642114de812c4131e87b0b03406425801814f637d5adf5ef7312cba0bb25aee3"
   },
   {
    "path": "templates/poam/frame.md",
@@ -65,25 +65,25 @@
     "odp.03_01_01_h_01",
     "odp.03_01_01_h_02"
    ],
-   "sha256": "8cc11f82cd6fc55d0f92f47a2262888c68c14586f432e19320294347af04cde0",
+   "sha256": "410401bc4e8afe57bc4c174ab8d4d872988c831d9b46caa598005ab80746cd6f",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.01.02.md",
    "placeholders": [],
-   "sha256": "a46ea3a515adb7b9f2c35afb3130f0a5d9e72cc8d1fd2deec0e3a3a37c1bff3c",
+   "sha256": "cc686d90daf7ceb7e9551b5b0122c51171a97fdcd2df455c91fcd78132627a9f",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.01.03.md",
    "placeholders": [],
-   "sha256": "61bc02f353fb80eef45ef9767ad68584058ae27447efe40e08a26b757ad283cc",
+   "sha256": "36480d17114425a3b2510b966231ca0cb1869813f3b6e00451940d66e1fc277d",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.01.04.md",
    "placeholders": [],
-   "sha256": "aa0cff01fbb0b589cd31477a2433a26401f6c4d0d30af0e07cb510eae3f89a5a",
+   "sha256": "bf64111cdb271ef4ca5e85699f3664f4588c5fec9902148c00c102ca37614d55",
    "status": "pending"
   },
   {
@@ -93,7 +93,7 @@
     "odp.03_01_05_b_02",
     "odp.03_01_05_c"
    ],
-   "sha256": "7189a9f0f9e1ab786227944b2c9a4cef5654e6dd272ea11d23231f6315c4eec5",
+   "sha256": "54bb783fc18151a2ba87775bee99217eac62e75c2dcef7a446f78e16002936c1",
    "status": "pending"
   },
   {
@@ -101,13 +101,13 @@
    "placeholders": [
     "odp.03_01_06_a"
    ],
-   "sha256": "a27f6a037d4e50f7ec8dc8caebaf13ea7072609aa3eaaefb0434374d955c8048",
+   "sha256": "25953b0e94da4bb5a2ce361700dbea4cb56d11c346d5a5d00509c98918d978c9",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.01.07.md",
    "placeholders": [],
-   "sha256": "b9167019c3c6d312eec6f5d54beaf215e4125827f05cb4ae4a9b51c81a824db4",
+   "sha256": "93f0912eb5c25c2cccc99b27f08c17e4eb534d15aeac31c5bb6f8943a200d9fc",
    "status": "pending"
   },
   {
@@ -117,13 +117,13 @@
     "odp.03_01_08_a_02",
     "odp.03_01_08_b"
    ],
-   "sha256": "12e9d334da3f6f5a3e6b1f7b025fbf6a43c0e7480871590269116a2f9fd1f2bd",
+   "sha256": "95bea235e6f71178ca4f2a54b5526aed8b905264d343ed352604d37bb84d51be",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.01.09.md",
    "placeholders": [],
-   "sha256": "f2b579b6e63c572fd8e3e466f8a6a3ed16c66e1eb96dc68fc9fc6e4df547fd66",
+   "sha256": "4bfc98d171b09a0fc854b210884b2516c527e009a318e55625235124151e0487",
    "status": "pending"
   },
   {
@@ -131,7 +131,7 @@
    "placeholders": [
     "odp.03_01_10_a"
    ],
-   "sha256": "6235863204b1ade07ce1978d15b026c1c78e57964accdd0c68808094aa7c8d39",
+   "sha256": "c4eaff8097532216ffbbd1b0cb9dbc26d3a696484624fd2f838f4e9fc08e0e1d",
    "status": "pending"
   },
   {
@@ -139,25 +139,25 @@
    "placeholders": [
     "odp.03_01_11"
    ],
-   "sha256": "1cc60bb97538083e453ed72e25ff62d37e42ef82f180bb4e15048eb15b6e044c",
+   "sha256": "90d3afd757a1c651e6897ef2929446de2e82285b98586a64e1c8412ab57a5903",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.01.12.md",
    "placeholders": [],
-   "sha256": "068dbc560cea7be4ad18f81c2764f923467fe8fda62ac9493c7c2740a69ba820",
+   "sha256": "8f1f7d645823bc7dd4bd20d16888f1f910b0abee2b9a341c7c9c67274950a4e8",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.01.16.md",
    "placeholders": [],
-   "sha256": "4f48978e6cae8e2c8f30477183fcb6927aec2019003002351140956eb5d5124e",
+   "sha256": "278eeaacfcb8d6cb8df266eb361886ab8374cac9eb64cb57377f8dcf2cd2fa96",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.01.18.md",
    "placeholders": [],
-   "sha256": "bdc5f4c5b2420177cb1aec691c5d5a6db9e764bebf4a095f57dfb49d4909e66f",
+   "sha256": "d19c2e866118256e41f3cceb6ed546ea671be771e2bca6ff6512b1365580a91b",
    "status": "pending"
   },
   {
@@ -165,13 +165,13 @@
    "placeholders": [
     "odp.03_01_20_b"
    ],
-   "sha256": "6b55000fa72b2d72086285c186241ca82b8afd775cfc00bbeeeac00feefc289d",
+   "sha256": "78b7d65a8a0b62b4a2b74c90b75c1d8f83aa131be72429b7fd0db3028b869971",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.01.22.md",
    "placeholders": [],
-   "sha256": "86674d6280535770b5fed192c0bc259bf83d2be2b778e15e05d5c0e49783faa2",
+   "sha256": "ef03b92857b1fdd64493731dea6d67ec3222b656642c613666b13f1c39653e00",
    "status": "pending"
   },
   {
@@ -182,7 +182,7 @@
     "odp.03_02_01_b_01",
     "odp.03_02_01_b_02"
    ],
-   "sha256": "c2dfa0affd164c40c70117825f44a1772703386a997825e42d09a35d62160332",
+   "sha256": "db4b5e8c4ab5bc87ee78c3a041f4dd47383135aa694dcdb56e31174dc35f2f46",
    "status": "pending"
   },
   {
@@ -193,7 +193,7 @@
     "odp.03_02_02_b_01",
     "odp.03_02_02_b_02"
    ],
-   "sha256": "c37ee86462f2a3d673834bd59248167ed4be8e422fa691a5d5ccc0dc8b7a9938",
+   "sha256": "0f993050d7ec7245d0bab6a0714669e7b2bf4f2b6f8a1d5c37b353c2e859042c",
    "status": "pending"
   },
   {
@@ -202,19 +202,19 @@
     "odp.03_03_01_a",
     "odp.03_03_01_b"
    ],
-   "sha256": "29973e92f6776e1f106d30a3a40b135e1c9519725db409c04111bdade1fb9258",
+   "sha256": "9266d77c25851203e631d22f6338ac0ec30f6469652f092fb0ea91de9b64432b",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.03.02.md",
    "placeholders": [],
-   "sha256": "7785af2a1f74db35acd99eae3337f8663a1b91464e62147ca502188218301c86",
+   "sha256": "32dfe46eaa4e2e7c562faff08dbfcac57cd9113b8871910d00d9ca147c82a588",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.03.03.md",
    "placeholders": [],
-   "sha256": "4c3b88ec0df0454807f96a89c717517f07c55f2fcf3a154b60f31e3eb344454d",
+   "sha256": "7ca71d5be83cb024b0ff8e7468ea9ca9ac314f1b6b01172fe5bc84870ac06687",
    "status": "pending"
   },
   {
@@ -223,7 +223,7 @@
     "odp.03_03_04_a",
     "odp.03_03_04_b"
    ],
-   "sha256": "655fa48f6b2fd442fb8f967d47ed50a789fec71bbfcb7112d28fdd5a4cc9329c",
+   "sha256": "cc92ae35a9000b3c0fa0e0e1252f948f206ec62f4f1834d43831c8a137758123",
    "status": "pending"
   },
   {
@@ -231,13 +231,13 @@
    "placeholders": [
     "odp.03_03_05_a"
    ],
-   "sha256": "2417c7631e5753f32a013f888fb8de533ccc1782ce1f4483b486b148b68c234a",
+   "sha256": "408ca6ad6ead15e4135ee7978289561964b93b6b6930d0c04ae4e1e2a14bc921",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.03.06.md",
    "placeholders": [],
-   "sha256": "3a22730eda9a4fd2b46a9bc5935ebc8797ee8fa54730df1c0cd75881a154199e",
+   "sha256": "304a30c57761b0c1542c98ca957d0f5c584169c2cfe22fdd4361edbcf2429808",
    "status": "pending"
   },
   {
@@ -245,13 +245,13 @@
    "placeholders": [
     "odp.03_03_07_b"
    ],
-   "sha256": "98da215328b12ad29a103e03f94987e5051964517e6a36174f2403c0b1460206",
+   "sha256": "b79e0526185da6debf93a475e571df661de6478bd627aa3e29393803e96062b9",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.03.08.md",
    "placeholders": [],
-   "sha256": "6cd6fcc39296df049b1590052d065e6e93af8709f115692137d496572e16d960",
+   "sha256": "2e59a1887d235f9af7ae1b7d85cadd149eabf5ae7a9625ec7e218557c10f3159",
    "status": "pending"
   },
   {
@@ -259,7 +259,7 @@
    "placeholders": [
     "odp.03_04_01_b"
    ],
-   "sha256": "87b57ccb313e4957e2a8771de56545f96fb0c1f80eaea8af89b6b271c6e61516",
+   "sha256": "805854e437e857f8872d0d1682ff61752c39274d89a87a9298b3b97eb445826f",
    "status": "pending"
   },
   {
@@ -267,25 +267,25 @@
    "placeholders": [
     "odp.03_04_02_a"
    ],
-   "sha256": "131bd268a8ecba495838f443eed260047b2eea2cce73cae9c1c47d0d060596d1",
+   "sha256": "72f3f2b8f0fd4fd231cbf1ea4329ec228e31116ca4d4d52ad941d50548ceb3ee",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.04.03.md",
    "placeholders": [],
-   "sha256": "859f3d66119287c2d28af5c9a6399f6670b729a262f4a91556c8beb4a025ca0e",
+   "sha256": "1a0ed3c9e475674684af8b3ee974b7dd8533df1f4318c7a7692aab70ea1ea25a",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.04.04.md",
    "placeholders": [],
-   "sha256": "63356459cd25f4d2682fcab5927315ed8ae38f7ac1170fb517657de68b2262ee",
+   "sha256": "92a65da595fd936a451eb2002da435beeffe861fade943e0623b303423949183",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.04.05.md",
    "placeholders": [],
-   "sha256": "62898d1b4f6235334f4c1c6c5b90f33be4ba4bd9c8fbea7d02eaed860386a876",
+   "sha256": "5b9e3de2cf83600ca0462e3f1586559b9d905bbf190106c0bde0f7beb24993e6",
    "status": "pending"
   },
   {
@@ -294,7 +294,7 @@
     "odp.03_04_06_b",
     "odp.03_04_06_c"
    ],
-   "sha256": "1ad4df35bfe02e90ce3111c69e08e1fcc423527dd6fc5ee73373e5c372736011",
+   "sha256": "c349004086a30f615a19a3de6b974438cb0cb6a0b81166ecb6de4d278f388046",
    "status": "pending"
   },
   {
@@ -302,7 +302,7 @@
    "placeholders": [
     "odp.03_04_08_c"
    ],
-   "sha256": "7808ebce877ace60579f852f3b749c418fa4b75efb0dfff4d8caaff8d86f6612",
+   "sha256": "77084197f0dbd2507976857927e2d6142c2a41dcea46eb933917465e68723e68",
    "status": "pending"
   },
   {
@@ -310,13 +310,13 @@
    "placeholders": [
     "odp.03_04_10_b"
    ],
-   "sha256": "915061efe4ea744f24e021d6ac79551af0c495254b8044247170a485b323a73a",
+   "sha256": "c7453c0b67bcc8764efd51e9fc15b8828352ea5033392f2926dabb35a0f0d2a1",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.04.11.md",
    "placeholders": [],
-   "sha256": "f78835ec91ddb36efade3720c1aa57d0dce884cd8c0ecc0c2bd0660b684fc2e4",
+   "sha256": "c78e5f85d07eea69a5e852aae71c895a93255370027b935dedc663b6e2278c86",
    "status": "pending"
   },
   {
@@ -325,7 +325,7 @@
     "odp.03_04_12_a",
     "odp.03_04_12_b"
    ],
-   "sha256": "5a56d40e57134cd7084b57e10b5481fae0037ce8a5c8f9d55c514a0d8aac06a9",
+   "sha256": "be6a5adceec7e779ea7cb92224807a438c532d25632b675937ec00476d4d2c29",
    "status": "pending"
   },
   {
@@ -333,7 +333,7 @@
    "placeholders": [
     "odp.03_05_01_b"
    ],
-   "sha256": "3ba63ae98c535e8d088cd440fad7114b26fd170ef5a6da5a3e3583c9c7358700",
+   "sha256": "5cada2ef7620f3bb0fbd33b073577c8251b3c18997e8a49f2033620b6414db49",
    "status": "pending"
   },
   {
@@ -341,19 +341,19 @@
    "placeholders": [
     "odp.03_05_02"
    ],
-   "sha256": "4a20782ea48fb653b7d1cb22ee1b275b4a5b25bac20170db5ae62cf32a2170b2",
+   "sha256": "79f6863cf063964c348e934cb7686b82c5c003cc613d5adec7f4bfa57a4bfd98",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.05.03.md",
    "placeholders": [],
-   "sha256": "83fa68363bb3d6ef988cf49630a400410dff640d4152355f3918ef9a093d6e5e",
+   "sha256": "92b14a2a346008c0445c85fdad566c6c999388b86ec7cc2a8d97aba77a998a49",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.05.04.md",
    "placeholders": [],
-   "sha256": "92efc150c4b48dc4f90c8653a5937b30ebb4e6b53c201244b0e0416066a57d8b",
+   "sha256": "2f6b28b2565f3737266cbbf0ad27932a5f064bba25ff5a363768f0d32432a657",
    "status": "pending"
   },
   {
@@ -362,7 +362,7 @@
     "odp.03_05_05_c",
     "odp.03_05_05_d"
    ],
-   "sha256": "3e04aae4615759068f430faa2ccb00ea9089c0e863a1d32ef65c492cfe2d7e94",
+   "sha256": "36983a56f811610c77ff27f18c20f891b36fc6ca0c931c8484f72d5312692901",
    "status": "pending"
   },
   {
@@ -371,13 +371,13 @@
     "odp.03_05_07_a",
     "odp.03_05_07_f"
    ],
-   "sha256": "affd118505e6e2d7f26084ffd3bd59bd6d196ac7aace019055271c4efa1846c1",
+   "sha256": "7a31f0b50df3b4580cabd73a58b544ce0df10edade4fd60dea9e88dffd0dae62",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.05.11.md",
    "placeholders": [],
-   "sha256": "8d56d33805d068ab24a84ed375af3c50f964e1397d1912125fdc25477cf4d246",
+   "sha256": "6d4501f8c83a2377b425d2045e7f1d6f631abffc94058da3f481e8af9c617223",
    "status": "pending"
   },
   {
@@ -386,13 +386,13 @@
     "odp.03_05_12_e_01",
     "odp.03_05_12_e_02"
    ],
-   "sha256": "951eaf288c73afe392f9cc1c4e91035876cf7837c835ace94edf8cb720145d07",
+   "sha256": "54545b2d6242b98ac023e11afbb1876f284f957be4400a5a9adf3b479bf8c805",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.06.01.md",
    "placeholders": [],
-   "sha256": "5e63b3995160606a59e5e0ac3b68940903c4804a00171190b3ea23526ac7f6cd",
+   "sha256": "8af0c540de92876b2d2d645c5269bb9b11c5519faa424430368b3f1ae11de133",
    "status": "pending"
   },
   {
@@ -401,7 +401,7 @@
     "odp.03_06_02_b",
     "odp.03_06_02_c"
    ],
-   "sha256": "f66c9e85e2e85f3ea9541f48d41214706764a5c5f0bfecf2baf492a8bb706aeb",
+   "sha256": "fcdcb699e6287122ffbe408682ae48b57198ed979d16b5fece7b5cff4e8c9d13",
    "status": "pending"
   },
   {
@@ -409,7 +409,7 @@
    "placeholders": [
     "odp.03_06_03"
    ],
-   "sha256": "237ec45c9308e479b4e4cebba21b57c41ab92c6095f6e85219344d3cc4615539",
+   "sha256": "1927eac2b616e84795b0891e44367791cfa62022bced74b6580ec4758e489a58",
    "status": "pending"
   },
   {
@@ -420,61 +420,61 @@
     "odp.03_06_04_b_01",
     "odp.03_06_04_b_02"
    ],
-   "sha256": "0d93105fb3568061a28f2af1f81afcfb767b24c26f808fddd27c15cac93a2d87",
+   "sha256": "09f8e1b5d599f89587ff591bf00b4ee952e198721a5221c09344a4de82989d35",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.06.05.md",
    "placeholders": [],
-   "sha256": "e884d67f7147ed44b98de13253b804f943d0a3574047d8dec4387ba0339f4cb4",
+   "sha256": "8304b9ff1edca8781b332061659d98d08d7d92ed8277e0e05c2f6423bba86767",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.07.04.md",
    "placeholders": [],
-   "sha256": "8f1bcc8aa64c62b0abeb17a03d6aa818680ef5133f3c6fb044854aaf4210f8fa",
+   "sha256": "0b35c880d9086ac29e965f5ebf2b1bc64c850691eb13ae42ef6807ef4a1de64f",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.07.05.md",
    "placeholders": [],
-   "sha256": "9d90777e6c9f3988ac99413e994f7bfa0a11c70915e41d1c9dbfc73568ffc96e",
+   "sha256": "70a2fe5b0a1096acacdd8b7e6d0e3f0e9cfae1f2dbce1d40706520b538b93268",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.07.06.md",
    "placeholders": [],
-   "sha256": "5db02ebdfdfd6e206f5fe60ad176d0956989afab5839c793f3ecaf8df77587dc",
+   "sha256": "44b802c5c00cd8378e67b9593a43120a58c363e4a3acc3fea08e47ddc4860e28",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.08.01.md",
    "placeholders": [],
-   "sha256": "9615ce4824d1b8ba548122bd7310cb1a957045bd22eebc61e200359e35a4813b",
+   "sha256": "a5845794295aa046598972c323a34334dda1a3fa2ebe2cca8c11ea1dd591e293",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.08.02.md",
    "placeholders": [],
-   "sha256": "0f167284f302610400c39236f7552baa89676c357b294baa15d6e052be551b06",
+   "sha256": "6bf9fc3132f9ffcc24b2f7e27e711e733ae6a7b9578ae195d9b78a434d0c32cd",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.08.03.md",
    "placeholders": [],
-   "sha256": "2329f3ec275565ea070ee976ecde4114866001a3b9c4faf8f4666154986532cb",
+   "sha256": "5467ad5d52ccd2875a893894fc4496446bf6cc128dd9bd4ea447567e2748a55f",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.08.04.md",
    "placeholders": [],
-   "sha256": "196e5e26e717a7175ff1c6acce5d4b1c980217eb266bda7c22e2356a93f3e26f",
+   "sha256": "4a97bb6705cd5cf33fcd432252fe3c29bb7ba3072709b1b2ff62ded9d3a4b2eb",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.08.05.md",
    "placeholders": [],
-   "sha256": "6473dd3992e4500202c98b84fe4a7ac5103a8dae4c586f608903b85dc467acec",
+   "sha256": "5d2920914ab0db52940ef524ed5b799456d5a11533e55958e6e9351d401d2094",
    "status": "pending"
   },
   {
@@ -482,13 +482,13 @@
    "placeholders": [
     "odp.03_08_07_a"
    ],
-   "sha256": "1ddc9bd4958143a763d9f01fb7509ef800bc292a829becc23d6e7761d4fe1833",
+   "sha256": "ff033880fa41a618a3b053b4d87b12e965525ca5d28be0435e0fd90bc088e32e",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.08.09.md",
    "placeholders": [],
-   "sha256": "f65c388180944e670eb207b72fd05a695dff4a7d151135c6f1e5c1cfecc6953a",
+   "sha256": "591213ad54a1d87eb5807480a5dd13f6f611cbceeeb8aadee8ae80987389c3e5",
    "status": "pending"
   },
   {
@@ -496,7 +496,7 @@
    "placeholders": [
     "odp.03_09_01_b"
    ],
-   "sha256": "a0a62404702429cd73d3a877a44718250a037f42a752b837b4d3185a5a661da2",
+   "sha256": "f662fa8df6095331cb6eed9de691e1657e38276dd3e2ee7c2b87037180d32a42",
    "status": "pending"
   },
   {
@@ -504,7 +504,7 @@
    "placeholders": [
     "odp.03_09_02_a_01"
    ],
-   "sha256": "4d79bc5518c1b3f3e84c4bd094793384d1ac0aa2f61d9572a197797f585001c8",
+   "sha256": "56da92d6ad7db8529274f07463a5bbb89e4921799d06f7b38a7437ddeba462d4",
    "status": "pending"
   },
   {
@@ -512,7 +512,7 @@
    "placeholders": [
     "odp.03_10_01_c"
    ],
-   "sha256": "29dbed442360edb4436ae0e39c3ef332eacb4e68ac2a807c8513add1f7c482b1",
+   "sha256": "53a29480563f37c01f24098b00d9461270d019ef6295d153c1d5d8c8615da64e",
    "status": "pending"
   },
   {
@@ -521,7 +521,7 @@
     "odp.03_10_02_b_01",
     "odp.03_10_02_b_02"
    ],
-   "sha256": "a656fded34c7d4f952d3596bd890da6af674dc6d706e20e44f13bbd38d784195",
+   "sha256": "81d4847c2447a4e1ffcbbe6683824812f45ffda2db3fc3d89bb35ffbb503e7cb",
    "status": "pending"
   },
   {
@@ -529,19 +529,19 @@
    "placeholders": [
     "odp.03_10_06_b"
    ],
-   "sha256": "9e544b08fb45808ec3f277ae83ba6ca3de47327152c81906daf02e2129f15062",
+   "sha256": "b48ee3ea6563b7d889fcc78adc89835c876954a677e17d5487796af9e6ce4a4f",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.10.07.md",
    "placeholders": [],
-   "sha256": "4af48a6186f2b833d3728422219c025b4cc1326de6268a25d577d40dce4ff399",
+   "sha256": "553180ce2f4fd0f5af87e4762a02ff92a3983f0297aaf9d597e53db361ff788c",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.10.08.md",
    "placeholders": [],
-   "sha256": "82c5d4975ff5d1eb714b51dc682bfb743456bd23e32d2be723ea4299f96dd0dd",
+   "sha256": "854df806fb50f2237ba45dcce574308b6fd697defa784bd87e1bbf59ff781ab8",
    "status": "pending"
   },
   {
@@ -549,7 +549,7 @@
    "placeholders": [
     "odp.03_11_01_b"
    ],
-   "sha256": "967c71ad1af0f93e8706c360997feee27c1238618b6452272172cb024d1977b9",
+   "sha256": "13c85af0e2e8e12bd08ab0ccd281ebdab1f377aed39ac7e34c6a62396b5f3350",
    "status": "pending"
   },
   {
@@ -559,13 +559,13 @@
     "odp.03_11_02_b",
     "odp.03_11_02_c"
    ],
-   "sha256": "70c9e1322596b1f650e667fea658589e58b00a5eca91ac129c31c9e2bb9ef729",
+   "sha256": "86560efa9a23b28d06c26cced34833fb76bc2140c75d2464a72fd037481c62a9",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.11.04.md",
    "placeholders": [],
-   "sha256": "86f0da76bda5bdc72c3815e801665ac2ddf4425c8bebd01686d76fc0f3e51bd1",
+   "sha256": "1cd4703d399c68624d7ad70f3ce420d1f44adb7b4a6d614b155b0deb47bf4e63",
    "status": "pending"
   },
   {
@@ -573,19 +573,19 @@
    "placeholders": [
     "odp.03_12_01"
    ],
-   "sha256": "44bab46e19ff0b4213b28d71050a316e76c80fb6e29992917e1ec275c951db92",
+   "sha256": "3ac438aca3aabf64ede5743f856a189f4d8e966602d2c777ba7ac0ed17f3dcb6",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.12.02.md",
    "placeholders": [],
-   "sha256": "bf6ed9283aafc8dd85b77c05510f4371ebff6b7e2e15b6fe18849ad84970c5bc",
+   "sha256": "b893624e4cbfc8732b2c55e3e011d74f6d7626e4b88a4fc33dec94140bc9ac3f",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.12.03.md",
    "placeholders": [],
-   "sha256": "c458ca72882cf3a0302f51e32bbb188e12a9401d093e6b65f2b7430774256375",
+   "sha256": "63ae92ca29aaaccab7254faf4b14bb8d7b7c5754cd6b9854557767b71b79c614",
    "status": "pending"
   },
   {
@@ -594,31 +594,31 @@
     "odp.03_12_05_a",
     "odp.03_12_05_c"
    ],
-   "sha256": "af08260138a8db354040f31f1c2c9102dbb4558d1c201cfccec7d13aa5eab6e1",
+   "sha256": "5da17541d19a782108cc883bcd3d562f10a3cfc56cee76b8da4078f2d351df90",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.13.01.md",
    "placeholders": [],
-   "sha256": "35677297de382aa0465890c3cced7879a4becc4da5c3f6a22c9d68fa588989e1",
+   "sha256": "2db4015de318e481548c21d6bb3f7c00dbc22082c7be502028ced72ec5e524db",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.13.04.md",
    "placeholders": [],
-   "sha256": "33b94fbc1477bae2130027d960f92c2f0209afa77707a17177870f4ea93e7e0c",
+   "sha256": "dc9ad41b31860d0d2e0786e1d9f6f27d853eb38f854d2e6a433b4d6218a6d351",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.13.06.md",
    "placeholders": [],
-   "sha256": "b6411d322a95f58146495ab93cbe648c3bd5cac4aa64f74c3df757bea6324417",
+   "sha256": "d6e203eed09cd2a5c116b8a7f30ca3e5eeba4d3c8630dad2a00ab632e71068fd",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.13.08.md",
    "placeholders": [],
-   "sha256": "087e806bb0372b42bd59ff45426c432a8e43c679e5687401b297b54daed96267",
+   "sha256": "7c25e7c9c383e5ef6ce7a26b82d2aa350309e755ddc1079b4a36161622d17764",
    "status": "pending"
   },
   {
@@ -626,7 +626,7 @@
    "placeholders": [
     "odp.03_13_09"
    ],
-   "sha256": "cb0f4c01900944129625a325e9a13c7c32c38dd43040e5194ff97f45b8b1ec14",
+   "sha256": "dc802604f5bbe207a0256d5c891b21abf0396f0ca90b123cec813d104d7e8a68",
    "status": "pending"
   },
   {
@@ -634,7 +634,7 @@
    "placeholders": [
     "odp.03_13_10"
    ],
-   "sha256": "ef515317a4cbf2ea1f1e28c02840011c335d6871384000fed7b86c3359f7990d",
+   "sha256": "f260b7c13082ba0a9f502b79f34023fe1a2509a4e5ec16831697fd47825bc761",
    "status": "pending"
   },
   {
@@ -642,7 +642,7 @@
    "placeholders": [
     "odp.03_13_11"
    ],
-   "sha256": "db5c7b141a1e2cdee1c5045be71dc04f0ed49759f4468df4ca2ef17d72d934ff",
+   "sha256": "fb7890a3cc008f56c1117e911df6299a8ed21ebac8028dd44b921981a45ee598",
    "status": "pending"
   },
   {
@@ -650,19 +650,19 @@
    "placeholders": [
     "odp.03_13_12_a"
    ],
-   "sha256": "5196d1d3693af9e3f4d8a834d66fcb003933ca5c25bc4177083a7ecace0ced06",
+   "sha256": "8fdc51700fed4c0f0dc2ecb08f657250cb67554bbeb5376395aacf93a0722d80",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.13.13.md",
    "placeholders": [],
-   "sha256": "47e8bfcc8bbb6f0cd601d789d8a3af694505f858be199587085685fb36189aea",
+   "sha256": "ca2b2d8681827a474daf93a3e8fd1a237787be71e917421d5a2bb4f8b3c416ca",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.13.15.md",
    "placeholders": [],
-   "sha256": "3ea4c4009782a294134132aa9d6dfe0ace3afce7a7f2dd4920932b727e09c9f4",
+   "sha256": "ded732c15045110b0194a14e9e2fa66407a32fcfe91df9e0b01446151f5ecf3f",
    "status": "pending"
   },
   {
@@ -670,7 +670,7 @@
    "placeholders": [
     "odp.03_14_01_b"
    ],
-   "sha256": "db3c64f646c86bb3813c1f3aa87a4b82db85f77a93c6f93715569e66d461ca57",
+   "sha256": "7edeec976802d60d851ffc9404277d0712888919c44a903f8bbbea4dc35fc537",
    "status": "pending"
   },
   {
@@ -678,25 +678,25 @@
    "placeholders": [
     "odp.03_14_02_c_01"
    ],
-   "sha256": "f1dabe2682872be37fcc9f8d940c7b7493e4a48e45080c4da037758b05975b16",
+   "sha256": "63ea920868453d9b94f0b85e604a06ccb3a2156798135ddae7901f6743301c37",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.14.03.md",
    "placeholders": [],
-   "sha256": "10c61e5089af88a673386fdef6b738bcc959cb50ccdb353ba24936c8faf2be28",
+   "sha256": "9d0aa419303485a19875fdfc593e0c04e4dd77da4e381b813f6c175958353781",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.14.06.md",
    "placeholders": [],
-   "sha256": "cbafeb1f236a6aae0c134c29e818e4a24087d8ce56eeb940d18dca1694147132",
+   "sha256": "34ae4dbf2353132b0c97e1875ba793da98fcb17c5edb2a0e6aacd8fc6d37acc7",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.14.08.md",
    "placeholders": [],
-   "sha256": "57546961751064ec2dfffef0544ebcd996cf61c4572258b242f152d3ddea951b",
+   "sha256": "fc1c277460b543622794c84d42aec65ced93d6948bdcafe8e019aeaf8151b54e",
    "status": "pending"
   },
   {
@@ -704,7 +704,7 @@
    "placeholders": [
     "odp.03_15_01_b"
    ],
-   "sha256": "79f1fe861a6097f401abe794ffaf13dcfda29029b7351129415f5dda857d732a",
+   "sha256": "7d637e295d09ecfb9291e0a209009f926035cb8ebc25b18061a07dfa77610f9c",
    "status": "pending"
   },
   {
@@ -712,7 +712,7 @@
    "placeholders": [
     "odp.03_15_02_b"
    ],
-   "sha256": "3f9e381cad8fa70945664019acfe8a106594b1a3c6d49f742c26078670cb34f5",
+   "sha256": "d3be0e7a1c11032dce1fd1d89abf4bbdd6d2ceed75e2d62b76712a84d30bb5d0",
    "status": "pending"
   },
   {
@@ -720,7 +720,7 @@
    "placeholders": [
     "odp.03_15_03_d"
    ],
-   "sha256": "14866c02942ba7d6d90070a75bb213fc5e357ee6c68bd657249b7124707235d3",
+   "sha256": "b34b0cc23fceebfa468fadd4d09186acf532bb7dde126f9451d90060894fa960",
    "status": "pending"
   },
   {
@@ -728,13 +728,13 @@
    "placeholders": [
     "odp.03_16_01"
    ],
-   "sha256": "7a3bc1b249e7141bfd4ea6298f414d68f4386198dea84a5af63989cce7eea523",
+   "sha256": "2c189f68febbb3b54c326f9c238235dda15d768d88ce5808382fb56bd09b87a9",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.16.02.md",
    "placeholders": [],
-   "sha256": "67164fc009f82c8807dd95df6cba8da298ceeedb0f2a88de6c2b5f437acdf55b",
+   "sha256": "cea010a702233afc67d22ffe77f11a86dcc084ef5b494dc17845c25b7556a78d",
    "status": "pending"
   },
   {
@@ -742,7 +742,7 @@
    "placeholders": [
     "odp.03_16_03_a"
    ],
-   "sha256": "5785759fb766d9738dbad11f20ae636b775efbcf0023fe934b758471da22f7d2",
+   "sha256": "593d1b2683cc65dbe0d66ef138bd97dea38f26d322522429ba3a1507fd2dbc36",
    "status": "pending"
   },
   {
@@ -750,13 +750,13 @@
    "placeholders": [
     "odp.03_17_01_b"
    ],
-   "sha256": "1b69e70cc856d2e3087ccc225bf869f97a1b405c7009fa796e15eddc7838b78a",
+   "sha256": "d8fffd94555086aa67d636052ed0670c9a5d57fb8d2ed4559b5e2ebebf2ad089",
    "status": "pending"
   },
   {
    "path": "templates/ssp/controls/03.17.02.md",
    "placeholders": [],
-   "sha256": "dc008f84bbfc1fd889bbfa8aae100d99ae7bb3c428dea3eaaffa35d2a233739a",
+   "sha256": "a059b41c851834dbd413fc3a5580fdb7f867b0324db2034913c8683b261c22b9",
    "status": "pending"
   },
   {
@@ -764,7 +764,7 @@
    "placeholders": [
     "odp.03_17_03_b"
    ],
-   "sha256": "484a06608d2725d14782af2b30d4e9554b7557d6e550987f2773101cc7729597",
+   "sha256": "f6b5f1f3849fc0ea7d2af6b79541b6b4685a94f0467668ab7d457b749447c939",
    "status": "pending"
   },
   {
@@ -812,7 +812,7 @@
     "systems.in_boundary",
     "templates.version"
    ],
-   "sha256": "fa8b5141d239c76db9a4c903923575d8ce40e187c360401b97100dbf2902c457"
+   "sha256": "06815aaf34bf20f76a56b378b530371e5fb551db039f23907dd4d38349e157d3"
   }
  ],
  "library": "rev3"

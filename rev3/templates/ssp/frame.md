@@ -39,7 +39,7 @@ description with a bold lead sentence.
 
 ### 1.1 Purpose
 
-This System Security Plan documents the security requirements of NIST SP 800-171 Revision 2 as they are met for
+This System Security Plan documents the security requirements of NIST SP 800-171 Revision 3 as they are met for
 **{{system.name}}**, which processes, stores and transmits Controlled Unclassified Information (CUI) for
 {{organization.legal_name}}. It describes the system boundary, the operating environment, and how each requirement is
 implemented, and it is the reference for the companion Plan of Action and Milestones (POA&M).

@@ -309,7 +309,9 @@ def assemble(lib, arch="chp-appliance"):
             raise FillError(f"{p}:0: missing control block for {r['id']}")
         text = _read(p)
         if r.get("title"):                 # Rev 3 catalog: named requirement, multi-part text quoted under it
-            quote = "\\\n".join(f"> {ln}" for ln in r["requirement"].split("\n") if ln.strip())
+            # escape "a. " / "1. " so CommonMark keeps the hard-broken lines one quoted paragraph, not lists
+            quote = "\\\n".join("> " + re.sub(r"^(\d+|[a-z])\. ", r"\1\\. ", ln)
+                                  for ln in r["requirement"].split("\n") if ln.strip())
             head = f"#### {r['id']} {r['title']}\n\n{quote}\n\n"
         else:                              # Rev 2 catalog: the one-sentence requirement is the heading
             head = f"#### {r['id']} {r['requirement']}\n\n"

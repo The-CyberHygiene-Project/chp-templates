@@ -37,3 +37,9 @@ def test_vocabulary_has_every_odp_once_as_public():
     v = load_vocabulary(TOP / "vocabulary.md")
     for r in ROWS:
         assert v[key(r["odp_id"])]["visibility"] == "public" and v[key(r["odp_id"])]["kind"] == "value"
+
+
+def test_no_line_wrap_hyphen_artefacts():
+    # final review M1: "non- remote", "800- 47", "end- point" were pdftotext line-wrap artefacts
+    import re
+    assert [r["odp_id"] for r in ROWS if re.search(r"[A-Za-z0-9]- [A-Za-z0-9]", r["value"])] == []

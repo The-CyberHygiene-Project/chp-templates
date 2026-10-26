@@ -25,7 +25,7 @@ def test_rev3_heading_uses_title_and_quotes_the_requirement(tmp_path):
            '03.01.01,Access Control,AC,Account Management,"a. Define the types.\nb. Create accounts."\n')
     blk = "<!-- chp:control id=03.01.01 status=pending evidence= -->\n**Implementation:** Pending.\n"
     ssp = assemble(lib(tmp_path, cat, {"03.01.01": blk}))["ssp.md"]
-    assert "#### 03.01.01 Account Management\n\n> a. Define the types.\\\n> b. Create accounts.\n\n" in ssp
+    assert "#### 03.01.01 Account Management\n\n> a\\. Define the types.\\\n> b\\. Create accounts.\n\n" in ssp
 
 
 def test_rev2_heading_is_unchanged(tmp_path):
@@ -56,3 +56,12 @@ def test_profile_overrides_an_odp_default(tmp_path):
     p.write_text("[odp]\n03_01_01_f_02 = 30 days\n")
     v, _, prov = load_values(p, None, d, MAP)
     assert v["odp.03_01_01_f_02"] == "30 days" and prov["odp.03_01_01_f_02"] == "profile"
+
+
+def test_rev3_quoted_numbered_lines_stay_one_paragraph(tmp_path):
+    # final review I2: "> 1. ..." would start a CommonMark list and swallow the next lettered part
+    cat = ('id,family,family_code,title,requirement\n'
+           '03.01.01,Access Control,AC,Account Management,"c. Specify:\n1. Authorized users,\nd. Authorize access."\n')
+    blk = "<!-- chp:control id=03.01.01 status=pending evidence= -->\n**Implementation:** Pending.\n"
+    ssp = assemble(lib(tmp_path, cat, {"03.01.01": blk}))["ssp.md"]
+    assert "> c\\. Specify:\\\n> 1\\. Authorized users,\\\n> d\\. Authorize access.\n" in ssp

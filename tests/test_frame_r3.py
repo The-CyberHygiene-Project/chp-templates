@@ -56,3 +56,7 @@ def test_poam_seeds_use_the_crosswalk():
 def test_rev2_t06_says_closed_by_update3():
     t06 = next(ln for ln in (TOP / "rev2/templates/poam/frame.md").read_text().split("\n") if ln.startswith("| T-06"))
     assert "0.2.0-update3" in t06 and "still denied" in t06
+
+
+def test_no_revision_2_wording_in_rev3_frame():
+    assert "Revision 2" not in FRAME                                   # final review I1 (Purpose section)

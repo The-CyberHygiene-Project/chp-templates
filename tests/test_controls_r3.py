@@ -49,14 +49,16 @@ def test_rev2_basis_lines_follow_the_crosswalk():
     assert basis.get("03.04.10", ([], [])) == ([], [])                  # new in Rev 3
     assert "**Rev 2 basis:** none; this requirement is new in Rev 3." in (CTRL / "03.04.10.md").read_text()
     assert "**Rev 2 basis:** 3.1.1; it also covers withdrawn 3.13.3. " in (CTRL / "03.01.01.md").read_text()
-    assert "**Rev 2 basis:** 3.12.4. For the appliance's" in (CTRL / "03.15.02.md").read_text()
+    assert "**Rev 2 basis:** 3.12.4. For this system's Rev 2 text, see the Rev 2 plan's narrative for 3.12.4." in \
+        (CTRL / "03.15.02.md").read_text()
+    assert not [p.stem for p in CTRL.glob("*.md") if "appliance" in p.read_text()]   # final review I4
 
 
 def test_block_text_exact_form():
     t = block_text("03.09.09", ([], []), [])
     assert t == ("<!-- chp:control id=03.09.09 status=pending evidence= -->\n"
                  "**Implementation:** Pending. This requirement is not yet proven on the Rev 3 reference implementation, "
-                 "so this library does not yet describe the appliance's implementation.\n\n"
+                 "so this library does not yet describe an implementation.\n\n"
                  "**Rev 2 basis:** none; this requirement is new in Rev 3.\n\n"
                  "**Site responsibility:** Describe how the site meets this requirement until this library's Rev 3 text "
                  "is written.\n")

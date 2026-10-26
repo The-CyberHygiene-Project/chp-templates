@@ -28,18 +28,16 @@ def _basis_line(primary, also):
     if not primary and not also:
         return "**Rev 2 basis:** none; this requirement is new in Rev 3."
     if len(primary) == 1 and not also:
-        return (f"**Rev 2 basis:** {primary[0]}. For the appliance's implementation today, see the Rev 2 plan's "
-                f"narrative for {primary[0]}.")
+        return f"**Rev 2 basis:** {primary[0]}. For this system's Rev 2 text, see the Rev 2 plan's narrative for {primary[0]}."
     head = ", ".join(primary) if primary else "none directly"
     tail = f"; it also covers withdrawn {', '.join(also)}" if also else ""
-    return (f"**Rev 2 basis:** {head}{tail}. For the appliance's implementation today, see the Rev 2 plan's narratives "
-            "for those requirements.")
+    return f"**Rev 2 basis:** {head}{tail}. For this system's Rev 2 text, see the Rev 2 plan's narratives for those requirements."
 
 
 def block_text(cid, basis, odps):
     parts = [f"<!-- chp:control id={cid} status=pending evidence= -->\n"
              "**Implementation:** Pending. This requirement is not yet proven on the Rev 3 reference implementation, "
-             "so this library does not yet describe the appliance's implementation.",
+             "so this library does not yet describe an implementation.",
              _basis_line(*basis)]
     if odps:
         lines = ["**Organization-defined parameters** (the DoD values are the defaults until the site confirms them):", ""]
