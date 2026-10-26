@@ -1,0 +1,95 @@
+# Fill-in report
+
+## Unfilled placeholders (still visible as {{key}})
+
+- `odp.03_01_20_b`: ssp.md line 483
+- `odp.03_04_06_b`: ssp.md line 769
+- `odp.03_13_10`: ssp.md line 1534
+- `odp.03_16_01`: ssp.md line 1754
+- `status.pl.met`: ssp.md line 1883
+- `status.pl.not_met`: ssp.md line 1883
+- `status.pl.unverified`: ssp.md line 1883
+- `status.sa.met`: ssp.md line 1884
+- `status.sa.not_met`: ssp.md line 1884
+- `status.sa.unverified`: ssp.md line 1884
+- `status.sr.met`: ssp.md line 1885
+- `status.sr.not_met`: ssp.md line 1885
+- `status.sr.unverified`: ssp.md line 1885
+
+## Values filled from defaults (confirm them in profile.ini)
+
+- `odp.03_01_01_g_01`
+- `odp.03_01_01_g_02`
+- `odp.03_01_01_g_03`
+- `odp.03_01_01_h_01`
+- `odp.03_01_01_h_02`
+- `odp.03_01_05_b_01`
+- `odp.03_01_05_b_02`
+- `odp.03_01_05_c`
+- `odp.03_01_06_a`
+- `odp.03_01_08_a_01`
+- `odp.03_01_08_a_02`
+- `odp.03_01_08_b`
+- `odp.03_01_10_a`
+- `odp.03_01_11`
+- `odp.03_02_01_a_01`
+- `odp.03_02_01_a_02`
+- `odp.03_02_01_b_01`
+- `odp.03_02_01_b_02`
+- `odp.03_02_02_a_01`
+- `odp.03_02_02_a_02`
+- `odp.03_02_02_b_01`
+- `odp.03_02_02_b_02`
+- `odp.03_03_01_a`
+- `odp.03_03_01_b`
+- `odp.03_03_04_a`
+- `odp.03_03_04_b`
+- `odp.03_03_05_a`
+- `odp.03_03_07_b`
+- `odp.03_04_01_b`
+- `odp.03_04_02_a`
+- `odp.03_04_06_c`
+- `odp.03_04_08_c`
+- `odp.03_04_10_b`
+- `odp.03_04_12_a`
+- `odp.03_04_12_b`
+- `odp.03_05_01_b`
+- `odp.03_05_02`
+- `odp.03_05_05_c`
+- `odp.03_05_05_d`
+- `odp.03_05_07_a`
+- `odp.03_05_07_f`
+- `odp.03_05_12_e_01`
+- `odp.03_05_12_e_02`
+- `odp.03_06_02_b`
+- `odp.03_06_02_c`
+- `odp.03_06_03`
+- `odp.03_06_04_a_01`
+- `odp.03_06_04_a_03`
+- `odp.03_06_04_b_01`
+- `odp.03_06_04_b_02`
+- `odp.03_08_07_a`
+- `odp.03_09_01_b`
+- `odp.03_09_02_a_01`
+- `odp.03_10_01_c`
+- `odp.03_10_02_b_01`
+- `odp.03_10_02_b_02`
+- `odp.03_10_06_b`
+- `odp.03_11_01_b`
+- `odp.03_11_02_a`
+- `odp.03_11_02_b`
+- `odp.03_11_02_c`
+- `odp.03_12_01`
+- `odp.03_12_05_a`
+- `odp.03_12_05_c`
+- `odp.03_13_09`
+- `odp.03_13_11`
+- `odp.03_13_12_a`
+- `odp.03_14_01_b`
+- `odp.03_14_02_c_01`
+- `odp.03_15_01_b`
+- `odp.03_15_02_b`
+- `odp.03_15_03_d`
+- `odp.03_16_03_a`
+- `odp.03_17_01_b`
+- `odp.03_17_03_b`
