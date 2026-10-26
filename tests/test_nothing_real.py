@@ -4,7 +4,7 @@ import subprocess
 from pathlib import Path
 
 TOP = Path(__file__).resolve().parents[1]
-ALLOWED_DOMAINS = {"example.test", "csrc.nist.gov", "nist.gov", "doi.org", "www.apache.org", "apache.org", "sam.gov", "checklists.nist.gov", "schemas.openxmlformats.org"}
+ALLOWED_DOMAINS = {"example.test", "csrc.nist.gov", "nist.gov", "doi.org", "www.apache.org", "apache.org", "sam.gov", "checklists.nist.gov", "schemas.openxmlformats.org", "ncp.nist.gov"}
 DENY = re.compile(r"(?i)cyberinabox|diwai|contract-coach|shannon|PRIVATE KEY")
 IPV4 = re.compile(r"\b(\d{1,3}(?:\.\d{1,3}){3})\b")
 EMAIL = re.compile(r"[\w.+-]+@([\w-]+(?:\.[\w-]+)+)")
