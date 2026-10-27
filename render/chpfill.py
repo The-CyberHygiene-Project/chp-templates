@@ -208,7 +208,7 @@ def load_values(profile, site_conf, defaults, mapping):
                 values[placeholder], prov[placeholder] = kv[sc_key], "site.conf"
     if defaults:
         for key, val in _ini(defaults).items():
-            if key.startswith("decision.") and key not in values:
+            if key.startswith(("decision.", "odp.")) and key not in values:
                 values[key], prov[key] = val, DEFAULT
     return values, facts, prov
 
@@ -259,6 +259,9 @@ def _status_line(text):
     m = META.match(text)
     if not m:
         return ""
+    if m.group(2) == "pending":
+        return ("**Status:** pending (not yet proven on the Rev 3 reference implementation). "
+                "**Evidence:** none yet.\n\n")
     items = []
     for e in (x for x in m.group(3).split(";") if x):
         items.append(f"scan rule `{e[5:]}`" if e.startswith("scan:") else f"idm-assistant `{e}`")
@@ -305,7 +308,14 @@ def assemble(lib, arch="chp-appliance"):
         if not p.exists():
             raise FillError(f"{p}:0: missing control block for {r['id']}")
         text = _read(p)
-        blocks.append(f"#### {r['id']} {r['requirement']}\n\n{_status_line(text)}{META.sub('', text).strip()}\n")
+        if r.get("title"):                 # Rev 3 catalog: named requirement, multi-part text quoted under it
+            # escape "a. " / "1. " so CommonMark keeps the hard-broken lines one quoted paragraph, not lists
+            quote = "\\\n".join("> " + re.sub(r"^(\d+|[a-z])\. ", r"\1\\. ", ln)
+                                  for ln in r["requirement"].split("\n") if ln.strip())
+            head = f"#### {r['id']} {r['title']}\n\n{quote}\n\n"
+        else:                              # Rev 2 catalog: the one-sentence requirement is the heading
+            head = f"#### {r['id']} {r['requirement']}\n\n"
+        blocks.append(f"{head}{_status_line(text)}{META.sub('', text).strip()}\n")
     inserts = {"{{> family_status}}": family_table(catalog), "{{> arch}}": _read(t / "ssp" / "arch" / f"{arch}.md"),
                "{{> controls}}": "\n".join(blocks)}
     out = [inserts[line.strip()].rstrip("\n") if line.strip() in inserts else line

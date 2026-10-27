@@ -8,10 +8,10 @@ import pytest
 TOP = Path(__file__).resolve().parents[1]
 
 
-def render(tmp_path):
+def render(tmp_path, lib="rev2", profile="example-profile.ini"):
     out = tmp_path / "out"
-    r = subprocess.run([sys.executable, str(TOP / "render/chpfill.py"), "fill", "--lib", str(TOP / "rev2"), "--profile",
-                        str(TOP / "tests/fixtures/example-profile.ini"), "--out", str(out), "--templates-version", "1.0.0"],
+    r = subprocess.run([sys.executable, str(TOP / "render/chpfill.py"), "fill", "--lib", str(TOP / lib), "--profile",
+                        str(TOP / "tests/fixtures" / profile), "--out", str(out), "--templates-version", "1.0.0"],
                        capture_output=True, text=True)
     assert r.returncode == 0, r.stderr
     return out
@@ -30,3 +30,11 @@ def test_word_copy_renders(tmp_path):
     r = subprocess.run(["pandoc", str(out / "ssp.md"), "-o", str(tmp_path / "ssp.docx")], capture_output=True, text=True)
     assert r.returncode == 0, r.stderr
     assert (tmp_path / "ssp.docx").stat().st_size > 20_000
+
+
+def test_rev3_golden_render_matches_the_snapshot(tmp_path):
+    out = render(tmp_path, "rev3", "example-profile-r3.ini")
+    for name in ("ssp.md", "poam.md", "fill-report.md"):
+        assert (out / name).read_text() == (TOP / "tests/golden-r3" / name).read_text(), f"{name} differs"
+    report = (out / "fill-report.md").read_text()
+    assert report.count("`odp.") == 75 + 4         # 75 defaults listed (03.01.01.f.02 confirmed), 4 guidance unfilled

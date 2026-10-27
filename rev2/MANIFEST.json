@@ -1,6 +1,6 @@
 {
  "catalog_sha256": "27f68148b40362fc13b87abfa193f9cf1f9518c9e850690ae7d5485a9c4fa60e",
- "content_version": "1.2.0",
+ "content_version": "1.2.1",
  "files": [
   {
    "path": "catalog.csv",
@@ -35,7 +35,7 @@
     "system.name",
     "templates.version"
    ],
-   "sha256": "935c49ec340b372f3ea02e35cd51ec8f32737f967001bf743872db59b76a5db3"
+   "sha256": "07e8e62e952b1e9bf2ba14ea1f174b8fc6d78a369efcd50eb454fe6ff7df453a"
   },
   {
    "path": "templates/ssp/arch/chp-appliance.md",

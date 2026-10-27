@@ -1,0 +1,819 @@
+{
+ "catalog_sha256": "9ac9d211555899e1b16223647ae8336d2b63b5e9203950573f87c634eafb05ef",
+ "content_version": "0.1.0",
+ "files": [
+  {
+   "path": "catalog.csv",
+   "placeholders": [],
+   "sha256": "9ac9d211555899e1b16223647ae8336d2b63b5e9203950573f87c634eafb05ef"
+  },
+  {
+   "path": "crosswalk.csv",
+   "placeholders": [],
+   "sha256": "94612df43f8e895709502810552bc06c252d9037c43a878b1707ceadb1712939"
+  },
+  {
+   "path": "defaults.ini",
+   "placeholders": [],
+   "sha256": "0763333c7041e6b39546ecb791788cc304687d017ba724ed2f41225a7589d2b9"
+  },
+  {
+   "path": "odp-values.csv",
+   "placeholders": [],
+   "sha256": "642114de812c4131e87b0b03406425801814f637d5adf5ef7312cba0bb25aee3"
+  },
+  {
+   "path": "templates/poam/frame.md",
+   "placeholders": [
+    "decision.review_cycle_months",
+    "document.author",
+    "document.classification",
+    "document.date",
+    "document.version",
+    "odp.03_01_01_f_02",
+    "odp.03_01_10_a",
+    "organization.legal_name",
+    "poam.due_t01",
+    "poam.due_t02",
+    "poam.due_t03",
+    "poam.due_t04",
+    "poam.due_t05",
+    "poam.due_t07",
+    "roles.administrator",
+    "roles.security_officer",
+    "system.name",
+    "templates.version"
+   ],
+   "sha256": "071e70d004f4cd545b1ff1a9b2604e867fab7e0f48f225c2e7de49c567670d43"
+  },
+  {
+   "path": "templates/ssp/arch/chp-appliance.md",
+   "placeholders": [
+    "site.domain",
+    "system.appliance_version",
+    "system.name"
+   ],
+   "sha256": "003a0a414cef069bd6cc76c3f9595ba284e79698922b6ae6173abbd6f4ef4fd8"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.01.md",
+   "placeholders": [
+    "odp.03_01_01_f_02",
+    "odp.03_01_01_g_01",
+    "odp.03_01_01_g_02",
+    "odp.03_01_01_g_03",
+    "odp.03_01_01_h_01",
+    "odp.03_01_01_h_02"
+   ],
+   "sha256": "410401bc4e8afe57bc4c174ab8d4d872988c831d9b46caa598005ab80746cd6f",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.02.md",
+   "placeholders": [],
+   "sha256": "cc686d90daf7ceb7e9551b5b0122c51171a97fdcd2df455c91fcd78132627a9f",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.03.md",
+   "placeholders": [],
+   "sha256": "36480d17114425a3b2510b966231ca0cb1869813f3b6e00451940d66e1fc277d",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.04.md",
+   "placeholders": [],
+   "sha256": "bf64111cdb271ef4ca5e85699f3664f4588c5fec9902148c00c102ca37614d55",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.05.md",
+   "placeholders": [
+    "odp.03_01_05_b_01",
+    "odp.03_01_05_b_02",
+    "odp.03_01_05_c"
+   ],
+   "sha256": "54bb783fc18151a2ba87775bee99217eac62e75c2dcef7a446f78e16002936c1",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.06.md",
+   "placeholders": [
+    "odp.03_01_06_a"
+   ],
+   "sha256": "25953b0e94da4bb5a2ce361700dbea4cb56d11c346d5a5d00509c98918d978c9",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.07.md",
+   "placeholders": [],
+   "sha256": "93f0912eb5c25c2cccc99b27f08c17e4eb534d15aeac31c5bb6f8943a200d9fc",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.08.md",
+   "placeholders": [
+    "odp.03_01_08_a_01",
+    "odp.03_01_08_a_02",
+    "odp.03_01_08_b"
+   ],
+   "sha256": "95bea235e6f71178ca4f2a54b5526aed8b905264d343ed352604d37bb84d51be",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.09.md",
+   "placeholders": [],
+   "sha256": "4bfc98d171b09a0fc854b210884b2516c527e009a318e55625235124151e0487",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.10.md",
+   "placeholders": [
+    "odp.03_01_10_a"
+   ],
+   "sha256": "c4eaff8097532216ffbbd1b0cb9dbc26d3a696484624fd2f838f4e9fc08e0e1d",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.11.md",
+   "placeholders": [
+    "odp.03_01_11"
+   ],
+   "sha256": "90d3afd757a1c651e6897ef2929446de2e82285b98586a64e1c8412ab57a5903",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.12.md",
+   "placeholders": [],
+   "sha256": "8f1f7d645823bc7dd4bd20d16888f1f910b0abee2b9a341c7c9c67274950a4e8",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.16.md",
+   "placeholders": [],
+   "sha256": "278eeaacfcb8d6cb8df266eb361886ab8374cac9eb64cb57377f8dcf2cd2fa96",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.18.md",
+   "placeholders": [],
+   "sha256": "d19c2e866118256e41f3cceb6ed546ea671be771e2bca6ff6512b1365580a91b",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.20.md",
+   "placeholders": [
+    "odp.03_01_20_b"
+   ],
+   "sha256": "78b7d65a8a0b62b4a2b74c90b75c1d8f83aa131be72429b7fd0db3028b869971",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.01.22.md",
+   "placeholders": [],
+   "sha256": "ef03b92857b1fdd64493731dea6d67ec3222b656642c613666b13f1c39653e00",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.02.01.md",
+   "placeholders": [
+    "odp.03_02_01_a_01",
+    "odp.03_02_01_a_02",
+    "odp.03_02_01_b_01",
+    "odp.03_02_01_b_02"
+   ],
+   "sha256": "db4b5e8c4ab5bc87ee78c3a041f4dd47383135aa694dcdb56e31174dc35f2f46",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.02.02.md",
+   "placeholders": [
+    "odp.03_02_02_a_01",
+    "odp.03_02_02_a_02",
+    "odp.03_02_02_b_01",
+    "odp.03_02_02_b_02"
+   ],
+   "sha256": "0f993050d7ec7245d0bab6a0714669e7b2bf4f2b6f8a1d5c37b353c2e859042c",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.03.01.md",
+   "placeholders": [
+    "odp.03_03_01_a",
+    "odp.03_03_01_b"
+   ],
+   "sha256": "9266d77c25851203e631d22f6338ac0ec30f6469652f092fb0ea91de9b64432b",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.03.02.md",
+   "placeholders": [],
+   "sha256": "32dfe46eaa4e2e7c562faff08dbfcac57cd9113b8871910d00d9ca147c82a588",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.03.03.md",
+   "placeholders": [],
+   "sha256": "7ca71d5be83cb024b0ff8e7468ea9ca9ac314f1b6b01172fe5bc84870ac06687",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.03.04.md",
+   "placeholders": [
+    "odp.03_03_04_a",
+    "odp.03_03_04_b"
+   ],
+   "sha256": "cc92ae35a9000b3c0fa0e0e1252f948f206ec62f4f1834d43831c8a137758123",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.03.05.md",
+   "placeholders": [
+    "odp.03_03_05_a"
+   ],
+   "sha256": "408ca6ad6ead15e4135ee7978289561964b93b6b6930d0c04ae4e1e2a14bc921",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.03.06.md",
+   "placeholders": [],
+   "sha256": "304a30c57761b0c1542c98ca957d0f5c584169c2cfe22fdd4361edbcf2429808",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.03.07.md",
+   "placeholders": [
+    "odp.03_03_07_b"
+   ],
+   "sha256": "b79e0526185da6debf93a475e571df661de6478bd627aa3e29393803e96062b9",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.03.08.md",
+   "placeholders": [],
+   "sha256": "2e59a1887d235f9af7ae1b7d85cadd149eabf5ae7a9625ec7e218557c10f3159",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.04.01.md",
+   "placeholders": [
+    "odp.03_04_01_b"
+   ],
+   "sha256": "805854e437e857f8872d0d1682ff61752c39274d89a87a9298b3b97eb445826f",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.04.02.md",
+   "placeholders": [
+    "odp.03_04_02_a"
+   ],
+   "sha256": "72f3f2b8f0fd4fd231cbf1ea4329ec228e31116ca4d4d52ad941d50548ceb3ee",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.04.03.md",
+   "placeholders": [],
+   "sha256": "1a0ed3c9e475674684af8b3ee974b7dd8533df1f4318c7a7692aab70ea1ea25a",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.04.04.md",
+   "placeholders": [],
+   "sha256": "92a65da595fd936a451eb2002da435beeffe861fade943e0623b303423949183",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.04.05.md",
+   "placeholders": [],
+   "sha256": "5b9e3de2cf83600ca0462e3f1586559b9d905bbf190106c0bde0f7beb24993e6",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.04.06.md",
+   "placeholders": [
+    "odp.03_04_06_b",
+    "odp.03_04_06_c"
+   ],
+   "sha256": "c349004086a30f615a19a3de6b974438cb0cb6a0b81166ecb6de4d278f388046",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.04.08.md",
+   "placeholders": [
+    "odp.03_04_08_c"
+   ],
+   "sha256": "77084197f0dbd2507976857927e2d6142c2a41dcea46eb933917465e68723e68",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.04.10.md",
+   "placeholders": [
+    "odp.03_04_10_b"
+   ],
+   "sha256": "c7453c0b67bcc8764efd51e9fc15b8828352ea5033392f2926dabb35a0f0d2a1",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.04.11.md",
+   "placeholders": [],
+   "sha256": "c78e5f85d07eea69a5e852aae71c895a93255370027b935dedc663b6e2278c86",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.04.12.md",
+   "placeholders": [
+    "odp.03_04_12_a",
+    "odp.03_04_12_b"
+   ],
+   "sha256": "be6a5adceec7e779ea7cb92224807a438c532d25632b675937ec00476d4d2c29",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.05.01.md",
+   "placeholders": [
+    "odp.03_05_01_b"
+   ],
+   "sha256": "5cada2ef7620f3bb0fbd33b073577c8251b3c18997e8a49f2033620b6414db49",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.05.02.md",
+   "placeholders": [
+    "odp.03_05_02"
+   ],
+   "sha256": "79f6863cf063964c348e934cb7686b82c5c003cc613d5adec7f4bfa57a4bfd98",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.05.03.md",
+   "placeholders": [],
+   "sha256": "92b14a2a346008c0445c85fdad566c6c999388b86ec7cc2a8d97aba77a998a49",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.05.04.md",
+   "placeholders": [],
+   "sha256": "2f6b28b2565f3737266cbbf0ad27932a5f064bba25ff5a363768f0d32432a657",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.05.05.md",
+   "placeholders": [
+    "odp.03_05_05_c",
+    "odp.03_05_05_d"
+   ],
+   "sha256": "36983a56f811610c77ff27f18c20f891b36fc6ca0c931c8484f72d5312692901",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.05.07.md",
+   "placeholders": [
+    "odp.03_05_07_a",
+    "odp.03_05_07_f"
+   ],
+   "sha256": "7a31f0b50df3b4580cabd73a58b544ce0df10edade4fd60dea9e88dffd0dae62",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.05.11.md",
+   "placeholders": [],
+   "sha256": "6d4501f8c83a2377b425d2045e7f1d6f631abffc94058da3f481e8af9c617223",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.05.12.md",
+   "placeholders": [
+    "odp.03_05_12_e_01",
+    "odp.03_05_12_e_02"
+   ],
+   "sha256": "54545b2d6242b98ac023e11afbb1876f284f957be4400a5a9adf3b479bf8c805",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.06.01.md",
+   "placeholders": [],
+   "sha256": "8af0c540de92876b2d2d645c5269bb9b11c5519faa424430368b3f1ae11de133",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.06.02.md",
+   "placeholders": [
+    "odp.03_06_02_b",
+    "odp.03_06_02_c"
+   ],
+   "sha256": "fcdcb699e6287122ffbe408682ae48b57198ed979d16b5fece7b5cff4e8c9d13",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.06.03.md",
+   "placeholders": [
+    "odp.03_06_03"
+   ],
+   "sha256": "1927eac2b616e84795b0891e44367791cfa62022bced74b6580ec4758e489a58",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.06.04.md",
+   "placeholders": [
+    "odp.03_06_04_a_01",
+    "odp.03_06_04_a_03",
+    "odp.03_06_04_b_01",
+    "odp.03_06_04_b_02"
+   ],
+   "sha256": "09f8e1b5d599f89587ff591bf00b4ee952e198721a5221c09344a4de82989d35",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.06.05.md",
+   "placeholders": [],
+   "sha256": "8304b9ff1edca8781b332061659d98d08d7d92ed8277e0e05c2f6423bba86767",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.07.04.md",
+   "placeholders": [],
+   "sha256": "0b35c880d9086ac29e965f5ebf2b1bc64c850691eb13ae42ef6807ef4a1de64f",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.07.05.md",
+   "placeholders": [],
+   "sha256": "70a2fe5b0a1096acacdd8b7e6d0e3f0e9cfae1f2dbce1d40706520b538b93268",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.07.06.md",
+   "placeholders": [],
+   "sha256": "44b802c5c00cd8378e67b9593a43120a58c363e4a3acc3fea08e47ddc4860e28",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.08.01.md",
+   "placeholders": [],
+   "sha256": "a5845794295aa046598972c323a34334dda1a3fa2ebe2cca8c11ea1dd591e293",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.08.02.md",
+   "placeholders": [],
+   "sha256": "6bf9fc3132f9ffcc24b2f7e27e711e733ae6a7b9578ae195d9b78a434d0c32cd",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.08.03.md",
+   "placeholders": [],
+   "sha256": "5467ad5d52ccd2875a893894fc4496446bf6cc128dd9bd4ea447567e2748a55f",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.08.04.md",
+   "placeholders": [],
+   "sha256": "4a97bb6705cd5cf33fcd432252fe3c29bb7ba3072709b1b2ff62ded9d3a4b2eb",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.08.05.md",
+   "placeholders": [],
+   "sha256": "5d2920914ab0db52940ef524ed5b799456d5a11533e55958e6e9351d401d2094",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.08.07.md",
+   "placeholders": [
+    "odp.03_08_07_a"
+   ],
+   "sha256": "ff033880fa41a618a3b053b4d87b12e965525ca5d28be0435e0fd90bc088e32e",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.08.09.md",
+   "placeholders": [],
+   "sha256": "591213ad54a1d87eb5807480a5dd13f6f611cbceeeb8aadee8ae80987389c3e5",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.09.01.md",
+   "placeholders": [
+    "odp.03_09_01_b"
+   ],
+   "sha256": "f662fa8df6095331cb6eed9de691e1657e38276dd3e2ee7c2b87037180d32a42",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.09.02.md",
+   "placeholders": [
+    "odp.03_09_02_a_01"
+   ],
+   "sha256": "56da92d6ad7db8529274f07463a5bbb89e4921799d06f7b38a7437ddeba462d4",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.10.01.md",
+   "placeholders": [
+    "odp.03_10_01_c"
+   ],
+   "sha256": "53a29480563f37c01f24098b00d9461270d019ef6295d153c1d5d8c8615da64e",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.10.02.md",
+   "placeholders": [
+    "odp.03_10_02_b_01",
+    "odp.03_10_02_b_02"
+   ],
+   "sha256": "81d4847c2447a4e1ffcbbe6683824812f45ffda2db3fc3d89bb35ffbb503e7cb",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.10.06.md",
+   "placeholders": [
+    "odp.03_10_06_b"
+   ],
+   "sha256": "b48ee3ea6563b7d889fcc78adc89835c876954a677e17d5487796af9e6ce4a4f",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.10.07.md",
+   "placeholders": [],
+   "sha256": "553180ce2f4fd0f5af87e4762a02ff92a3983f0297aaf9d597e53db361ff788c",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.10.08.md",
+   "placeholders": [],
+   "sha256": "854df806fb50f2237ba45dcce574308b6fd697defa784bd87e1bbf59ff781ab8",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.11.01.md",
+   "placeholders": [
+    "odp.03_11_01_b"
+   ],
+   "sha256": "13c85af0e2e8e12bd08ab0ccd281ebdab1f377aed39ac7e34c6a62396b5f3350",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.11.02.md",
+   "placeholders": [
+    "odp.03_11_02_a",
+    "odp.03_11_02_b",
+    "odp.03_11_02_c"
+   ],
+   "sha256": "86560efa9a23b28d06c26cced34833fb76bc2140c75d2464a72fd037481c62a9",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.11.04.md",
+   "placeholders": [],
+   "sha256": "1cd4703d399c68624d7ad70f3ce420d1f44adb7b4a6d614b155b0deb47bf4e63",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.12.01.md",
+   "placeholders": [
+    "odp.03_12_01"
+   ],
+   "sha256": "3ac438aca3aabf64ede5743f856a189f4d8e966602d2c777ba7ac0ed17f3dcb6",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.12.02.md",
+   "placeholders": [],
+   "sha256": "b893624e4cbfc8732b2c55e3e011d74f6d7626e4b88a4fc33dec94140bc9ac3f",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.12.03.md",
+   "placeholders": [],
+   "sha256": "63ae92ca29aaaccab7254faf4b14bb8d7b7c5754cd6b9854557767b71b79c614",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.12.05.md",
+   "placeholders": [
+    "odp.03_12_05_a",
+    "odp.03_12_05_c"
+   ],
+   "sha256": "5da17541d19a782108cc883bcd3d562f10a3cfc56cee76b8da4078f2d351df90",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.13.01.md",
+   "placeholders": [],
+   "sha256": "2db4015de318e481548c21d6bb3f7c00dbc22082c7be502028ced72ec5e524db",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.13.04.md",
+   "placeholders": [],
+   "sha256": "dc9ad41b31860d0d2e0786e1d9f6f27d853eb38f854d2e6a433b4d6218a6d351",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.13.06.md",
+   "placeholders": [],
+   "sha256": "d6e203eed09cd2a5c116b8a7f30ca3e5eeba4d3c8630dad2a00ab632e71068fd",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.13.08.md",
+   "placeholders": [],
+   "sha256": "7c25e7c9c383e5ef6ce7a26b82d2aa350309e755ddc1079b4a36161622d17764",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.13.09.md",
+   "placeholders": [
+    "odp.03_13_09"
+   ],
+   "sha256": "dc802604f5bbe207a0256d5c891b21abf0396f0ca90b123cec813d104d7e8a68",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.13.10.md",
+   "placeholders": [
+    "odp.03_13_10"
+   ],
+   "sha256": "f260b7c13082ba0a9f502b79f34023fe1a2509a4e5ec16831697fd47825bc761",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.13.11.md",
+   "placeholders": [
+    "odp.03_13_11"
+   ],
+   "sha256": "fb7890a3cc008f56c1117e911df6299a8ed21ebac8028dd44b921981a45ee598",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.13.12.md",
+   "placeholders": [
+    "odp.03_13_12_a"
+   ],
+   "sha256": "8fdc51700fed4c0f0dc2ecb08f657250cb67554bbeb5376395aacf93a0722d80",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.13.13.md",
+   "placeholders": [],
+   "sha256": "ca2b2d8681827a474daf93a3e8fd1a237787be71e917421d5a2bb4f8b3c416ca",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.13.15.md",
+   "placeholders": [],
+   "sha256": "ded732c15045110b0194a14e9e2fa66407a32fcfe91df9e0b01446151f5ecf3f",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.14.01.md",
+   "placeholders": [
+    "odp.03_14_01_b"
+   ],
+   "sha256": "7edeec976802d60d851ffc9404277d0712888919c44a903f8bbbea4dc35fc537",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.14.02.md",
+   "placeholders": [
+    "odp.03_14_02_c_01"
+   ],
+   "sha256": "63ea920868453d9b94f0b85e604a06ccb3a2156798135ddae7901f6743301c37",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.14.03.md",
+   "placeholders": [],
+   "sha256": "9d0aa419303485a19875fdfc593e0c04e4dd77da4e381b813f6c175958353781",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.14.06.md",
+   "placeholders": [],
+   "sha256": "34ae4dbf2353132b0c97e1875ba793da98fcb17c5edb2a0e6aacd8fc6d37acc7",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.14.08.md",
+   "placeholders": [],
+   "sha256": "fc1c277460b543622794c84d42aec65ced93d6948bdcafe8e019aeaf8151b54e",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.15.01.md",
+   "placeholders": [
+    "odp.03_15_01_b"
+   ],
+   "sha256": "7d637e295d09ecfb9291e0a209009f926035cb8ebc25b18061a07dfa77610f9c",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.15.02.md",
+   "placeholders": [
+    "odp.03_15_02_b"
+   ],
+   "sha256": "d3be0e7a1c11032dce1fd1d89abf4bbdd6d2ceed75e2d62b76712a84d30bb5d0",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.15.03.md",
+   "placeholders": [
+    "odp.03_15_03_d"
+   ],
+   "sha256": "b34b0cc23fceebfa468fadd4d09186acf532bb7dde126f9451d90060894fa960",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.16.01.md",
+   "placeholders": [
+    "odp.03_16_01"
+   ],
+   "sha256": "2c189f68febbb3b54c326f9c238235dda15d768d88ce5808382fb56bd09b87a9",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.16.02.md",
+   "placeholders": [],
+   "sha256": "cea010a702233afc67d22ffe77f11a86dcc084ef5b494dc17845c25b7556a78d",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.16.03.md",
+   "placeholders": [
+    "odp.03_16_03_a"
+   ],
+   "sha256": "593d1b2683cc65dbe0d66ef138bd97dea38f26d322522429ba3a1507fd2dbc36",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.17.01.md",
+   "placeholders": [
+    "odp.03_17_01_b"
+   ],
+   "sha256": "d8fffd94555086aa67d636052ed0670c9a5d57fb8d2ed4559b5e2ebebf2ad089",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.17.02.md",
+   "placeholders": [],
+   "sha256": "a059b41c851834dbd413fc3a5580fdb7f867b0324db2034913c8683b261c22b9",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/controls/03.17.03.md",
+   "placeholders": [
+    "odp.03_17_03_b"
+   ],
+   "sha256": "f6b5f1f3849fc0ea7d2af6b79541b6b4685a94f0467668ab7d457b749447c939",
+   "status": "pending"
+  },
+  {
+   "path": "templates/ssp/frame.md",
+   "placeholders": [
+    "assessment.conclusion",
+    "assessment.deficits",
+    "assessment.objectives_date",
+    "assessment.objectives_met",
+    "assessment.sprs_basis",
+    "assessment.sprs_date",
+    "assessment.sprs_score",
+    "assessment.strengths",
+    "contract.list",
+    "decision.backup_frequency",
+    "decision.restore_test_frequency",
+    "decision.review_cycle_months",
+    "document.author",
+    "document.classification",
+    "document.date",
+    "document.next_review",
+    "document.status",
+    "document.version",
+    "facts.has_outside_it_provider",
+    "organization.cage",
+    "organization.dba",
+    "organization.legal_name",
+    "organization.location",
+    "organization.owner_email",
+    "organization.uei",
+    "poam.reference",
+    "policies.list",
+    "roles.administrator",
+    "roles.security_officer",
+    "roles.system_owner",
+    "scope.boundary_note",
+    "scope.cui_types",
+    "site.domain",
+    "site.timezone",
+    "supporting.documents",
+    "system.appliance_version",
+    "system.name",
+    "system.purpose",
+    "system.status",
+    "systems.in_boundary",
+    "templates.version"
+   ],
+   "sha256": "06815aaf34bf20f76a56b378b530371e5fb551db039f23907dd4d38349e157d3"
+  }
+ ],
+ "library": "rev3"
+}
