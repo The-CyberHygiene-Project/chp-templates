@@ -1,6 +1,6 @@
 {
  "catalog_sha256": "27f68148b40362fc13b87abfa193f9cf1f9518c9e850690ae7d5485a9c4fa60e",
- "content_version": "1.2.1",
+ "content_version": "1.2.2",
  "files": [
   {
    "path": "catalog.csv",
@@ -374,7 +374,7 @@
   {
    "path": "templates/ssp/controls/3.14.2.md",
    "placeholders": [],
-   "sha256": "d20a20afeb006bfe3de01b060e8b923c495c47a7736cdb595ad4fe7af03a2799",
+   "sha256": "2d325e0762799f1569864e9bd720703860a560112d95ed19640c9a1f20bf7c9b",
    "status": "partial"
   },
   {
@@ -386,14 +386,14 @@
   {
    "path": "templates/ssp/controls/3.14.4.md",
    "placeholders": [],
-   "sha256": "8eb3bee72409396e619e8a74a2d5c078dcdb3a6e824b49fddedefc2af6d25ffb",
+   "sha256": "3d9ff0bd9994ee974c4fb535fd6f541c132957e994ed5072589ea9c61861da17",
    "status": "partial"
   },
   {
    "path": "templates/ssp/controls/3.14.5.md",
    "placeholders": [],
-   "sha256": "a4cdd6bd053716c9fff88897ba34e8e389b01c5df2cba9f9246251dd508d92a1",
-   "status": "site"
+   "sha256": "4d1fff59794184afd0fb2ed95c8fe6269d466f0c4ccb11a8cc9334ec90f2ee69",
+   "status": "partial"
   },
   {
    "path": "templates/ssp/controls/3.14.6.md",

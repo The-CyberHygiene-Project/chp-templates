@@ -40,5 +40,5 @@ def test_rev3_manifest_matches_its_library():
     assert len(ctrl) == 97 and {f["status"] for f in ctrl} == {"pending"}
 
 
-def test_rev2_content_version_moved_for_t06():
-    assert json.loads((LIB / "MANIFEST.json").read_text())["content_version"] == "1.2.1"
+def test_rev2_content_version_moved_for_yara_narratives():                    # 1.2.1 = T-06; 1.2.2 = 3.14.2/4/5 (YARA)
+    assert json.loads((LIB / "MANIFEST.json").read_text())["content_version"] == "1.2.2"
