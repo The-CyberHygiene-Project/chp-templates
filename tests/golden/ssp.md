@@ -1076,11 +1076,11 @@ Each requirement below carries its status:
 
 #### 3.14.2 Provide protection from malicious code at designated locations within organizational systems.
 
-**Status:** partial. **Evidence:** idm-assistant `lab/iso-requirements.md#1`; idm-assistant `lab/iso-requirements.md#38`; scan rule `service_fapolicyd_enabled`; scan rule `selinux_state`.
+**Status:** partial. **Evidence:** idm-assistant `lab/iso-requirements.md#1`; idm-assistant `lab/iso-requirements.md#38`; scan rule `service_fapolicyd_enabled`; scan rule `selinux_state`; idm-assistant `lab/security/PROOF-RECORD-Y1.md`.
 
-**Implementation:** fapolicyd lets only trusted, signed programs run, USBGuard blocks USB storage, and SELinux confines services. This version of the appliance has no antivirus scanner; one is planned for a later release.
+**Implementation:** fapolicyd lets only trusted, signed programs run, USBGuard blocks USB storage, and SELinux confines services. With the appliance's optional security add-on (from 0.3.0 update 1), YARA scans new and changed files in the user and temporary folders (home folders, /root, /tmp, /var/tmp, /dev/shm, /run/user, /srv, /data) every 5 minutes on every host, using the Neo23x0 signature-base rules. A match raises a high-priority alert to the system administrator; nothing is moved or deleted automatically.
 
-**Site responsibility:** Decide whether a malware scanner is also needed on workstations, and protect email and web access.
+**Site responsibility:** Turn on the security add-on, decide what to do with each match, and protect email and web access.
 
 #### 3.14.3 Monitor system security alerts and advisories and take action in response.
 
@@ -1092,19 +1092,19 @@ Each requirement below carries its status:
 
 #### 3.14.4 Update malicious code protection mechanisms when new releases are available.
 
-**Status:** partial. **Evidence:** idm-assistant `lab/iso-requirements.md#46`; idm-assistant `lab/iso-requirements.md#1`.
+**Status:** partial. **Evidence:** idm-assistant `lab/iso-requirements.md#46`; idm-assistant `lab/iso-requirements.md#1`; idm-assistant `lab/security/PROOF-RECORD-Y1.md`.
 
-**Implementation:** fapolicyd's list of trusted programs is updated from the package database as signed updates are installed.
+**Implementation:** fapolicyd's list of trusted programs is updated from the package database as signed updates are installed. With the security add-on, the YARA rules are a separate signed package, updated monthly through the appliance's signed package repository; the appliance never downloads rules from the internet.
 
-**Site responsibility:** Update any additional malware protection the site uses whenever new releases are available.
+**Site responsibility:** Apply each monthly rules update and each appliance update when it is released, and update any additional malware protection the site uses.
 
 #### 3.14.5 Perform periodic scans of organizational systems and real-time scans of files from external sources as files are downloaded, opened, or executed.
 
-**Status:** site. **Evidence:** none (the site's responsibility).
+**Status:** partial. **Evidence:** idm-assistant `lab/security/PROOF-RECORD-Y1.md`.
 
-**Implementation:** AIDE checks every host's files daily for unexpected changes, but it is not a malware scanner; this version of the appliance has none.
+**Implementation:** AIDE checks every host's files daily for unexpected changes. With the security add-on, YARA scans every local file system weekly and scans new or changed files in the user and temporary folders every 5 minutes, so files from external sources are scanned within minutes of arriving; the monitor alerts if either scan stops running.
 
-**Site responsibility:** Perform periodic scans of the system, and real-time scans of files from external sources, with a malware scanner where one is used.
+**Site responsibility:** Turn on the security add-on, scan removable media and downloads on any system outside the appliance, and review scan alerts.
 
 #### 3.14.6 Monitor organizational systems, including inbound and outbound communications traffic, to detect attacks and indicators of potential attacks.
 
