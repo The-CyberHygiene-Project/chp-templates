@@ -938,9 +938,9 @@ Each requirement below carries its status:
 
 #### 3.13.1 Monitor, control, and protect communications (i.e., information transmitted or received by organizational systems) at the external boundaries and key internal boundaries of organizational systems.
 
-**Status:** partial. **Evidence:** idm-assistant `lab/iso5/PROOF-RECORD.md`; scan rule `service_firewalld_enabled`.
+**Status:** partial. **Evidence:** idm-assistant `lab/iso5/PROOF-RECORD.md`; scan rule `service_firewalld_enabled`; idm-assistant `lab/security/PROOF-RECORD-S1.md`.
 
-**Implementation:** firewalld runs on every host, and allows only the services each role needs.
+**Implementation:** firewalld runs on every host, and allows only the services each role needs. With the appliance's optional security add-on (from 0.4.0 update 1), Suricata also watches each host's own traffic and reports the attacks it detects; it does not block traffic.
 
 **Site responsibility:** Monitor, control and protect communications at the site's external boundary (the site firewall) and at key internal boundaries.
 
@@ -1108,19 +1108,19 @@ Each requirement below carries its status:
 
 #### 3.14.6 Monitor organizational systems, including inbound and outbound communications traffic, to detect attacks and indicators of potential attacks.
 
-**Status:** partial. **Evidence:** idm-assistant `lab/aide/PROOF-RECORD.md`; idm-assistant `lab/iso-requirements.md#24`.
+**Status:** partial. **Evidence:** idm-assistant `lab/aide/PROOF-RECORD.md`; idm-assistant `lab/iso-requirements.md#24`; idm-assistant `lab/security/PROOF-RECORD-S1.md`.
 
-**Implementation:** The CHP monitor and AIDE watch every host, and auditd records security events. This version of the appliance has no network intrusion detection.
+**Implementation:** The CHP monitor and AIDE watch every host, and auditd records security events. With the appliance's optional security add-on (from 0.4.0 update 1), Suricata watches each host's own network traffic, inbound and outbound, for attacks and indicators of potential attacks, using the Emerging Threats Open rules. It only detects: nothing is blocked. A high-severity match raises a high-priority alert to the system administrator straight away; medium ones go into a daily summary.
 
-**Site responsibility:** Monitor network traffic, inbound and outbound, to detect attacks and indicators of potential attacks.
+**Site responsibility:** Turn on the security add-on, investigate each network alert, and monitor the traffic that never reaches an appliance host, at the site's external boundary and between other systems.
 
 #### 3.14.7 Identify unauthorized use of organizational systems.
 
-**Status:** partial. **Evidence:** idm-assistant `lab/aide/PROOF-RECORD.md`; scan rule `audit_basic_configuration`; scan rule `accounts_passwords_pam_faillock_deny`.
+**Status:** partial. **Evidence:** idm-assistant `lab/aide/PROOF-RECORD.md`; scan rule `audit_basic_configuration`; scan rule `accounts_passwords_pam_faillock_deny`; idm-assistant `lab/security/PROOF-RECORD-W1.md`; idm-assistant `lab/security/PROOF-RECORD-S1.md`.
 
-**Implementation:** Audit records, account lockouts and monitor alerts show unusual sign-in activity and unexpected changes.
+**Implementation:** Audit records, account lockouts and monitor alerts show unusual sign-in activity and unexpected changes. With the appliance's optional security add-on, Wazuh gathers these events from every host on the server, together with Suricata's network alerts (from 0.4.0 update 1), and sends high-priority alerts to the system administrator straight away.
 
-**Site responsibility:** Review them regularly to identify unauthorized use of the system.
+**Site responsibility:** Review them, and the add-on's alerts, regularly to identify unauthorized use of the system.
 
 ## 5. CONTINGENCY PLANNING (CP)
 
