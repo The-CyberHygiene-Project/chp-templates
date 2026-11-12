@@ -802,7 +802,7 @@ Each requirement below carries its status:
 
 **Status:** site. **Evidence:** none (the site's responsibility).
 
-**Implementation:** The appliance does not hold the site's backups.
+**Implementation:** The appliance does not make the site's backups. On a server with the recommended disk (ISO 0.6.0 or later) there is a separate encrypted `/backup` volume (nodev, nosuid, noexec) where the site's backups can be staged; it is on the server's own disk until the site adds a separate backup drive and moves `/backup` to it (runbook in the site-stick guide).
 
 **Site responsibility:** Protect the confidentiality of backup CUI at its storage locations, for example by encrypting backups.
 
