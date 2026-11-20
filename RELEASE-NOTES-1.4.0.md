@@ -92,6 +92,18 @@ approval by someone other than the author, publish, marking, tagging, the docume
 - **3.4.7, 3.13.1, 3.13.6:** the server opens NTP (123/udp) to the site subnet only. This is an owner-approved
   exception to the appliance's "no new network port" rule.
 
+## POA&M seeds for the document server (Rev 2 content 1.2.7)
+
+The Rev 2 POA&M template gains nine seeded items, **T-08 to T-16**, for sites that turn on the document server
+(additive; T-01 to T-07 are unchanged): the database MD5 limit (DEGRADED mode), fapolicyd filesystem marks, the
+workstation editor's non-validated TLS stack, the NextCloud PHP lifetime, request addresses in the audit log, the
+approval ledger's replay residual, DNS tunnelling, accounts outside the identity server, and the banner check's
+text-only limit. Each uses the same columns and wording as T-01 to T-07.
+- `vocabulary.md` gains `poam.due_t08` to `poam.due_t16` (private, like `poam.due_t01` to `t07`). A profile that does
+  not set them leaves those dates unfilled, which the fill report lists.
+- **The requirement numbers on T-08 to T-16 are pending owner confirmation.** A comment above the table says so.
+- The Rev 3 POA&M is unchanged.
+
 The Rev 3 library is unchanged (0.1.0, all *pending*).
 
 ## New files (flag for consumers)
@@ -107,6 +119,7 @@ The Rev 3 library is unchanged (0.1.0, all *pending*).
 - `doc/noncui/Template_v0.1-DRAFT.md`
 - `tools/make_doc_templates.py`
 - `tests/test_doc_templates.py`
+- `tests/test_poam_seeds_r2.py`
 - `RELEASE-NOTES-1.4.0.md`
 
 `.gitignore` gains three lines so the `.docx` templates are tracked (it ignores `*.docx` elsewhere).

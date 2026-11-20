@@ -1,6 +1,6 @@
 {
  "catalog_sha256": "27f68148b40362fc13b87abfa193f9cf1f9518c9e850690ae7d5485a9c4fa60e",
- "content_version": "1.2.6",
+ "content_version": "1.2.7",
  "files": [
   {
    "path": "catalog.csv",
@@ -30,12 +30,21 @@
     "poam.due_t05",
     "poam.due_t06",
     "poam.due_t07",
+    "poam.due_t08",
+    "poam.due_t09",
+    "poam.due_t10",
+    "poam.due_t11",
+    "poam.due_t12",
+    "poam.due_t13",
+    "poam.due_t14",
+    "poam.due_t15",
+    "poam.due_t16",
     "roles.administrator",
     "roles.security_officer",
     "system.name",
     "templates.version"
    ],
-   "sha256": "07e8e62e952b1e9bf2ba14ea1f174b8fc6d78a369efcd50eb454fe6ff7df453a"
+   "sha256": "d0931254e7ac2c19868281af2c18ee0346d120b3791f9943f39e1b1feb879939"
   },
   {
    "path": "templates/ssp/arch/chp-appliance.md",

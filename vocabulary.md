@@ -99,6 +99,15 @@ This is the shared contract for both consumers.
 | `poam.due_t05` | value | private | scheduled completion date for seeded POA&M item T-05 |
 | `poam.due_t06` | value | private | scheduled completion date for seeded POA&M item T-06 |
 | `poam.due_t07` | value | private | scheduled completion date for seeded POA&M item T-07 |
+| `poam.due_t08` | value | private | scheduled completion date for seeded POA&M item T-08 |
+| `poam.due_t09` | value | private | scheduled completion date for seeded POA&M item T-09 |
+| `poam.due_t10` | value | private | scheduled completion date for seeded POA&M item T-10 |
+| `poam.due_t11` | value | private | scheduled completion date for seeded POA&M item T-11 |
+| `poam.due_t12` | value | private | scheduled completion date for seeded POA&M item T-12 |
+| `poam.due_t13` | value | private | scheduled completion date for seeded POA&M item T-13 |
+| `poam.due_t14` | value | private | scheduled completion date for seeded POA&M item T-14 |
+| `poam.due_t15` | value | private | scheduled completion date for seeded POA&M item T-15 |
+| `poam.due_t16` | value | private | scheduled completion date for seeded POA&M item T-16 |
 | `templates.version` | value | public | the chp-templates release the document was generated from |
 
 ## Document templates (`doc/`)
