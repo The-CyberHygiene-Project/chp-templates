@@ -219,6 +219,9 @@ def test_owner_decisions_2026_11_20_fci_marking_and_time_from_the_server():
     assert "marked FCI" in t384 and "no CUI designation block" in t384 and "FCI banner on a CUI document" in t384
     t337 = _impl("3.3.7")
     assert "takes its time from the server only" in t337 and "never from an outside source" in t337
+    # the server tailoring (owner decision 2026-11-20): server tailored out, workstation evidence stands
+    assert "on the CHP server the rule is tailored out" in t337 and "on the workstations the scan evidence stands" in t337
+    assert "scan:chronyd_client_only" in (CTRL / "3.3.7.md").read_text().splitlines()[0]   # evidence format unchanged
     for cid in ("3.4.7", "3.13.1", "3.13.6"):
         t = _impl(cid)
         assert "123/udp" in t and "site subnet only" in t and "owner-approved exception" in t, cid

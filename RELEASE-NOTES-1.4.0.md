@@ -83,7 +83,9 @@ approval by someone other than the author, publish, marking, tagging, the docume
 - **3.8.4:** an FCI document (an `FCI_` name) is marked FCI: the line FCI at the top and bottom of every page and no
   CUI designation block. A CUI banner on an FCI document, or an FCI banner on a CUI document, is refused.
 - **3.3.7:** the CHP server takes its time from the site's time source and serves it to the site network only. Every
-  workstation takes its time from the server only, and the monitor alerts on any other time source.
+  workstation takes its time from the server only, and the monitor alerts on any other time source. The scan
+  evidence `chronyd_client_only` stands on the workstations; on the server that rule is tailored out, with the
+  owner's reason.
 - **3.4.7, 3.13.1, 3.13.6:** the server opens NTP (123/udp) to the site subnet only. This is an owner-approved
   exception to the appliance's "no new network port" rule.
 
