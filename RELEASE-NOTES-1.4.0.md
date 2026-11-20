@@ -14,6 +14,10 @@ marked template.
     the first banner.
   - The block lines are `Controlled by: {{CUI_CONTROLLED_BY}}`, `CUI Category: {{CUI_CATEGORY}}` and
     `POC: {{CUI_POC}}`. The appliance's `chp-site doc new` fills them from the site keys of the same names.
+- **FCI templates** (`doc/fci/`, Word, Excel and Markdown; owner decision 2026-11-20, "FCI should be marked as
+  FCI"): the line `FCI` is the banner, in the same places as the CUI banner (in Word, the header and footer; in
+  Excel, the sheet's header and footer; in Markdown, the first and last lines). There is no designation block and no
+  placeholder. The appliance's `chp-site doc new --fci` starts an `FCI_` document from them.
 - **Non-CUI twins** (`doc/noncui/`): the same documents, with no CUI marking.
 - **Made by `tools/make_doc_templates.py`** (standard library only). The output is byte-reproducible, and a test
   checks that the committed files match it.
@@ -37,7 +41,8 @@ These are new rows only; the existing rows are unchanged. No SSP or POA&M templa
 
 These requirements now describe the optional document server and its controlled-document workflow (check-out,
 approval by someone other than the author, publish, marking, tagging, the document ledger). Rev 2 content version is
-**1.2.5** (1.2.4 was 3.8.9's `/backup` volume, from 1.4.0's base branch).
+**1.2.6**: 1.2.5 is the document workflow, and 1.2.6 adds the owner decisions of 2026-11-20 (below). 1.2.4 was 3.8.9's
+`/backup` volume, from 1.4.0's base branch.
 
 - **3.1.3** (partial):
   - The CUI, FCI and Archive folders cannot be shared. Public links to CUI or FCI are refused. A file leaves CUI
@@ -73,6 +78,15 @@ approval by someone other than the author, publish, marking, tagging, the docume
 - **Evidence:** the narratives add the idm-assistant proof record `lab/docs-proof/PROOF-RECORD-PLAN2.md` (the
   document server). The workflow's own lab proof follows in a later content version.
 
+**Owner decisions of 2026-11-20** (Rev 2 content **1.2.6**, additive sentences only):
+
+- **3.8.4:** an FCI document (an `FCI_` name) is marked FCI: the line FCI at the top and bottom of every page and no
+  CUI designation block. A CUI banner on an FCI document, or an FCI banner on a CUI document, is refused.
+- **3.3.7:** the CHP server takes its time from the site's time source and serves it to the site network only. Every
+  workstation takes its time from the server only, and the monitor alerts on any other time source.
+- **3.4.7, 3.13.1, 3.13.6:** the server opens NTP (123/udp) to the site subnet only. This is an owner-approved
+  exception to the appliance's "no new network port" rule.
+
 The Rev 3 library is unchanged (0.1.0, all *pending*).
 
 ## New files (flag for consumers)
@@ -80,6 +94,9 @@ The Rev 3 library is unchanged (0.1.0, all *pending*).
 - `doc/cui/CUI_Template_v0.1-DRAFT.docx`
 - `doc/cui/CUI_Template_v0.1-DRAFT.xlsx`
 - `doc/cui/CUI_Template_v0.1-DRAFT.md`
+- `doc/fci/FCI_Template_v0.1-DRAFT.docx`
+- `doc/fci/FCI_Template_v0.1-DRAFT.xlsx`
+- `doc/fci/FCI_Template_v0.1-DRAFT.md`
 - `doc/noncui/Template_v0.1-DRAFT.docx`
 - `doc/noncui/Template_v0.1-DRAFT.xlsx`
 - `doc/noncui/Template_v0.1-DRAFT.md`
@@ -87,7 +104,7 @@ The Rev 3 library is unchanged (0.1.0, all *pending*).
 - `tests/test_doc_templates.py`
 - `RELEASE-NOTES-1.4.0.md`
 
-`.gitignore` gains two lines so the `.docx` templates are tracked (it ignores `*.docx` elsewhere).
+`.gitignore` gains three lines so the `.docx` templates are tracked (it ignores `*.docx` elsewhere).
 
 ## For a site
 

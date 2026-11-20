@@ -3,7 +3,12 @@
 """make_doc_templates.py [OUTDIR]: write the controlled-document templates (default: doc/ beside tools/).
 
   OUTDIR/cui/CUI_Template_v0.1-DRAFT.{docx,xlsx,md}   marked for the CUI area
+  OUTDIR/fci/FCI_Template_v0.1-DRAFT.{docx,xlsx,md}   marked FCI: the banner `FCI` only (1.4.0, additive)
   OUTDIR/noncui/Template_v0.1-DRAFT.{docx,xlsx,md}    the non-CUI twins: no CUI banner, no designation block
+
+The FCI templates (owner decision 2026-11-20, "FCI should be marked as FCI") carry the line `FCI` in the same places
+as the CUI banner: the default header and footer in Word (one section, no title page), the sheet's header and
+footer in Excel, the first and last lines in Markdown. They have no designation block and no placeholders.
 
 The CUI templates carry the CUI banner and the designation block by construction, in the forms the appliance's
 marking checker reads (`chp-site doc check`):
@@ -32,6 +37,7 @@ CT = "http://schemas.openxmlformats.org/package/2006/content-types"
 OD = R + "/"
 OX = "application/vnd.openxmlformats-officedocument."
 BANNER = "CUI"
+FCI_BANNER = "FCI"
 BLOCK = ["Controlled by: {{CUI_CONTROLLED_BY}}", "CUI Category: {{CUI_CATEGORY}}", "POC: {{CUI_POC}}"]
 TITLE = "Title"
 SECTIONS = [("Purpose", "State what this document is for and which requirements it supports."),
@@ -101,13 +107,18 @@ STYLES_DOCX = (
     "</w:styles>")
 
 
-def docx(cui):
+def docx(kind):
+    cui = kind == "cui"
     body = [para(TITLE, "Title")]
     for head, text in SECTIONS:
         body += [para(head, "Heading1"), para(text)]
     body.append(para(NOTE))
     banner_h, banner_f = para(BANNER, "Header", True), para(BANNER, "Footer", True)
-    if cui:
+    if kind == "fci":
+        parts = [("header1.xml", "header", [para(FCI_BANNER, "Header", True)]),
+                 ("footer1.xml", "footer", [para(FCI_BANNER, "Footer", True)])]
+        refs = [("header", "default", "rId4"), ("footer", "default", "rId5")]
+    elif cui:
         parts = [("header1.xml", "header", [banner_h]), ("header2.xml", "header", [banner_h]),
                  ("footer1.xml", "footer", [banner_f]),
                  ("footer2.xml", "footer", [para(x, "Footer") for x in BLOCK] + [banner_f])]
@@ -157,14 +168,16 @@ def cell(ref, text, style=0):
     return f'<c r="{ref}"{s} t="inlineStr"><is><t xml:space="preserve">{esc(text)}</t></is></c>'
 
 
-def xlsx(cui):
+def xlsx(kind):
+    cui = kind == "cui"
     rows = [(i + 1, [cell(f"A{i + 1}", x)]) for i, x in enumerate(BLOCK)] if cui else []
     top = len(rows) + 2 if cui else 1
     rows.append((top, [cell(f"A{top}", TITLE, 1)]))
     rows.append((top + 1, [cell(f"A{top + 1}", NOTE)]))
     data = "".join(f'<row r="{n}">{"".join(cs)}</row>' for n, cs in rows)
-    hfx = (f"<headerFooter><oddHeader>{esc('&C' + BANNER)}</oddHeader><oddFooter>{esc('&C' + BANNER)}</oddFooter>"
-           "</headerFooter>") if cui else ""
+    word = {"cui": BANNER, "fci": FCI_BANNER}.get(kind)
+    hfx = (f"<headerFooter><oddHeader>{esc('&C' + word)}</oddHeader><oddFooter>{esc('&C' + word)}</oddFooter>"
+           "</headerFooter>") if word else ""
     sheet = (f'{XML}<worksheet xmlns="{S}"><dimension ref="A1:A{top + 1}"/><sheetViews><sheetView workbookViewId="0"/>'
              f'</sheetViews><sheetFormatPr defaultRowHeight="15"/><cols><col min="1" max="1" width="80" '
              f'customWidth="1"/></cols><sheetData>{data}</sheetData><pageMargins left="0.7" right="0.7" top="0.75" '
@@ -185,27 +198,30 @@ def xlsx(cui):
 
 # ---------- md ----------
 
-def md(cui):
+def md(kind):
     body = [f"# {TITLE}", ""]
     for head, text in SECTIONS:
         body += [f"## {head}", "", text, ""]
     body += [NOTE]
-    if cui:
+    if kind == "cui":
         lines = [BANNER, ""] + [x for b in BLOCK for x in (b, "")] + body + ["", BANNER]
+    elif kind == "fci":
+        lines = [FCI_BANNER, ""] + body + ["", FCI_BANNER]
     else:
         lines = body
     return ("\n".join(lines) + "\n").encode("utf-8")
 
 
 MAKERS = {"docx": docx, "xlsx": xlsx, "md": md}
+AREAS = (("cui", "CUI_"), ("fci", "FCI_"), ("noncui", ""))
 
 
 def main(argv):
     out = Path(argv[1]) if len(argv) > 1 else Path(__file__).resolve().parents[1] / "doc"
-    for area, prefix, cui in (("cui", "CUI_", True), ("noncui", "", False)):
+    for area, prefix in AREAS:
         (out / area).mkdir(parents=True, exist_ok=True)
         for ext, make in MAKERS.items():
-            (out / area / f"{prefix}Template_v0.1-DRAFT.{ext}").write_bytes(make(cui))
+            (out / area / f"{prefix}Template_v0.1-DRAFT.{ext}").write_bytes(make(area))
     return 0
 
 

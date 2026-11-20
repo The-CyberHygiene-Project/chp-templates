@@ -17,6 +17,7 @@ DOC = TOP / "doc"
 PH = ("{{CUI_CONTROLLED_BY}}", "{{CUI_CATEGORY}}", "{{CUI_POC}}")
 BLOCK = ["Controlled by: {{CUI_CONTROLLED_BY}}", "CUI Category: {{CUI_CATEGORY}}", "POC: {{CUI_POC}}"]
 NAMES = {"cui": ["CUI_Template_v0.1-DRAFT.docx", "CUI_Template_v0.1-DRAFT.md", "CUI_Template_v0.1-DRAFT.xlsx"],
+         "fci": ["FCI_Template_v0.1-DRAFT.docx", "FCI_Template_v0.1-DRAFT.md", "FCI_Template_v0.1-DRAFT.xlsx"],
          "noncui": ["Template_v0.1-DRAFT.docx", "Template_v0.1-DRAFT.md", "Template_v0.1-DRAFT.xlsx"]}
 W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 S = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"
@@ -132,6 +133,44 @@ def test_names_follow_the_name_rule():
     for area, ns in NAMES.items():
         for n in ns:
             assert rule.fullmatch(n) and n.startswith("CUI_") == (area == "cui"), n
+            assert n.startswith("FCI_") == (area == "fci"), n
+
+
+# ---------- FCI (idm-assistant ISO 0.7.0, owner decision 2026-11-20: "FCI should be marked as FCI") ----------
+
+def test_fci_docx_banner_in_every_header_and_footer_and_no_cui_marks():
+    z = _zip(DOC / "fci" / NAMES["fci"][0])
+    doc, sect, refs = _docx_parts(z)
+    assert sect.find(W + "titlePg") is None                     # one header and one footer mark every page
+    assert set(refs) == {("headerReference", "default"), ("footerReference", "default")}
+    for key, root in refs.items():
+        assert _lines(root) == ["FCI"], key
+    text = b"".join(z.read(n) for n in z.namelist()).decode()
+    assert "{{" not in text and ">CUI<" not in text and "CUI Category" not in text and "Controlled by" not in text
+
+
+def test_fci_xlsx_banner_in_header_and_footer_and_no_block():
+    z = _zip(DOC / "fci" / NAMES["fci"][2])
+    sheet = ET.fromstring(z.read("xl/worksheets/sheet1.xml"))
+    hf = sheet.find(S + "headerFooter")
+    assert hf.findtext(S + "oddHeader") == "&CFCI" and hf.findtext(S + "oddFooter") == "&CFCI"
+    assert hf.get("differentFirst") is None and hf.get("differentOddEven") is None
+    text = b"".join(z.read(n) for n in z.namelist()).decode()
+    assert "{{" not in text and "CUI" not in text
+
+
+def test_fci_md_banner_first_and_last_and_no_block():
+    text = (DOC / "fci" / NAMES["fci"][1]).read_text(encoding="utf-8")
+    lines = text.splitlines()
+    assert lines[0] == "FCI" and lines[-1] == "FCI"
+    assert "{{" not in text and "CUI" not in text
+
+
+def test_fci_templates_share_the_body_of_the_cui_ones():
+    """The same document, other marks: the md body between the marks is the same as the non-CUI twin's."""
+    fci = (DOC / "fci" / NAMES["fci"][1]).read_text(encoding="utf-8").splitlines()
+    plain = (DOC / "noncui" / NAMES["noncui"][1]).read_text(encoding="utf-8").splitlines()
+    assert fci == ["FCI", ""] + plain + ["", "FCI"]
 
 
 def test_mapping_covers_the_document_keys_and_every_row_is_in_the_vocabulary():
@@ -173,6 +212,18 @@ def test_document_workflow_narratives_state_the_owner_decisions():
     for cid in ("3.1.3", "3.1.22", "3.3.1", "3.4.3", "3.8.4", "3.8.9", "3.13.8"):
         assert "0.7.0" in _impl(cid), cid
     assert "CUI_CONTROLLED_BY" in _impl("3.8.4") and "marking check" in _impl("3.8.4")
+
+
+def test_owner_decisions_2026_11_20_fci_marking_and_time_from_the_server():
+    t384 = _impl("3.8.4")
+    assert "marked FCI" in t384 and "no CUI designation block" in t384 and "FCI banner on a CUI document" in t384
+    t337 = _impl("3.3.7")
+    assert "takes its time from the server only" in t337 and "never from an outside source" in t337
+    for cid in ("3.4.7", "3.13.1", "3.13.6"):
+        t = _impl(cid)
+        assert "123/udp" in t and "site subnet only" in t and "owner-approved exception" in t, cid
+    for cid in ("3.3.7", "3.4.7", "3.13.1", "3.13.6", "3.8.4"):      # additive: the 1.4.0 sentences are still there
+        assert (CTRL / f"{cid}.md").read_text().count("**Implementation:**") == 1
 
 
 def test_fix_round_1_alert_hook_and_share_wording():

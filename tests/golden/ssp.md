@@ -472,7 +472,7 @@ Each requirement below carries its status:
 
 **Status:** partial. **Evidence:** idm-assistant `lab/iso-requirements.md#18`; idm-assistant `lab/iso-requirements.md#30`; scan rule `chronyd_client_only`.
 
-**Implementation:** All hosts synchronize their clocks with chrony from the site's time source, so audit timestamps agree across hosts.
+**Implementation:** All hosts synchronize their clocks with chrony from the site's time source, so audit timestamps agree across hosts. From ISO 0.7.0 the CHP server takes its time from the site's time source and serves it to the site network only, and every workstation takes its time from the server only, never from an outside source (owner decision); the monitor alerts when a workstation has any other time source, or none. If the site's time source fails, the server keeps serving its own clock, so the hosts still agree.
 
 **Site responsibility:** Keep the site's time source accurate and authoritative.
 
@@ -546,7 +546,7 @@ Each requirement below carries its status:
 
 **Status:** partial. **Evidence:** idm-assistant `lab/iso-requirements.md#1`; scan rule `service_firewalld_enabled`; scan rule `service_fapolicyd_enabled`; scan rule `service_systemd-coredump_disabled`.
 
-**Implementation:** firewalld opens only the services each role needs, and fapolicyd lets only trusted, signed software run.
+**Implementation:** firewalld opens only the services each role needs, and fapolicyd lets only trusted, signed software run. From ISO 0.7.0 the server also opens NTP (123/udp) to the site subnet only, so that workstations take their time from it; this is an owner-approved exception, and the server's chrony therefore does not keep the CUI profile's client-only setting.
 
 **Site responsibility:** Review the open ports, protocols and services, and restrict any the business does not need.
 
@@ -762,7 +762,7 @@ Each requirement below carries its status:
 
 **Status:** partial. **Evidence:** idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN2.md`.
 
-**Implementation:** The appliance does not mark removable or paper media. With the optional document server (from ISO 0.7.0), a new controlled CUI document starts from a marked template: the CUI banner at the top and bottom of every page and the designation block on page one, filled from the site keys CUI_CONTROLLED_BY, CUI_CATEGORY and CUI_POC (never typed per file). The marking check runs on the workstation and again on the server at publish, and refuses a document without its marks; reader PDFs are made from the approved, marked file. Every file in the CUI and FCI folders is tagged on arrival, and a nightly check alerts on any file missing its tag.
+**Implementation:** The appliance does not mark removable or paper media. With the optional document server (from ISO 0.7.0), a new controlled CUI document starts from a marked template: the CUI banner at the top and bottom of every page and the designation block on page one, filled from the site keys CUI_CONTROLLED_BY, CUI_CATEGORY and CUI_POC (never typed per file). An FCI document (an `FCI_` name) is marked FCI (owner decision): the line FCI at the top and bottom of every page, in the same places and with the same checks, and no CUI designation block; a CUI banner on an FCI document, or an FCI banner on a CUI document, is refused. The marking check runs on the workstation and again on the server at publish, and refuses a document without its marks; reader PDFs are made from the approved, marked file. Every file in the CUI and FCI folders is tagged on arrival, and a nightly check alerts on any file missing its tag.
 
 **Site responsibility:** Mark media with the required CUI markings and distribution limitations, including paper, removable media and CUI files that do not go through the document workflow. Set the three marking site keys.
 
@@ -940,7 +940,7 @@ Each requirement below carries its status:
 
 **Status:** partial. **Evidence:** idm-assistant `lab/iso5/PROOF-RECORD.md`; scan rule `service_firewalld_enabled`; idm-assistant `lab/security/PROOF-RECORD-S1.md`.
 
-**Implementation:** firewalld runs on every host, and allows only the services each role needs. With the appliance's optional security add-on (from 0.4.0 update 1), Suricata also watches each host's own traffic and reports the attacks it detects; it does not block traffic.
+**Implementation:** firewalld runs on every host, and allows only the services each role needs. With the appliance's optional security add-on (from 0.4.0 update 1), Suricata also watches each host's own traffic and reports the attacks it detects; it does not block traffic. From ISO 0.7.0 the server answers NTP (123/udp) from the site subnet only (an owner-approved exception), and each workstation takes its time from the server only.
 
 **Site responsibility:** Monitor, control and protect communications at the site's external boundary (the site firewall) and at key internal boundaries.
 
@@ -980,7 +980,7 @@ Each requirement below carries its status:
 
 **Status:** partial. **Evidence:** idm-assistant `lab/iso5/PROOF-RECORD.md`; scan rule `service_firewalld_enabled`.
 
-**Implementation:** Inbound connections to every host are denied by default, except for the services each role needs.
+**Implementation:** Inbound connections to every host are denied by default, except for the services each role needs. From ISO 0.7.0 that includes NTP (123/udp) on the server, from the site subnet only (an owner-approved exception: workstations take their time from the server only).
 
 **Site responsibility:** Deny network traffic by default at the site boundary, including outbound, and allow it by exception.
 

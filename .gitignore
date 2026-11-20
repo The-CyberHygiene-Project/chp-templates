@@ -5,3 +5,4 @@ out/
 .pytest_cache/
 !doc/cui/*.docx
 !doc/noncui/*.docx
+!doc/fci/*.docx
