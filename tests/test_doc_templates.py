@@ -222,6 +222,10 @@ def test_owner_decisions_2026_11_20_fci_marking_and_time_from_the_server():
     # the server tailoring (owner decision 2026-11-20): server tailored out, workstation evidence stands
     assert "on the CHP server the rule is tailored out" in t337 and "on the workstations the scan evidence stands" in t337
     assert "scan:chronyd_client_only" in (CTRL / "3.3.7.md").read_text().splitlines()[0]   # evidence format unchanged
+    t342 = _impl("3.4.2")
+    assert "tailored CUI profile" in t342 and "exactly two rules" in t342
+    assert "chronyd_client_only" in t342 and "sysctl_user_max_user_namespaces" in t342
+    assert "The documented deviations are accepted by the ISSO" in t342              # additive
     for cid in ("3.4.7", "3.13.1", "3.13.6"):
         t = _impl(cid)
         assert "123/udp" in t and "site subnet only" in t and "owner-approved exception" in t, cid

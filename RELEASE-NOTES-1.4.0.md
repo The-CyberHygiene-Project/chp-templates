@@ -86,6 +86,9 @@ approval by someone other than the author, publish, marking, tagging, the docume
   workstation takes its time from the server only, and the monitor alerts on any other time source. The scan
   evidence `chronyd_client_only` stands on the workstations; on the server that rule is tailored out, with the
   owner's reason.
+- **3.4.2:** the CHP server is scanned with a tailored CUI profile that unselects exactly two rules, each with its
+  reason: `chronyd_client_only` (the server serves time to the site LAN) and `sysctl_user_max_user_namespaces`
+  (systemd's unit sandboxing needs user namespaces). Workstations are scanned with the stock profile.
 - **3.4.7, 3.13.1, 3.13.6:** the server opens NTP (123/udp) to the site subnet only. This is an owner-approved
   exception to the appliance's "no new network port" rule.
 

@@ -506,7 +506,7 @@ Each requirement below carries its status:
 
 **Status:** appliance. **Evidence:** idm-assistant `lab/iso5/DEVIATIONS.md`; idm-assistant `appliance/release/RELEASE-RECORD-ISO-0.2.0.md`; scan rule `enable_authselect`; scan rule `configure_crypto_policy`; scan rule `enable_fips_mode`.
 
-**Implementation:** The CUI security profile is applied to every host at install and verified by a scan at each release. The documented deviations are accepted by the ISSO (evidence: the deviation table).
+**Implementation:** The CUI security profile is applied to every host at install and verified by a scan at each release. The documented deviations are accepted by the ISSO (evidence: the deviation table). From ISO 0.7.0 the CHP server is scanned with a tailored CUI profile (owner decisions 2026-11-20) that unselects exactly two rules, each with its recorded reason: chronyd_client_only, because the server serves time to the site LAN only and workstations sync from it, never from outside sources; and sysctl_user_max_user_namespaces, because systemd's unit-level sandboxing needs user namespaces (the deviation every host already carries). Workstations are scanned with the stock CUI profile.
 
 **Site responsibility:** None beyond operating the appliance as documented.
 
