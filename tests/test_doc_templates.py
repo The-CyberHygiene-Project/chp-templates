@@ -173,3 +173,11 @@ def test_document_workflow_narratives_state_the_owner_decisions():
     for cid in ("3.1.3", "3.1.22", "3.3.1", "3.4.3", "3.8.4", "3.8.9", "3.13.8"):
         assert "0.7.0" in _impl(cid), cid
     assert "CUI_CONTROLLED_BY" in _impl("3.8.4") and "marking check" in _impl("3.8.4")
+
+
+def test_fix_round_1_alert_hook_and_share_wording():
+    t331 = (CTRL / "3.3.1.md").read_text()
+    assert "ALERT_HOOK" in _impl("3.3.1") and "are not forwarded off it" not in t331
+    assert "CUI boundary or to a channel authorised for CUI" in t331.split("**Site responsibility:**")[1]
+    t = _impl("3.1.22")
+    assert "every external or federated share" not in t and "federated share" in t and "7 days" in t

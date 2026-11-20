@@ -48,12 +48,15 @@ approval by someone other than the author, publish, marking, tagging, the docume
     log and forbidden by a site rule.
   - **MD5 degraded mode** (FIPS database): moves, renames and deletes of non-empty folders are refused, and the
     server reports DEGRADED.
-- **3.1.22** (site): the server is LAN-only, and it refuses public links and external shares. Controlled documents
-  are published only after an approval.
+- **3.1.22** (site): the server is LAN-only. It refuses public links to CUI or FCI and every federated share; any
+  other public link needs a password and expires within 7 days. Controlled documents are published only after an
+  approval.
 - **3.3.1** (partial):
   - Wazuh reads NextCloud's audit log.
   - The document ledger is hash-chained and records only Kanidm-verified identities.
-  - Audit records and alert text can carry CUI file names. They stay on the appliance.
+  - Audit records and alert text can carry CUI file names and paths. The records stay on the appliance; the
+    text of each alert at or above the site's alert level goes to the site's `ALERT_HOOK`, which the site must keep
+    inside the CUI boundary or on a channel authorised for CUI.
 - **3.4.3** (partial):
   - Controlled documents change only by check-out, approval and publish.
   - Only root writes the Compliance areas, as the local account `chp-publisher`.
