@@ -18,6 +18,7 @@ address and date is a `{{section.key}}` placeholder, and a test fails the build 
 | `vocabulary.md` | every placeholder: meaning, kind, and visibility (`public`, `private` or `never-to-ai`) |
 | `site-conf-mapping.csv` | how a CHP site stick's `site.conf` keys fill placeholders; the other `site.conf` keys are machine settings |
 | `render/chpfill.py` | the one renderer (Python 3.9, standard library only) |
+| `doc/` | the controlled-document templates (Word, Excel, Markdown): `cui/` marked for the CUI area, `noncui/` their unmarked twins; made by `tools/make_doc_templates.py` |
 
 ## Filling the templates
 
@@ -31,6 +32,15 @@ DoD memo's part ID with dots as underscores (e.g. `03_01_01_f_02`).
 - **`--public`** refuses to place any value tagged private.
 
 To make a Word copy: `pandoc out/ssp.md -o ssp.docx`.
+
+## Document templates
+
+`doc/cui/` holds `CUI_Template_v0.1-DRAFT.docx`, `.xlsx` and `.md`: the CUI banner on every page and the designation
+block on page one, with the placeholders `{{CUI_CONTROLLED_BY}}`, `{{CUI_CATEGORY}}` and `{{CUI_POC}}`. `doc/noncui/`
+holds `Template_v0.1-DRAFT.*` without any CUI marking. The CHP appliance installs them as
+`/usr/share/chp-templates/doc/{cui,noncui}/Template.<ext>`, and `chp-site doc new` fills the placeholders from the site
+keys of the same names. They are generated, byte for byte: after a change, run `python3 tools/make_doc_templates.py`
+and commit the result.
 
 ## Releases
 

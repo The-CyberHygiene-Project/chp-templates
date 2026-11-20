@@ -5,3 +5,8 @@ GATEWAY,site.lan_gateway,private
 TIMEZONE,site.timezone,public
 ISSO_NAME,roles.security_officer,private
 BASELINE_DELEGATES,roles.baseline_delegates,private
+DOC_ISSO_ACCOUNT,roles.doc_isso_account,private
+DOC_APPROVER_ACCOUNTS,roles.doc_approver_accounts,private
+CUI_CONTROLLED_BY,marking.controlled_by,public
+CUI_CATEGORY,marking.cui_category,public
+CUI_POC,marking.poc,private
