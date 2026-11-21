@@ -509,7 +509,7 @@
   {
    "path": "templates/ssp/controls/3.4.3.md",
    "placeholders": [],
-   "sha256": "6359d43bb0eace78acbf44a96cdbc68b594e987c4f5983794608b401c00a3772",
+   "sha256": "ecb0da502e6a5cef1a63d308a9d1229be524d84efe18603871ed954864df18a7",
    "status": "partial"
   },
   {
@@ -701,7 +701,7 @@
   {
    "path": "templates/ssp/controls/3.8.4.md",
    "placeholders": [],
-   "sha256": "08af214c192f4a0316452b77b908e1b6f6c297bd1db6c685955b90ae7cc6b001",
+   "sha256": "249dff40d7e1ef7646c4905022045e74c56b39c937674b1a8d80a19d54ecc3c8",
    "status": "partial"
   },
   {

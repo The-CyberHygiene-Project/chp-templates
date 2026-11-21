@@ -41,8 +41,8 @@ These are new rows only; the existing rows are unchanged. No SSP or POA&M templa
 
 These requirements now describe the optional document server and its controlled-document workflow (check-out,
 approval by someone other than the author, publish, marking, tagging, the document ledger). Rev 2 content version is
-**1.2.6**: 1.2.5 is the document workflow, and 1.2.6 adds the owner decisions of 2026-11-20 (below). 1.2.4 was 3.8.9's
-`/backup` volume, from 1.4.0's base branch.
+**1.2.7**: 1.2.5 is the document workflow, 1.2.6 adds the owner decisions of 2026-11-20 (below), and 1.2.7 adds the
+POA&M seeds T-08 to T-16 (below). 1.2.4 was 3.8.9's `/backup` volume, from 1.4.0's base branch.
 
 - **3.1.3** (partial):
   - The CUI, FCI and Archive folders cannot be shared. Public links to CUI or FCI are refused. A file leaves CUI
@@ -76,7 +76,8 @@ approval by someone other than the author, publish, marking, tagging, the docume
 - **3.13.8** (appliance): the document server is HTTPS on the LAN only, with a site-CA certificate. Workstation
   commands and token checks are pinned to the site root.
 - **Evidence:** the narratives add the idm-assistant proof record `lab/docs-proof/PROOF-RECORD-PLAN2.md` (the
-  document server). The workflow's own lab proof follows in a later content version.
+  document server). 3.4.3 and 3.8.4 also cite the workflow's own lab proof, `lab/docs-proof/PROOF-RECORD-PLAN3.md`
+  (round 1: check-out, approval, override, publish, the marking check, `chp-publisher`, the level 12 approval alerts).
 
 **Owner decisions of 2026-11-20** (Rev 2 content **1.2.6**, additive sentences only):
 

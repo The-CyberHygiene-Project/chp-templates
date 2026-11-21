@@ -512,7 +512,7 @@ Each requirement below carries its status:
 
 #### 3.4.3 Track, review, approve or disapprove, and log changes to organizational systems.
 
-**Status:** partial. **Evidence:** idm-assistant `lab/aide/PROOF-RECORD.md`; idm-assistant `lab/iso-requirements.md#47`; idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN2.md`.
+**Status:** partial. **Evidence:** idm-assistant `lab/aide/PROOF-RECORD.md`; idm-assistant `lab/iso-requirements.md#47`; idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN2.md`; idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN3.md`.
 
 **Implementation:** AIDE checks every host's files daily and alerts on any change. A new baseline is accepted only by the ISSO or a named delegate, with a stated reason, and the acceptance is audited. With the optional document server (from ISO 0.7.0), controlled documents change only by check-out, approval and publish. The Compliance areas are read-only to every user; only root on the server writes them, through `occ` as the local NextCloud account `chp-publisher` (outside Kanidm, with no usable password: a random one nobody keeps, replaced at every enable). The approver must be one of the site's approver accounts, must not have created or checked out the document since its last publication, approves after its last checkout, and approves the exact SHA-256 of the finished, marked file. The ISSO may override only when no other approver exists, with a stated reason, and the override is flagged in the next daily review. Every request's identity comes only from Kanidm's `chp-doc` userinfo for the user's token; NextCloud app passwords are refused for approvals and overrides. Every approval and every override raises a high-priority alert at once (Wazuh level 12, through `ALERT_HOOK`), so a compromised document server that replays an approver's live token to forge an approval is seen; the owner accepts that residual risk with this detection. A replaced version is archived, never deleted.
 
@@ -760,7 +760,7 @@ Each requirement below carries its status:
 
 #### 3.8.4 Mark media with necessary CUI markings and distribution limitations.[27]
 
-**Status:** partial. **Evidence:** idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN2.md`.
+**Status:** partial. **Evidence:** idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN2.md`; idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN3.md`.
 
 **Implementation:** The appliance does not mark removable or paper media. With the optional document server (from ISO 0.7.0), a new controlled CUI document starts from a marked template: the CUI banner at the top and bottom of every page and the designation block on page one, filled from the site keys CUI_CONTROLLED_BY, CUI_CATEGORY and CUI_POC (never typed per file). An FCI document (an `FCI_` name) is marked FCI (owner decision): the line FCI at the top and bottom of every page, in the same places and with the same checks, and no CUI designation block; a CUI banner on an FCI document, or an FCI banner on a CUI document, is refused. The marking check runs on the workstation and again on the server at publish, and refuses a document without its marks; reader PDFs are made from the approved, marked file. Every file in the CUI and FCI folders is tagged on arrival, and a nightly check alerts on any file missing its tag.
 
