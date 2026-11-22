@@ -236,7 +236,7 @@ Each requirement below carries its status:
 
 **Status:** partial. **Evidence:** idm-assistant `lab/iso5/PROOF-RECORD.md`; scan rule `service_firewalld_enabled`; idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN2.md`.
 
-**Implementation:** firewalld is enabled on every host, with only the services each role needs opened. With the appliance's optional document server (from ISO 0.7.0, NextCloud on the server), CUI stays inside the CUI, FCI and Archive team folders: their share permission is off, public links to anything tagged CUI or FCI are refused, a file leaves CUI only for Archive, every attempt to share or move CUI out is refused and raises a high-priority alert at once, and NextCloud itself is refused any connection to the internet. Each night a local NextCloud account, `chp-canary` (outside Kanidm, disabled between runs), tries a public link and an internal share on a CUI test file and alerts if either is not refused. A member of `cui-users` can still download a CUI file and upload it elsewhere: the owner accepts this as an insider risk; every download and upload is recorded in the audit log (Wazuh), and the site rule in the guide forbids it. Because the FIPS database cannot compute MD5, NextCloud refuses to move, rename or delete a folder with files in it, or to move a file with old versions to another team folder; the server reports this as "DEGRADED: database MD5 unavailable", and an administrator makes such moves by the guide's procedure.
+**Implementation:** firewalld is enabled on every host, with only the services each role needs opened. With the appliance's optional document server (from ISO 0.7.0, NextCloud on the server), CUI stays inside the CUI, FCI and Archive team folders: their share permission is off, public links to anything tagged CUI or FCI are refused, a file leaves CUI only for Archive, every attempt to share or move CUI out is refused and raises a high-priority alert at once (when SECURITY_ALERT_LEVEL is 12 or lower; documents enable warns otherwise), and NextCloud itself is refused any connection to the internet. Each night a local NextCloud account, `chp-canary` (outside Kanidm, disabled between runs), tries a public link and an internal share on a CUI test file and alerts if either is not refused. A member of `cui-users` can still download a CUI file and upload it elsewhere: the owner accepts this as an insider risk; every download and upload is recorded in the audit log (Wazuh), and the site rule in the guide forbids it. Because the FIPS database cannot compute MD5, NextCloud refuses to move, rename or delete a folder with files in it, or to move a file with old versions to another team folder; the server reports this as "DEGRADED: database MD5 unavailable"; an administrator moves a folder's files one by one (guide; not yet proven in the lab); a file with old versions cannot leave its team folder until DEGRADED ends.
 
 **Site responsibility:** Define where CUI may flow (systems, people, outside parties), enforce it at the site's network boundary, and record the approved flows. Adopt the guide's rule that CUI downloaded from the document server is never uploaded outside the CUI folders, train users on it, and review the download and upload records.
 
@@ -470,7 +470,7 @@ Each requirement below carries its status:
 
 #### 3.3.7 Provide a system capability that compares and synchronizes internal system clocks with an authoritative source to generate time stamps for audit records
 
-**Status:** partial. **Evidence:** idm-assistant `lab/iso-requirements.md#18`; idm-assistant `lab/iso-requirements.md#30`; scan rule `chronyd_client_only`.
+**Status:** partial. **Evidence:** idm-assistant `lab/iso-requirements.md#18`; idm-assistant `lab/iso-requirements.md#30`; scan rule `chronyd_client_only`; idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN3.md`.
 
 **Implementation:** All hosts synchronize their clocks with chrony from the site's time source, so audit timestamps agree across hosts. From ISO 0.7.0 the CHP server takes its time from the site's time source and serves it to the site network only, and every workstation takes its time from the server only, never from an outside source (owner decision); the monitor alerts when a workstation has any other time source, or none. If the site's time source fails, the server keeps serving its own clock, so the hosts still agree. Scan evidence for chronyd_client_only: on the CHP server the rule is tailored out (owner decision 2026-11-20: the CHP server serves time to the site LAN only, with chrony limited to the site subnet and bound to the server's address, and firewalld 123/udp from the site subnet; workstations sync from it and never from outside sources); on the workstations the scan evidence stands.
 
@@ -504,7 +504,7 @@ Each requirement below carries its status:
 
 #### 3.4.2 Establish and enforce security configuration settings for information technology products employed in organizational systems.
 
-**Status:** appliance. **Evidence:** idm-assistant `lab/iso5/DEVIATIONS.md`; idm-assistant `appliance/release/RELEASE-RECORD-ISO-0.2.0.md`; scan rule `enable_authselect`; scan rule `configure_crypto_policy`; scan rule `enable_fips_mode`.
+**Status:** appliance. **Evidence:** idm-assistant `lab/iso5/DEVIATIONS.md`; idm-assistant `appliance/release/RELEASE-RECORD-ISO-0.2.0.md`; scan rule `enable_authselect`; scan rule `configure_crypto_policy`; scan rule `enable_fips_mode`; idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN3.md`.
 
 **Implementation:** The CUI security profile is applied to every host at install and verified by a scan at each release. The documented deviations are accepted by the ISSO (evidence: the deviation table). From ISO 0.7.0 the CHP server is scanned with a tailored CUI profile (owner decisions 2026-11-20) that unselects exactly two rules, each with its recorded reason: chronyd_client_only, because the server serves time to the site LAN only and workstations sync from it, never from outside sources; and sysctl_user_max_user_namespaces, because systemd's unit-level sandboxing needs user namespaces (the deviation every host already carries). Workstations are scanned with the stock CUI profile.
 
@@ -514,9 +514,9 @@ Each requirement below carries its status:
 
 **Status:** partial. **Evidence:** idm-assistant `lab/aide/PROOF-RECORD.md`; idm-assistant `lab/iso-requirements.md#47`; idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN2.md`; idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN3.md`.
 
-**Implementation:** AIDE checks every host's files daily and alerts on any change. A new baseline is accepted only by the ISSO or a named delegate, with a stated reason, and the acceptance is audited. With the optional document server (from ISO 0.7.0), controlled documents change only by check-out, approval and publish. The Compliance areas are read-only to every user; only root on the server writes them, through `occ` as the local NextCloud account `chp-publisher` (outside Kanidm, with no usable password: a random one nobody keeps, replaced at every enable). The approver must be one of the site's approver accounts, must not have created or checked out the document since its last publication, approves after its last checkout, and approves the exact SHA-256 of the finished, marked file. The ISSO may override only when no other approver exists, with a stated reason, and the override is flagged in the next daily review. Every request's identity comes only from Kanidm's `chp-doc` userinfo for the user's token; NextCloud app passwords are refused for approvals and overrides. Every approval and every override raises a high-priority alert at once (Wazuh level 12, through `ALERT_HOOK`), so a compromised document server that replays an approver's live token to forge an approval is seen; the owner accepts that residual risk with this detection. A replaced version is archived, never deleted.
+**Implementation:** AIDE checks every host's files daily and alerts on any change. A new baseline is accepted only by the ISSO or a named delegate, with a stated reason, and the acceptance is audited. With the optional document server (from ISO 0.7.0), controlled documents change only by check-out, approval and publish. The Compliance areas are read-only to every user; only root on the server writes them, through `occ` as the local NextCloud account `chp-publisher` (outside Kanidm, with no usable password: a random one nobody keeps, replaced at every enable). The approver must be one of the site's approver accounts, must not have created or checked out the document since its last publication, approves after its last checkout, and approves the exact SHA-256 of the finished, marked file. The ISSO may override only when no other approver exists, with a stated reason, and the override is flagged in the next daily review. Every request's identity comes only from Kanidm's `chp-doc` userinfo for the user's token; NextCloud app passwords are refused for approvals and overrides. Every approval and every override raises a high-priority alert at once (Wazuh level 12, through `ALERT_HOOK`, when SECURITY_ALERT_LEVEL is 12 or lower; documents enable warns otherwise), so a compromised document server that replays an approver's live token to forge an approval is seen; the owner accepts that residual risk with this detection. A replaced version is archived, never deleted.
 
-**Site responsibility:** Run a change-control process: propose, review, approve or reject, and record each change to the system. Name the ISSO's and the approvers' Kanidm accounts (site keys DOC_ISSO_ACCOUNT and DOC_APPROVER_ACCOUNTS), and have each approver check every approval alert against what they approved.
+**Site responsibility:** Run a change-control process: propose, review, approve or reject, and record each change to the system. Name the ISSO's and the approvers' Kanidm accounts (site keys DOC_ISSO_ACCOUNT and DOC_APPROVER_ACCOUNTS), keep SECURITY_ALERT_LEVEL at 12 or lower and set ALERT_HOOK while the document server is on, and have each approver check every approval alert against what they approved.
 
 #### 3.4.4 Analyze the security impact of changes prior to implementation.
 
@@ -544,7 +544,7 @@ Each requirement below carries its status:
 
 #### 3.4.7 Restrict, disable, or prevent the use of nonessential programs, functions, ports, protocols, and services.
 
-**Status:** partial. **Evidence:** idm-assistant `lab/iso-requirements.md#1`; scan rule `service_firewalld_enabled`; scan rule `service_fapolicyd_enabled`; scan rule `service_systemd-coredump_disabled`.
+**Status:** partial. **Evidence:** idm-assistant `lab/iso-requirements.md#1`; scan rule `service_firewalld_enabled`; scan rule `service_fapolicyd_enabled`; scan rule `service_systemd-coredump_disabled`; idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN3.md`.
 
 **Implementation:** firewalld opens only the services each role needs, and fapolicyd lets only trusted, signed software run. From ISO 0.7.0 the server also opens NTP (123/udp) to the site subnet only, so that workstations take their time from it; this is an owner-approved exception, and the server's chrony therefore does not keep the CUI profile's client-only setting.
 
@@ -938,7 +938,7 @@ Each requirement below carries its status:
 
 #### 3.13.1 Monitor, control, and protect communications (i.e., information transmitted or received by organizational systems) at the external boundaries and key internal boundaries of organizational systems.
 
-**Status:** partial. **Evidence:** idm-assistant `lab/iso5/PROOF-RECORD.md`; scan rule `service_firewalld_enabled`; idm-assistant `lab/security/PROOF-RECORD-S1.md`.
+**Status:** partial. **Evidence:** idm-assistant `lab/iso5/PROOF-RECORD.md`; scan rule `service_firewalld_enabled`; idm-assistant `lab/security/PROOF-RECORD-S1.md`; idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN3.md`.
 
 **Implementation:** firewalld runs on every host, and allows only the services each role needs. With the appliance's optional security add-on (from 0.4.0 update 1), Suricata also watches each host's own traffic and reports the attacks it detects; it does not block traffic. From ISO 0.7.0 the server answers NTP (123/udp) from the site subnet only (an owner-approved exception), and each workstation takes its time from the server only.
 
@@ -978,7 +978,7 @@ Each requirement below carries its status:
 
 #### 3.13.6 Deny network communications traffic by default and allow network communications traffic by exception (i.e., deny all, permit by exception).
 
-**Status:** partial. **Evidence:** idm-assistant `lab/iso5/PROOF-RECORD.md`; scan rule `service_firewalld_enabled`.
+**Status:** partial. **Evidence:** idm-assistant `lab/iso5/PROOF-RECORD.md`; scan rule `service_firewalld_enabled`; idm-assistant `lab/docs-proof/PROOF-RECORD-PLAN3.md`.
 
 **Implementation:** Inbound connections to every host are denied by default, except for the services each role needs. From ISO 0.7.0 that includes NTP (123/udp) on the server, from the site subnet only (an owner-approved exception: workstations take their time from the server only).
 

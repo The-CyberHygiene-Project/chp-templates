@@ -40,5 +40,5 @@ def test_rev3_manifest_matches_its_library():
     assert len(ctrl) == 97 and {f["status"] for f in ctrl} == {"pending"}
 
 
-def test_rev2_content_version_moved_for_document_workflow_narratives():  # 1.2.1 = T-06; 1.2.2 = YARA; 1.2.3 = Suricata; 1.2.4 = 3.8.9 (/backup volume); 1.2.5 = document workflow (ISO 0.7.0); 1.2.6 = FCI marking + time from the server (owner 2026-11-20); 1.2.7 = POA&M seeds T-08 to T-16
-    assert json.loads((LIB / "MANIFEST.json").read_text())["content_version"] == "1.2.7"
+def test_rev2_content_version_moved_for_document_workflow_narratives():  # 1.2.1 = T-06; 1.2.2 = YARA; 1.2.3 = Suricata; 1.2.4 = 3.8.9 (/backup volume); 1.2.5 = document workflow (ISO 0.7.0); 1.2.6 = FCI marking + time from the server (owner 2026-11-20); 1.2.7 = POA&M seeds T-08 to T-16; 1.2.8 = final review: the alert-level condition (3.1.3, 3.4.3), DEGRADED moves wording, PLAN3 evidence
+    assert json.loads((LIB / "MANIFEST.json").read_text())["content_version"] == "1.2.8"

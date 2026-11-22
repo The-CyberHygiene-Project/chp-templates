@@ -41,8 +41,9 @@ These are new rows only; the existing rows are unchanged. No SSP or POA&M templa
 
 These requirements now describe the optional document server and its controlled-document workflow (check-out,
 approval by someone other than the author, publish, marking, tagging, the document ledger). Rev 2 content version is
-**1.2.7**: 1.2.5 is the document workflow, 1.2.6 adds the owner decisions of 2026-11-20 (below), and 1.2.7 adds the
-POA&M seeds T-08 to T-16 (below). 1.2.4 was 3.8.9's `/backup` volume, from 1.4.0's base branch.
+**1.2.8**: 1.2.5 is the document workflow, 1.2.6 adds the owner decisions of 2026-11-20 (below), 1.2.7 adds the
+POA&M seeds T-08 to T-16 (below), and 1.2.8 is the final review's corrections (below). 1.2.4 was 3.8.9's `/backup`
+volume, from 1.4.0's base branch.
 
 - **3.1.3** (partial):
   - The CUI, FCI and Archive folders cannot be shared. Public links to CUI or FCI are refused. A file leaves CUI
@@ -78,6 +79,17 @@ POA&M seeds T-08 to T-16 (below). 1.2.4 was 3.8.9's `/backup` volume, from 1.4.0
 - **Evidence:** the narratives add the idm-assistant proof record `lab/docs-proof/PROOF-RECORD-PLAN2.md` (the
   document server). 3.4.3 and 3.8.4 also cite the workflow's own lab proof, `lab/docs-proof/PROOF-RECORD-PLAN3.md`
   (round 1: check-out, approval, override, publish, the marking check, `chp-publisher`, the level 12 approval alerts).
+  From 1.2.8, 3.3.7, 3.4.2, 3.4.7, 3.13.1 and 3.13.6 cite it too (round 2: time from the server, the tailored scan,
+  NTP to the site subnet).
+
+**Final review corrections** (Rev 2 content **1.2.8**; the ISO 0.7.0 Plan 3 whole-branch review):
+
+- **3.1.3 and 3.4.3:** the level 12 alerts reach `ALERT_HOOK` at once only when `SECURITY_ALERT_LEVEL` is 12 or lower
+  (`chp-site documents enable` warns otherwise). 3.4.3's site responsibility adds: keep `SECURITY_ALERT_LEVEL` at 12
+  or lower and set `ALERT_HOOK` while the document server is on.
+- **3.1.3:** in DEGRADED mode an administrator moves a folder's files one by one (the guide's procedure, not yet
+  proven in the lab); a file with old versions cannot leave its team folder until DEGRADED ends. (It said the
+  administrator makes such moves by the guide's procedure.)
 
 **Owner decisions of 2026-11-20** (Rev 2 content **1.2.6**, additive sentences only):
 
@@ -93,7 +105,7 @@ POA&M seeds T-08 to T-16 (below). 1.2.4 was 3.8.9's `/backup` volume, from 1.4.0
 - **3.4.7, 3.13.1, 3.13.6:** the server opens NTP (123/udp) to the site subnet only. This is an owner-approved
   exception to the appliance's "no new network port" rule.
 
-## POA&M seeds for the document server (Rev 2 content 1.2.7)
+## POA&M seeds for the document server (Rev 2 content 1.2.7; unchanged in 1.2.8)
 
 The Rev 2 POA&M template gains nine seeded items, **T-08 to T-16**, for sites that turn on the document server
 (additive; T-01 to T-07 are unchanged): the database MD5 limit (DEGRADED mode), fapolicyd filesystem marks, the
