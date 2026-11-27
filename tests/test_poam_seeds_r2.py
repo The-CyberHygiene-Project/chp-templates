@@ -34,8 +34,8 @@ def test_every_due_key_is_in_the_vocabulary_as_private():
         assert ("| `poam.due_t%s` | value | private |" % i[2:]) in text
 
 
-def test_document_server_requirement_numbers_are_flagged_pending_owner_confirmation():
-    assert re.search(r"<!-- T-08 to T-16 .*PENDING OWNER CONFIRMATION", POAM)
+def test_document_server_requirement_numbers_are_owner_confirmed_and_unflagged():  # confirmed by the owner 2026-11-27
+    assert "PENDING OWNER CONFIRMATION" not in POAM
     for r in _rows()[7:]:
         assert re.fullmatch(r"3\.\d+\.\d+(, 3\.\d+\.\d+)*", r[2]), r[0]
 

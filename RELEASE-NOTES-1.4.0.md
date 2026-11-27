@@ -41,8 +41,9 @@ These are new rows only; the existing rows are unchanged. No SSP or POA&M templa
 
 These requirements now describe the optional document server and its controlled-document workflow (check-out,
 approval by someone other than the author, publish, marking, tagging, the document ledger). Rev 2 content version is
-**1.2.8**: 1.2.5 is the document workflow, 1.2.6 adds the owner decisions of 2026-11-20 (below), 1.2.7 adds the
-POA&M seeds T-08 to T-16 (below), and 1.2.8 is the final review's corrections (below). 1.2.4 was 3.8.9's `/backup`
+**1.2.9**: 1.2.5 is the document workflow, 1.2.6 adds the owner decisions of 2026-11-20 (below), 1.2.7 adds the
+POA&M seeds T-08 to T-16 (below), 1.2.8 is the final review's corrections (below), and 1.2.9 removes the "pending" comment from the POA&M
+after the owner confirmed the T-08 to T-16 requirement numbers. 1.2.4 was 3.8.9's `/backup`
 volume, from 1.4.0's base branch.
 
 - **3.1.3** (partial):
@@ -105,7 +106,7 @@ volume, from 1.4.0's base branch.
 - **3.4.7, 3.13.1, 3.13.6:** the server opens NTP (123/udp) to the site subnet only. This is an owner-approved
   exception to the appliance's "no new network port" rule.
 
-## POA&M seeds for the document server (Rev 2 content 1.2.7; unchanged in 1.2.8)
+## POA&M seeds for the document server (Rev 2 content 1.2.7; numbers confirmed in 1.2.9)
 
 The Rev 2 POA&M template gains nine seeded items, **T-08 to T-16**, for sites that turn on the document server
 (additive; T-01 to T-07 are unchanged): the database MD5 limit (DEGRADED mode), fapolicyd filesystem marks, the
@@ -114,7 +115,7 @@ approval ledger's replay residual, DNS tunnelling, accounts outside the identity
 text-only limit. Each uses the same columns and wording as T-01 to T-07.
 - `vocabulary.md` gains `poam.due_t08` to `poam.due_t16` (private, like `poam.due_t01` to `t07`). A profile that does
   not set them leaves those dates unfilled, which the fill report lists.
-- **The requirement numbers on T-08 to T-16 are pending owner confirmation.** A comment above the table says so.
+- **The requirement numbers on T-08 to T-16 are confirmed by the owner 2026-11-27.** The "pending" comment above the table is removed (Rev 2 content 1.2.9).
 - The Rev 3 POA&M is unchanged.
 
 The Rev 3 library is unchanged (0.1.0, all *pending*).

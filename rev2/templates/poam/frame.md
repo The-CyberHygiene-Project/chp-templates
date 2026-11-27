@@ -27,8 +27,6 @@ known limits. For each one, the site either confirms it applies, adapts it, or c
 
 ## ITEMS
 
-<!-- T-08 to T-16 (document server, ISO 0.7.0): the NIST 800-171 requirement numbers are PENDING OWNER CONFIRMATION. Do not treat them as final. -->
-
 | ID | Revision | Requirement | Weakness | Milestones | Scheduled completion | Owner | Status |
 |:---|:---|:---|:---|:---|:---|:---|:---|
 | T-01 | Rev 2 | 3.10.4 | The appliance keeps no record of physical access to its hosts. *Seeded by the template: confirm, adapt or close.* | Choose a physical access log (for example a room or rack sign-in log); start using it; review it monthly. | {{poam.due_t01}} | {{roles.security_officer}} | Open |
