@@ -40,5 +40,5 @@ def test_rev3_manifest_matches_its_library():
     assert len(ctrl) == 97 and {f["status"] for f in ctrl} == {"pending"}
 
 
-def test_rev2_content_version_moved_for_suricata_narratives():  # 1.2.1 = T-06; 1.2.2 = YARA; 1.2.3 = 3.14.6/7, 3.13.1 (Suricata)
-    assert json.loads((LIB / "MANIFEST.json").read_text())["content_version"] == "1.2.3"
+def test_rev2_content_version_moved_for_backup_volume_narrative():  # 1.2.1 = T-06; 1.2.2 = YARA; 1.2.3 = Suricata; 1.2.4 = 3.8.9 (/backup volume)
+    assert json.loads((LIB / "MANIFEST.json").read_text())["content_version"] == "1.2.4"

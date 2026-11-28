@@ -1,6 +1,6 @@
 {
  "catalog_sha256": "27f68148b40362fc13b87abfa193f9cf1f9518c9e850690ae7d5485a9c4fa60e",
- "content_version": "1.2.3",
+ "content_version": "1.2.4",
  "files": [
   {
    "path": "catalog.csv",
@@ -722,7 +722,7 @@
   {
    "path": "templates/ssp/controls/3.8.9.md",
    "placeholders": [],
-   "sha256": "9c0c492114214c1e65c297a5d343a82a93a4db8f6470144aa268cbdd1a3e6998",
+   "sha256": "2b3878a54c1b4ef5efb319a6a7f3adc196daf574de8f171f36053e7de7047453",
    "status": "site"
   },
   {
