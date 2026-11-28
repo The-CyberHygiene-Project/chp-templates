@@ -1,6 +1,6 @@
 {
  "catalog_sha256": "27f68148b40362fc13b87abfa193f9cf1f9518c9e850690ae7d5485a9c4fa60e",
- "content_version": "1.2.4",
+ "content_version": "1.2.9",
  "files": [
   {
    "path": "catalog.csv",
@@ -30,12 +30,21 @@
     "poam.due_t05",
     "poam.due_t06",
     "poam.due_t07",
+    "poam.due_t08",
+    "poam.due_t09",
+    "poam.due_t10",
+    "poam.due_t11",
+    "poam.due_t12",
+    "poam.due_t13",
+    "poam.due_t14",
+    "poam.due_t15",
+    "poam.due_t16",
     "roles.administrator",
     "roles.security_officer",
     "system.name",
     "templates.version"
    ],
-   "sha256": "07e8e62e952b1e9bf2ba14ea1f174b8fc6d78a369efcd50eb454fe6ff7df453a"
+   "sha256": "baafde7805dc4daf270426e41e168bab1cc7398607a4ca3535f7e8f6a4980025"
   },
   {
    "path": "templates/ssp/arch/chp-appliance.md",
@@ -135,13 +144,13 @@
   {
    "path": "templates/ssp/controls/3.1.22.md",
    "placeholders": [],
-   "sha256": "b764d19d4973bf34f364a4ef6710250b70f98d0cd2bfd2619ad9df57ef3e08ec",
+   "sha256": "78509ede94e40bb52bce487249a07dac7adf65cbe5cf667dc9ff1162bde366bf",
    "status": "site"
   },
   {
    "path": "templates/ssp/controls/3.1.3.md",
    "placeholders": [],
-   "sha256": "9ee2edc2558be825a7cc07b4fb1a3fc472dba6db0f6209a117d8cf63c9d17809",
+   "sha256": "cbd7022b1071e3b15f0c4c95c3e9ef657da3e5687063b18200eb42cecf1d5255",
    "status": "partial"
   },
   {
@@ -270,7 +279,7 @@
   {
    "path": "templates/ssp/controls/3.13.1.md",
    "placeholders": [],
-   "sha256": "1f3fbe03907ae797688bb1287351a80130861964bb63c5978d71e05fdd208edf",
+   "sha256": "7abf7b43d656d1524ea1136e77f6d3f2a398f3a23d58ae994b8f3ac14af20647",
    "status": "partial"
   },
   {
@@ -342,7 +351,7 @@
   {
    "path": "templates/ssp/controls/3.13.6.md",
    "placeholders": [],
-   "sha256": "65c510bf43bdfba63b3008a9a67123b65b66ac91e3cb75cb84823cccd85eca80",
+   "sha256": "a2952123171d8bc048ce166d421dcddc59151870935db416166d647979057d3d",
    "status": "partial"
   },
   {
@@ -354,7 +363,7 @@
   {
    "path": "templates/ssp/controls/3.13.8.md",
    "placeholders": [],
-   "sha256": "290c236fb0a212ffb6ef19bb34a463efa0611c5b4b0249999fa6dc272d7fcf5b",
+   "sha256": "2ba3695db143bdc9c0c09574e46487086190a9ee03a625b32b530879fbf3dce3",
    "status": "appliance"
   },
   {
@@ -430,7 +439,7 @@
    "placeholders": [
     "decision.audit_retention_days"
    ],
-   "sha256": "4bf5c3690791efc973be331df08ea94e0a0d882071099f2c3160a364b38a625a",
+   "sha256": "73dde29055d632ab63b027999022606e3671f71e76df6d06ab9b38f3385b87cc",
    "status": "partial"
   },
   {
@@ -468,7 +477,7 @@
   {
    "path": "templates/ssp/controls/3.3.7.md",
    "placeholders": [],
-   "sha256": "2c0cffa9c67c6aa06c01d0c8393c2d3cf6c805848435c3c4b41bf963d9b3e145",
+   "sha256": "2455de51ceff6316cb9991c3b1eac6676a8d049cc79a80433398e6b20fba0772",
    "status": "partial"
   },
   {
@@ -494,13 +503,13 @@
   {
    "path": "templates/ssp/controls/3.4.2.md",
    "placeholders": [],
-   "sha256": "0a3697a4933f2c00c588236b904ac2ab1c534cd7f6dc2d3046c2c5969c1fe92f",
+   "sha256": "8bdc7cd361e350b71fb7646a94fe57386f78eb32b240ec48893cfb037adbf292",
    "status": "appliance"
   },
   {
    "path": "templates/ssp/controls/3.4.3.md",
    "placeholders": [],
-   "sha256": "7c88e8a4c09377d8afb21465440e5a64a8cf8bb08b9c207ff2537fc02efb61f0",
+   "sha256": "6ea9467241eba51f9a4619dd7ed7569514ae43c374151b9ad4549af792f9605e",
    "status": "partial"
   },
   {
@@ -526,7 +535,7 @@
   {
    "path": "templates/ssp/controls/3.4.7.md",
    "placeholders": [],
-   "sha256": "e3910b7dac4642f9a40983815060098d309bf6b8c0fb70c7900f668c3c2c71c3",
+   "sha256": "ae6ecda67449a99fe33484b00098212e03f88ea10e409f5199e80ede7bc88929",
    "status": "partial"
   },
   {
@@ -692,8 +701,8 @@
   {
    "path": "templates/ssp/controls/3.8.4.md",
    "placeholders": [],
-   "sha256": "8f5bba0d8a56462bc89661161632f31668576fe7397b01433189972a23b617a1",
-   "status": "site"
+   "sha256": "249dff40d7e1ef7646c4905022045e74c56b39c937674b1a8d80a19d54ecc3c8",
+   "status": "partial"
   },
   {
    "path": "templates/ssp/controls/3.8.5.md",
@@ -722,8 +731,8 @@
   {
    "path": "templates/ssp/controls/3.8.9.md",
    "placeholders": [],
-   "sha256": "2b3878a54c1b4ef5efb319a6a7f3adc196daf574de8f171f36053e7de7047453",
-   "status": "site"
+   "sha256": "545778c58d8997f94857a56a2f191098ade1e33c04d56ef7491351a987d39c7c",
+   "status": "partial"
   },
   {
    "path": "templates/ssp/controls/3.9.1.md",

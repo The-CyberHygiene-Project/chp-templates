@@ -35,10 +35,10 @@ def test_build_is_deterministic(tmp_path):
 def test_rev3_manifest_matches_its_library():
     lib = TOP / "rev3"
     m = json.loads((lib / "MANIFEST.json").read_text())
-    assert m["library"] == "rev3" and m["content_version"] == "0.1.0" and verify(lib) == []
+    assert m["library"] == "rev3" and m["content_version"] == "0.1.1" and verify(lib) == []
     ctrl = [f for f in m["files"] if f["path"].startswith("templates/ssp/controls/")]
     assert len(ctrl) == 97 and {f["status"] for f in ctrl} == {"pending"}
 
 
-def test_rev2_content_version_moved_for_backup_volume_narrative():  # 1.2.1 = T-06; 1.2.2 = YARA; 1.2.3 = Suricata; 1.2.4 = 3.8.9 (/backup volume)
-    assert json.loads((LIB / "MANIFEST.json").read_text())["content_version"] == "1.2.4"
+def test_rev2_content_version_moved_for_document_workflow_narratives():  # 1.2.1 = T-06; 1.2.2 = YARA; 1.2.3 = Suricata; 1.2.4 = 3.8.9 (/backup volume); 1.2.5 = document workflow (ISO 0.7.0); 1.2.6 = FCI marking + time from the server (owner 2026-11-20); 1.2.7 = POA&M seeds T-08 to T-16; 1.2.8 = final review: the alert-level condition (3.1.3, 3.4.3), DEGRADED moves wording, PLAN3 evidence; 1.2.9 = T-08 to T-16 numbers owner-confirmed (pending comment removed)
+    assert json.loads((LIB / "MANIFEST.json").read_text())["content_version"] == "1.2.9"

@@ -25,12 +25,17 @@ This is the shared contract for both consumers.
 | `roles.administrator` | value | private | the system administrator |
 | `roles.approver_of_changes` | value | private | who approves changes to the system |
 | `roles.baseline_delegates` | list | private | people besides the ISSO who may accept file-integrity baselines (from `site.conf` BASELINE_DELEGATES) |
+| `roles.doc_isso_account` | value | private | the ISSO's Kanidm account name for controlled documents: the only account that may override when nobody else can approve (from `site.conf` DOC_ISSO_ACCOUNT) |
+| `roles.doc_approver_accounts` | list | private | the Kanidm account names that may approve controlled documents (from `site.conf` DOC_APPROVER_ACCOUNTS, comma separated) |
 | `scope.cui_types` | list | public | the categories of CUI the system handles |
 | `scope.boundary_note` | value | public | a short statement of what is inside the boundary |
 | `site.domain` | value | public | the site's DNS domain (from `site.conf` DOMAIN) |
 | `site.lan_subnet` | value | private | the site network (from `site.conf` SUBNET) |
 | `site.lan_gateway` | value | private | the site gateway (from `site.conf` GATEWAY) |
 | `site.timezone` | value | public | the site's time zone (from `site.conf` TIMEZONE) |
+| `marking.controlled_by` | value | public | the "Controlled by" line of the CUI designation block: the organisation and office (from `site.conf` CUI_CONTROLLED_BY) |
+| `marking.cui_category` | value | public | the default CUI category on controlled CUI documents (from `site.conf` CUI_CATEGORY) |
+| `marking.poc` | value | private | the point of contact on controlled CUI documents (from `site.conf` CUI_POC) |
 | `contract.<n>.label` | value | private | a short label for contract n (Automated_Compliance's committed name) |
 | `contract.<n>.agency_group` | value | private | the agency or customer group (Automated_Compliance's committed name) |
 | `contract.<n>.vehicle` | value | private | the contract vehicle (prime contract, purchase order, subcontract) (Automated_Compliance's committed name) |
@@ -94,7 +99,28 @@ This is the shared contract for both consumers.
 | `poam.due_t05` | value | private | scheduled completion date for seeded POA&M item T-05 |
 | `poam.due_t06` | value | private | scheduled completion date for seeded POA&M item T-06 |
 | `poam.due_t07` | value | private | scheduled completion date for seeded POA&M item T-07 |
+| `poam.due_t08` | value | private | scheduled completion date for seeded POA&M item T-08 |
+| `poam.due_t09` | value | private | scheduled completion date for seeded POA&M item T-09 |
+| `poam.due_t10` | value | private | scheduled completion date for seeded POA&M item T-10 |
+| `poam.due_t11` | value | private | scheduled completion date for seeded POA&M item T-11 |
+| `poam.due_t12` | value | private | scheduled completion date for seeded POA&M item T-12 |
+| `poam.due_t13` | value | private | scheduled completion date for seeded POA&M item T-13 |
+| `poam.due_t14` | value | private | scheduled completion date for seeded POA&M item T-14 |
+| `poam.due_t15` | value | private | scheduled completion date for seeded POA&M item T-15 |
+| `poam.due_t16` | value | private | scheduled completion date for seeded POA&M item T-16 |
 | `templates.version` | value | public | the chp-templates release the document was generated from |
+
+## Document templates (`doc/`)
+
+The controlled-document templates (1.4.0) do not use `{{section.key}}` names and are not filled by `chpfill`. The CUI
+templates hold three upper-case placeholders, which the appliance's `chp-site doc new` fills from the `site.conf` keys
+of the same names when it starts a new document:
+
+- `{{CUI_CONTROLLED_BY}}`: the "Controlled by" line of the designation block (also `marking.controlled_by`);
+- `{{CUI_CATEGORY}}`: the "CUI Category" line (also `marking.cui_category`);
+- `{{CUI_POC}}`: the "POC" line (also `marking.poc`).
+
+They are never typed per file. The non-CUI templates hold none.
 
 ## Reserved names (Automated_Compliance draft, 2026-10-25)
 
