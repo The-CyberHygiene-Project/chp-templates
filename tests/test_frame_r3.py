@@ -39,9 +39,12 @@ def test_every_placeholder_is_in_the_vocabulary():
 
 def test_poam_seeds_use_the_crosswalk():
     rows = [ln for ln in POAM.split("\n") if ln.startswith("| T-")]
-    assert [r.split(" | ")[0] for r in rows] == ["| T-01", "| T-02", "| T-03", "| T-04", "| T-05", "| T-07"]
+    assert [r.split(" | ")[0] for r in rows] == [f"| T-{n:02d}" for n in (1, 2, 3, 4, 5, 7, *range(8, 17))]
     seeds = {"T-01": ["3.10.4"], "T-02": ["3.13.11", "3.5.10"], "T-03": ["3.8.6"],
-             "T-04": ["3.1.10", "3.1.11", "3.13.9"], "T-05": ["3.5.6", "3.5.8"], "T-07": ["3.4.3"]}
+             "T-04": ["3.1.10", "3.1.11", "3.13.9"], "T-05": ["3.5.6", "3.5.8"], "T-07": ["3.4.3"],
+             "T-08": ["3.13.11"], "T-09": ["3.4.8"], "T-10": ["3.13.11", "3.1.5"], "T-11": ["3.14.1"],
+             "T-12": ["3.3.8", "3.3.1", "3.5.10"], "T-13": ["3.3.8", "3.3.2"], "T-14": ["3.13.1", "3.1.3"],
+             "T-15": ["3.1.1", "3.5.2"], "T-16": ["3.8.4"]}
     for r in rows:
         cells = [c.strip() for c in r.strip("|").split("|")]
         assert cells[1] == "Rev 3"
@@ -51,6 +54,17 @@ def test_poam_seeds_use_the_crosswalk():
             want = ["03.01.01"]
         assert cells[2] == ", ".join(want), cells[0]
     assert "T-06" in POAM and "0.2.0-update3" in POAM
+
+
+def test_document_server_seeds_are_the_rev2_rows_with_rev3_numbers():
+    def rows(text):
+        return {c[0]: c for c in ([x.strip() for x in ln.strip("|").split("|")] for ln in text.split("\n")
+                                  if ln.startswith("| T-"))}
+    r2, r3 = rows((TOP / "rev2/templates/poam/frame.md").read_text()), rows(POAM)
+    for n in range(8, 17):
+        i = f"T-{n:02d}"
+        assert i in r3, i
+        assert [r3[i][k] for k in (0, 3, 4, 5, 6, 7)] == [r2[i][k] for k in (0, 3, 4, 5, 6, 7)], i
 
 
 def test_rev2_t06_says_closed_by_update3():

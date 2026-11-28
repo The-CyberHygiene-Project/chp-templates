@@ -35,7 +35,7 @@ def test_build_is_deterministic(tmp_path):
 def test_rev3_manifest_matches_its_library():
     lib = TOP / "rev3"
     m = json.loads((lib / "MANIFEST.json").read_text())
-    assert m["library"] == "rev3" and m["content_version"] == "0.1.0" and verify(lib) == []
+    assert m["library"] == "rev3" and m["content_version"] == "0.1.1" and verify(lib) == []
     ctrl = [f for f in m["files"] if f["path"].startswith("templates/ssp/controls/")]
     assert len(ctrl) == 97 and {f["status"] for f in ctrl} == {"pending"}
 
